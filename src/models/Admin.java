@@ -12,7 +12,8 @@ package models;
 
 public class Admin extends Person{
 
-    String passaword;
+    private String passaword;
+    private String season;
 
     public Admin(String name, long id, String passaword) {
         super(name, id);
@@ -20,7 +21,20 @@ public class Admin extends Person{
     }
 
     public void changeSeason(String season){
-
+        switch (season.toLowerCase()){
+            case "verano":
+                this.season = season;
+                break;
+            case "invierno":
+                this.season = season;
+                break;
+            case "otoño":
+                this.season = season;
+                break;
+            case "primavera":
+                this.season = season;
+                break;
+        }
     }
 
     public Quality viewQuality(){
