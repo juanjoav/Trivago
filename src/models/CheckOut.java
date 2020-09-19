@@ -10,11 +10,9 @@ public class CheckOut extends Event {
 
     /**
      * Metodo para asignar laas habitaciones
-     * @param room
+     * @param room para mirar cada habitacion
      */
     public void assingRoom(Room room){
-        /*
-        To work...
-         */
+        room.setOcupation(false);
     }
 }
