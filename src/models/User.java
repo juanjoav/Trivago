@@ -12,9 +12,10 @@ package models;
 
 public class User extends Person {
 
-    long phone;
-    PayEvent cashPayEvent;
-    Entry entry;
+    private long phone;
+    private PayEvent cashPayEvent;
+    private Entry entry;
+    private boolean condition;
 
     public User(String name, long id, long phone, PayEvent cashPayEvent, Entry entry) {
         super(name, id);
