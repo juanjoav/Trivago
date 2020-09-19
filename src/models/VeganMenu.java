@@ -8,12 +8,14 @@ package models;
 
 public class VeganMenu extends Menu {
 
+    private static final double PRICE_VEGAN_MENU = 10.0;
+    private String[] inPutMenu;
+
     /**
      * Ingresa un menu vegano
      */
-    @Override
-    protected void setMenu() {
-        //por hacer...
+    protected void setMenu(String[] inPutMenu) {
+        this.inPutMenu = new String[]{};
     }
 
     /**
@@ -22,8 +24,7 @@ public class VeganMenu extends Menu {
      */
     @Override
     public String[] getMenu() {
-        //por hacer...
-        return new String[0];
+      return inPutMenu;
     }
 
     /**
@@ -32,7 +33,6 @@ public class VeganMenu extends Menu {
      */
     @Override
     public double getPrice() {
-        //por hacer...
-        return 0;
+        return PRICE_VEGAN_MENU;
     }
 }

@@ -7,12 +7,15 @@
 package models;
 
 public class SpecialMenu extends Menu{
+
+    private static final double PRICE_SPECIAL_MENU = 15.0;
+    private String[] inPutMenu;
+
     /**
      * Ingresa un menu especial
      */
-    @Override
-    protected void setMenu() {
-
+    protected void setMenu(String[] inPutMenu) {
+        this.inPutMenu = new String[]{};
     }
 
     /**
@@ -21,7 +24,7 @@ public class SpecialMenu extends Menu{
      */
     @Override
     public String[] getMenu() {
-        return new String[0];
+        return inPutMenu;
     }
 
     /**
@@ -30,6 +33,6 @@ public class SpecialMenu extends Menu{
      */
     @Override
     public double getPrice() {
-        return 0;
+        return PRICE_SPECIAL_MENU;
     }
 }

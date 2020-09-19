@@ -8,12 +8,16 @@ package models;
 
 public class NormalMenu extends Menu {
 
+private static final double PRICE_NORMAL_MENU = 5.0;
+
+private String[] inPutMenu;
+
+
     /**
      * Ingresa un menu normal
      */
-    @Override
-    protected void setMenu() {
-        //por hacer...
+    protected void setMenu(String[] inPutMenu) {
+        this.inPutMenu = new String[]{};
     }
 
     /**
@@ -22,8 +26,7 @@ public class NormalMenu extends Menu {
      */
     @Override
     public String[] getMenu() {
-        //por hacer..
-        return new String[0];
+        return inPutMenu;
     }
 
     /**
@@ -32,7 +35,7 @@ public class NormalMenu extends Menu {
      */
     @Override
     public double getPrice() {
-        return 0;
+        return PRICE_NORMAL_MENU;
     }
 }
 
