@@ -137,4 +137,12 @@ public class Hotel {
     public Room getRoom(int iterator){
         return rooms.get(iterator);
     }
+
+    /**
+     * Para decir que una habitacion esta fuera de serivicio
+     * @param numb
+     */
+    public void outOfService(int numb){
+        rooms.get(numb).setOcupation(true);
+    }
 }
