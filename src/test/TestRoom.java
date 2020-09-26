@@ -6,12 +6,13 @@
 
 package test;
 
+import models.Hotel;
 import models.Quality;
 import models.SetRoom;
 
 public class TestRoom {
     public static void main(String[] args) {
-        SetRoom setRoom = new SetRoom();
+        Hotel setRoom = new Hotel();
         System.out.println("El tamaño de la matriz es 100: "+(setRoom.getTotalRooms()==100?"Right":"Error"));
         System.out.println("El numero de habitaciones disponibles es de  100: "+(setRoom.getAvailable()==100?"Right":"Error"));
         setRoom.getRoom(15).setOcupation(true);
