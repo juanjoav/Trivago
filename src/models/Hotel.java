@@ -8,12 +8,13 @@
 package models;
 
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Hotel {
 
     private TreeSet<User> userTreeSet;
-
+    private ArrayList<Room> rooms;
 
 
     public void addUser(User user){
