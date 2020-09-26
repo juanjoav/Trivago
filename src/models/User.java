@@ -10,7 +10,7 @@ package models;
  * clase usuario solo con los valores necesarios y getters
  */
 
-public class User extends Person {
+public class User extends Person implements Comparable<User>{
 
     private long phone;
     private PayEvent cashPayEvent;
@@ -34,5 +34,10 @@ public class User extends Person {
 
     public Entry getEntry() {
         return entry;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return user.id == this.id ? 1 : -1;
     }
 }
