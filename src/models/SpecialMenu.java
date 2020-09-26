@@ -11,7 +11,6 @@ import java.util.List;
 
 public class SpecialMenu extends Menu{
 
-    private static final double PRICE_SPECIAL_MENU = 15.0;
 
     public SpecialMenu() {
     }
@@ -46,6 +45,7 @@ public class SpecialMenu extends Menu{
         }
         return aux;
     }
+
 
     /**
      * retorna el precio del menu especial

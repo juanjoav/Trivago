@@ -34,6 +34,11 @@ public class VeganMenu extends Menu {
       return menus;
     }
 
+    /**
+     * Metodo que muestra el menu vegano
+     * @return una cadena de caracteres con el menu
+     */
+    @Override
     public String show (){
         String aux = "";
         for (String[] i: menus) {

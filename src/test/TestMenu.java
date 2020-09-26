@@ -18,7 +18,7 @@ public class TestMenu {
         NormalMenu normalMenu = new NormalMenu();
         VeganMenu veganMenu = new VeganMenu();
         SpecialMenu specialMenu = new SpecialMenu();
-        normalMenu.addMenu(new String[]{});
+        normalMenu.addMenu(new String[]{"sopa de monf"});
         veganMenu.addMenu(new String[]{"matas","hierbas","mas matas","soya"});
         veganMenu.addMenu(new String[]{"matas","hierbas","mas matas"});
         specialMenu.addMenu(new String[]{"SUshi", "cosas caras", "oro"});

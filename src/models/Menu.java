@@ -11,8 +11,8 @@ import java.util.List;
 
 public abstract class Menu {
 
-    LinkedList<String[]> menus;
-    double price;
+    protected LinkedList<String[]> menus;
+    protected double price;
 
     /**
      * Metodo constructor por defecto
@@ -49,4 +49,10 @@ public abstract class Menu {
      * Este metodo eliminar un menu
      */
     public abstract void removeMenu();
+
+    /**
+     * Metodo que muestra cada menu
+     * @return
+     */
+    public abstract String show();
 }
