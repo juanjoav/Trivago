@@ -6,24 +6,22 @@
 
 package test;
 
+import models.Admin;
 import models.Entry;
-import models.Hotel;
 import models.PayEvent;
 import models.User;
 
-public class TestUser {
+public class TestAdmin {
 
-    /**
-     * agregar excepciones al usuario para valores  invalidos
-     * @param args
-     */
     public static void main(String[] args) {
         User user = new User();
-
+        Admin admin = new Admin();
 //        user.addUser(new User("Mateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
 //        user.addUser(new User("juan",2009,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        user.addUser(new User("ateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        user.addUser(null);
+//        user.addUser(new User("ateo",2018,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
+//        //user.addUser(null);
 //        user.viewList();
+//        admin.getUserList();
+//        admin.viewUser();
     }
 }

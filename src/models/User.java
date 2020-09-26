@@ -6,53 +6,67 @@
 
 package models;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * clase usuario solo con los valores necesarios y getters
  */
 
-public class User extends Person {
+public class User  {
 
+    private String name;
+    private long id;
     private long phone;
     private PayEvent cashPayEvent;
     private Entry entry;
-    private boolean condition = false;
-    private TreeSet<User> userTreeSet;
+//    private boolean condition = false;
+  //  private TreeSet<User> userTreeSet;
 
     public User(String name, long id, long phone, PayEvent cashPayEvent, Entry entry) {
-        super(name, id);
-        this.phone = phone;
-        this.cashPayEvent = cashPayEvent;
-        this.entry = entry;
+        //super(name, id);
+            this.name = name;
+            this.id = id;
+            this.phone = phone;
+            this.cashPayEvent = cashPayEvent;
+            this.entry = entry;
     }
 
     public User() {
-        userTreeSet = new TreeSet<User>(new Comparator<User>() {
-            @Override
-            public int compare(User user, User t1) {
-                return (int)(user.getId() - t1.getId());
-            }
-        });
+//        userTreeSet = new TreeSet<User>(new Comparator<User>() {
+//            @Override
+//            public int compare(User user, User t1) {
+//                return (int)(user.getId() - t1.getId());
+//            }
+//        });
     }
 
     /**
      * agrega usuarios
      * @param user
      */
-    public void addUser(User user){
-        try {
-            userTreeSet.add(user);
-        }
-        catch (NullPointerException ex){
-            System.out.println("valor invalido");
-        }
-        catch (IllegalArgumentException ex){
-            System.out.println("valor inavalido");
-        }
+//    public void addUser(User user){
+//        try {
+//            userTreeSet.add(user);
+//        }
+//        catch (NullPointerException ex){
+//            System.out.println("valor invalido");
+//        }
+//    }
+
+    /**
+     * retorna el nombre
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * retorna el id
+     * @return
+     */
+    public long getId() {
+        return id;
     }
 
     /**
@@ -83,34 +97,38 @@ public class User extends Person {
      * indica en que condicion se encuentra el usuario
      * @return
      */
-    public String conditionStatus(){
-        return condition ? "En el hotel": "no esta en el hotel";
-    }
+//    public String conditionStatus(){
+//        return condition ? "En el hotel": "no esta en el hotel";
+//    }
 
     /**
      * retorna una lista para que el admin la gestione
      * @return
      */
-    public ArrayList getUserList(){
-        ArrayList<User> userArrayList = new ArrayList<User>(userTreeSet.size());
-        userArrayList.addAll(userTreeSet);
-        return userArrayList;
-    }
+//    public List getUserList(){
+//        List<User> userArrayList = new LinkedList<User>();
+//        userArrayList.addAll(userTreeSet);
+//        //userArrayList = (List) userTreeSet.clone();
+////        for (User user: userArrayList) {
+////            System.out.println(user.viewUser());
+////        }
+//        return userArrayList;
+//    }
 
     /**
      * muestra los elementos en forma de String
      * @return
      */
     public String viewUser(){
-        return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry + "-" + conditionStatus();
+        return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry;
     }
 
     /**
      * solo para pruebas
      */
-    public void viewList(){
-        for (User user: userTreeSet) {
-            System.out.println(user.viewUser());
-        }
-    }
+//    public void viewList(){
+//        for (User user: userTreeSet) {
+//            System.out.println(user.viewUser());
+//        }
+//    }
 }
