@@ -18,12 +18,16 @@ public class TestUser {
      * @param args
      */
     public static void main(String[] args) {
-        User user = new User();
+        Hotel hotel = new Hotel();
 
-//        user.addUser(new User("Mateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        user.addUser(new User("juan",2009,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        user.addUser(new User("ateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        user.addUser(null);
-//        user.viewList();
+        hotel.addUser(new User("Mateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
+        hotel.addUser(new User("juan",2009,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
+        hotel.addUser(new User("ateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
+        hotel.addUser(null);
+       // System.out.println(hotel.searchById(2019L));
+        hotel.view();
+        System.out.println("-------------");
+        //hotel.viewUserInformation();
+        System.out.println(hotel.searchUser(2019l));
     }
 }

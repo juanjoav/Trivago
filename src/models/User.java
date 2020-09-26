@@ -12,7 +12,7 @@ import java.util.*;
  * clase usuario solo con los valores necesarios y getters
  */
 
-public class User  {
+public class User implements Comparable<User>{
 
     private String name;
     private long id;
@@ -121,6 +121,11 @@ public class User  {
      */
     public String viewUser(){
         return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return (int) (this.getId() - user.getId());
     }
 
     /**

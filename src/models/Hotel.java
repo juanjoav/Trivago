@@ -9,33 +9,64 @@ package models;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 public class Hotel {
 
     private TreeSet<User> userTreeSet;
-    private ArrayList<Room> rooms;
+    private List<Room> rooms;
 
-
-    public void addUser(User user){
-        userTreeSet.add(user);
+    public Hotel() {
+        userTreeSet = new TreeSet<>();
+        rooms = new ArrayList<Room>();
+        for (int i = 0; i < 100; i++) {
+            rooms.add(new Room(i,Quality.REGULAR));
+        }
     }
 
+    /**
+     * agrega usuarios
+     * @param user
+     */
+    public void addUser(User user){
+        try{
+            userTreeSet.add(user);
+        }
+        catch (NullPointerException exception){
+            System.out.println("dato invalido");
+        }
+    }
+
+    /**
+     * muestra elementos de la lista, solo pruebas
+     */
     public void view(){
-        System.out.println(userTreeSet);
+        for (User user:userTreeSet) {
+            System.out.println(user.viewUser());
+        }
+    }
+
+    /**
+     * muestra el usuario consultado por ID
+     * @param id
+     * @return
+     */
+    public String searchUser(long id){
+        String info = "";
+        for (User user:userTreeSet) {
+            if (user.getId() == id){
+                info = user.viewUser();
+                return info;
+            }
+        }
+        return info;
     }
 
     public void viewUserInformation(){
 
     }
 
-    public Hotel() {
-        userTreeSet = new TreeSet<>();
-        rooms = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            rooms.add(new Room(i,Quality.REGULAR));
-        }
-    }
 
     /**
      * Para encontrar el total de habitaciones
