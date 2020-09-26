@@ -6,53 +6,151 @@
 
 package models;
 
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
-public abstract class Menu {
+public class Menu {
 
-    protected LinkedList<String[]> menus;
-    protected double price;
+    private LinkedList<String[]> normalMenu;
+    private LinkedList<String[]> veganMenu;
+    private LinkedList<String[]> specialMenu;
+    private double normalPrice;
+    private double veganPrice;
+    private double specialPrice;
 
     /**
-     * Metodo constructor por defecto
+     * Metodo constructor parametrizado
      */
     public Menu() {
-        menus = new LinkedList<>();
+        normalMenu = new LinkedList<>();
+        veganMenu = new LinkedList<>();
+        specialMenu = new LinkedList<>();
     }
 
     /**
-     * Metodo que nos permite agragar un nuevo menu
+     * Metodo que nos permite agragar un nuevo menu normal
      * @param strings cadenas de catarteres que iran dentro del menu
      */
-    public abstract void addMenu(String[] strings);
+    public void addMenuNormal(String[] strings){
+        normalMenu.add(strings);
+    }
 
     /**
-     * metodo que nos retorna la lista
-     * @return retorna el menú
+     * Metodo que nos permite agragar un nuevo menu vegano
+     * @param strings cadenas de catarteres que iran dentro del menu
      */
-    public abstract List getMenu();
+    public void addMenuVegan(String[] strings){
+        veganMenu.add(strings);
+    }
 
     /**
-     * Este medoto nos devuelve el precio del un determinado menu
+     * Metodo que nos permite agragar un nuevo menu especial
+     * @param strings cadenas de catarteres que iran dentro del menu
+     */
+    public void addMenuSpecial(String[] strings){
+        specialMenu.add(strings);
+    }
+
+    /**
+     * Este medoto nos devuelve el precio del un menu normal
      * @return el precio del menú
      */
-    public abstract double getPrice();
-
+    public double getPriceNormal(){
+        return normalPrice;
+    }
     /**
-     * Este metodo nos permite darle un precioa cada menu
-     * @param price precio de cada menu
+     * Este medoto nos devuelve el precio del un menu vegano
+     * @return el precio del menú
      */
-    public abstract void setPrice(double price);
-
+    public double getPriceVegan(){
+        return veganPrice;
+    }
     /**
-     * Este metodo eliminar un menu
+     * Este medoto nos devuelve el precio del un menu especial
+     * @return el precio del menú
      */
-    public abstract void removeMenu();
+    public double getPriceSpecial(){
+        return specialPrice;
+    }
 
     /**
-     * Metodo que muestra cada menu
+     * Este metodo nos permite darle un precio al menu normal
+     * @param normalPrice precio del menu normal
+     */
+    public void setPriceNormal(double normalPrice){
+        this.normalPrice = normalPrice;
+    }
+
+    /**
+     * Este metodo nos permite darle un precio al menu vegano
+     * @param veganPrice precio del menu vegano
+     */
+    public void setPriceVegan(double veganPrice){
+        this.veganPrice = veganPrice;
+    }
+
+    /**
+     * Este metodo nos permite darle un precio al menu normal
+     * @param specialPrice precio del menu especial
+     */
+    public void setPriceSpecial(double specialPrice){
+        this.specialPrice = specialPrice;
+    }
+
+    /**
+     * Este metodo elimina el menu normal
+     */
+    public void removeMenuNormal(){
+        normalMenu.remove();
+    }
+
+    /**
+     * Este metodo elimina el menu vegano
+     */
+    public void removeMenuVegan(){
+        veganMenu.remove();
+    }
+
+    /**
+     * Este metodo elimina el menu especial
+     */
+    public void removeMenuSpecial(){
+        specialMenu.remove();
+    }
+
+    /**
+     * Metodo que nos permite mostrar el contenido del menu normal
      * @return
      */
-    public abstract String show();
+    public String showNormalMenu(){
+        String aux = "";
+        for (String[] i: normalMenu) {
+            aux += Arrays.toString(i);
+        }
+        return aux;
+    }
+
+    /**
+     * Metodo que nos permite mostrar el contenido del menu normal
+     * @return
+     */
+    public String showVeganMenu(){
+        String aux = "";
+        for (String[] i: veganMenu) {
+            aux += Arrays.toString(i);
+        }
+        return aux;
+    }
+
+    /**
+     * Metodo que nos permite mostrar el contenido del menu normal
+     * @return
+     */
+    public String showSpecialMenu(){
+        String aux = "";
+        for (String[] i: specialMenu) {
+            aux += Arrays.toString(i);
+        }
+        return aux;
+    }
 }
