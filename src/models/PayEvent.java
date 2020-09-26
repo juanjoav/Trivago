@@ -11,6 +11,5 @@ package models;
  */
 
 public enum PayEvent {
-
     EFECTIVO, TARJETA, VIRTUAL
 }

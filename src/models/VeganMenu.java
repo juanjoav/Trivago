@@ -6,16 +6,23 @@
 
 package models;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 public class VeganMenu extends Menu {
 
-    private static final double PRICE_VEGAN_MENU = 10.0;
-    private String[] inPutMenu;
+    public VeganMenu() {
+    }
+
 
     /**
-     * Ingresa un menu vegano
+     * Metodo que nos permite agragar un nuevo menu
+     * @param strings cadenas de catarteres que iran dentro del menu
      */
-    protected void setMenu(String[] inPutMenu) {
-        this.inPutMenu = new String[]{};
+    @Override
+    public void addMenu(String[] strings) {
+        menus.add(strings);
     }
 
     /**
@@ -23,8 +30,16 @@ public class VeganMenu extends Menu {
      * @return retorna el menú
      */
     @Override
-    public String[] getMenu() {
-      return inPutMenu;
+    public List getMenu() {
+      return menus;
+    }
+
+    public String show (){
+        String aux = "";
+        for (String[] i: menus) {
+            aux += Arrays.toString(i);
+        }
+        return aux;
     }
 
     /**
@@ -33,6 +48,23 @@ public class VeganMenu extends Menu {
      */
     @Override
     public double getPrice() {
-        return PRICE_VEGAN_MENU;
+        return price;
+    }
+
+    /**
+     * Este metodo nos deja ingresar un precio a cada menu
+     * @param price el precio del menu vegano
+     */
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
+     * Este metodo eliminar un menu
+     */
+    @Override
+    public void removeMenu() {
+        menus.clear();
     }
 }

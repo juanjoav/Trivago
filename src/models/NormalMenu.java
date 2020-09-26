@@ -6,27 +6,42 @@
 
 package models;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class NormalMenu extends Menu {
 
-private static final double PRICE_NORMAL_MENU = 5.0;
-
-private String[] inPutMenu;
+    private  double priceNormalMenu;
 
 
     /**
-     * Ingresa un menu normal
+     * Metodo que nos permite agragar un nuevo menu
+     * @param strings cadenas de catarteres que iran dentro del menu
      */
-    protected void setMenu(String[] inPutMenu) {
-        this.inPutMenu = new String[]{};
+    @Override
+    public void addMenu(String[] strings) {
+        menus.add(strings);
     }
 
     /**
-     * Metodo que retorna el menu normal
+     * Metodo que nos retorna el nemu
      * @return retorna el menú
      */
     @Override
-    public String[] getMenu() {
-        return inPutMenu;
+    public List getMenu() {
+        return menus;
+    }
+
+    /**
+     * Metodo que nos retorna la lista para mostrarla por pantalla
+     * @return
+     */
+    public String show (){
+        String aux = "";
+        for (String[] i: menus) {
+           aux += Arrays.toString(i);
+        }
+        return aux;
     }
 
     /**
@@ -35,7 +50,24 @@ private String[] inPutMenu;
      */
     @Override
     public double getPrice() {
-        return PRICE_NORMAL_MENU;
+        return price;
+    }
+
+    /**
+     * Este metodo nos permite darle un precioa cada menu
+     * @param price precio de cada menu
+     */
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
+     * Este metodo eliminar un menu
+     */
+    @Override
+    public void removeMenu() {
+        menus.clear();
     }
 }
 
