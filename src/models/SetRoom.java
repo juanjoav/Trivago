@@ -6,14 +6,22 @@
 
 package models;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 /**
  * Clase para administrar la variedad de habitaiones
  */
 public class SetRoom {
-    private Room[][] rooms;
+    private ArrayList<Room> rooms;
 
     public SetRoom() {
-        rooms = new Room[10][10];
+        rooms = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            rooms.add(new Room(i,Quality.REGULAR));
+        }
     }
 
     /**
@@ -21,48 +29,100 @@ public class SetRoom {
      * @return el numero total
      */
     public int getTotalRooms(){
-        return rooms.length * rooms[0].length;
+        return rooms.size();
     }
-
     /**
      * mirar el total de habitaciones no ocupadas del establecimiento
      * @return total de habitaciones disponibles
      */
-    public int getAvailable(){
+    public int getEconomic(){
         int counter = 0;
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms[i].length; j++) {
-                if(rooms[i][j].isOcupation()==false){
-                    counter++;
-                }
+        for (int i = 0; i < rooms.size(); i++) {
+            if(rooms.get(i).getQuality() == Quality.ECONOMIC){
+                counter++;
+            }
+        }
+        return counter;
+    }
+    /**
+     * mirar el total de habitaciones Regular del establecimiento
+     * @return total de habitaciones disponibles
+     */
+    public int getRegular(){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            if(rooms.get(i).getQuality() == Quality.REGULAR){
+                counter++;
             }
         }
         return counter;
     }
 
     /**
+     * mirar el total de habitaciones Premium del establecimiento
+     * @return total de habitaciones disponibles
+     */
+    public int getPremium(){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            if(rooms.get(i).getQuality() == Quality.PREMIUM){
+                counter++;
+            }
+        }
+        return counter;
+    }
+    /**
+     * mirar el total de habitaciones no ocupadas del establecimiento
+     * @return total de habitaciones disponibles
+     */
+    public int getAvailable(){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            if(!rooms.get(i).isOcupation()){
+                counter++;
+            }
+        }
+        return counter;
+    }
+    /**
+     * mirar el total de habitaciones  ocupadas del establecimiento
+     * @return total de habitaciones disponibles
+     */
+    public int getDisavailable(){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            if(rooms.get(i).isOcupation()){
+                counter++;
+            }
+        }
+        return counter;
+    }
+    /**
      * Para meterle los numero automaticamente los numeros de cada habitacion
      */
     private void SetNumberRooms(){
         int counter = 0;
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms[i].length; j++) {
+        for (int i = 0; i < rooms.size(); i++) {
                 counter++;
-                rooms[i][j].setNumber(counter);
-            }
+                rooms.get(i).setNumber(counter);
         }
     }
 
     /**
      * Metodo para aumentar el numero de habitaciones
-     * @param size para mirar que tamaño es la longitud de cada fila de matriz
+     * @param room
      */
-    public void setSize(int size){
-        Room [] aux = new Room[size];
-        for (int i = 0; i < rooms.length; i++) {
-            System.arraycopy(rooms[i],0,aux,0,rooms[i].length);
-            rooms[i] = aux;
-        }
+    public void add(Room room){
+        rooms.add(room);
         SetNumberRooms();
+    }
+
+    /**
+     * Recupera el room para hacer modificaciones
+     * @param iterator numero de cual habitacion
+     * @return
+     */
+    public Room getRoom(int iterator){
+        return rooms.get(iterator);
     }
 }
