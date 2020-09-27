@@ -8,4 +8,14 @@ package view;
 
 public class splash {
 
+    public void welcomeSplash(){
+        System.out.println("***************************************************");
+        System.out.println("*              SISTEMA HOTELERO                   *");
+        System.out.println("*                 VERSION 1.0                     *");
+        System.out.println("*                                                 *");
+        System.out.println("*              BY: GRUPO 2  2020                  *");
+        System.out.println("*                                                 *");
+        System.out.println("*  Sistema de gestion y reservacion de un hotel   *");
+        System.out.println("*  Sistema de gestion y reservacion de un hotel   *");
+    }
 }
