@@ -17,7 +17,11 @@ public class View {
     public static final int MENU_OPTION_FIVE = 5;
     public static final int MENU_OPTION_SIX = 6;
     public static final int MENU_OPTION_SEVEN = 7;
+
     public static final String MESSAGE_FORMAR_EX = "PARAMETROS INVALIDOS";
+    public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
+    public static final String LINE = "-------------------------------------------";
+    public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1). Administrador\n2).Usuarios ";
 
     private Scanner scanner;
 
@@ -30,12 +34,10 @@ public class View {
      * @return
      */
     public int selectionMenu(){
-        System.out.println("°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°");
-        System.out.println("-------------------------------------------");
-        System.out.println("Por favor elija el tipo de acceso que desea al sitema");
-        System.out.println("1.) Administrador");
-        System.out.println("2.) Usuarios");
-        System.out.println("-------------------------------------------");
+        System.out.println(WELCOME_ASCCI);
+        System.out.println(LINE);
+        System.out.println(SELECTION_MENU);
+        System.out.println(LINE);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -44,7 +46,7 @@ public class View {
      * @return
      */
     public String nickName(){
-        System.out.println("-------------------------------------------");
+        System.out.println(LINE);
         System.out.println("Por favor ingrese el nombre del usuario: ");
         return scanner.nextLine();
     }
@@ -54,9 +56,9 @@ public class View {
      * @return
      */
     public String passaword(){
-        System.out.println("-------------------------------------------");
+        System.out.println(LINE);
         System.out.println("Por favor ingrese su contraseña: ");
-        System.out.println("-------------------------------------------");
+        System.out.println(LINE);
         return scanner.nextLine();
     }
 

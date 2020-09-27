@@ -16,6 +16,9 @@ public class TestUser {
     Hotel hotel = new Hotel();
     Admin admin = new Admin(hotel);
 
+    /**
+     * Metodo que nos permite crear un usuario en la lista, usado como pruebas
+     */
     public void add(){
         System.out.println("Ingrese el nombre ");
         String name = scanner.nextLine();
@@ -28,6 +31,9 @@ public class TestUser {
         hotel.addUser(new User(name,phone,id,password));
     }
 
+    /**
+     * Metodo que ayuda a hacer pruebas en un usuario
+     */
     public void test() {
         System.out.println("1). Ingresar un nuevo usuario \n2). Mostrar la lista de usuarios que tiene el hotel\n3). Buscar un usuario dentro de la lista\n4).Verificar inicio de sesion de un usuario creado\n5).Terminar el programa");
         String option = scanner.nextLine();

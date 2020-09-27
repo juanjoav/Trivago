@@ -51,7 +51,7 @@ public class Hotel {
      */
     public boolean verifyData(Long id, String passaword){
         for (User user:userTreeSet) {
-            if (user.getId() == id && user.getPassaword().equals(passaword)){
+            if (user.getId() == id && user.getPassword().equals(passaword)){
                 return true;
             }
         }
