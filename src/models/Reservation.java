@@ -39,7 +39,7 @@ public class Reservation{
      * Remueve el evento
      *
      */
-    public void removeBooking(Hotel hotel, long id){
-        //reservation.remove(reservation.indexOf(hotel.searchUser(id)));
-    }
+//    public void removeBooking(Hotel hotel, long id){
+//        reservation.remove(reservation.indexOf(hotel.searchUser(id)));
+//    }
 }

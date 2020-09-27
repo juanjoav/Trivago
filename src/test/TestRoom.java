@@ -6,32 +6,30 @@
 
 package test;
 
-import models.Admin;
+import models.Hotel;
 import models.Quality;
-import models.AdminRoom;
-import models.Room;
+import models.SetRoom;
 
 public class TestRoom {
     public static void main(String[] args) {
-        AdminRoom adminRoom = new AdminRoom();
-        System.out.println("El tamaño de la matriz es 100: "+(adminRoom.getTotalRooms()==100?"Right":"Error"));
-        System.out.println("El numero de habitaciones disponibles es de  100: "+(adminRoom.getAvailable()==100?"Right":"Error"));
-        adminRoom.getRoom(15).setOcupation(true);
-        adminRoom.getRoom(1).setOcupation(true);
-        adminRoom.getRoom(55).setOcupation(true);
-        System.out.println("El numero de habitaciones disponibles es de  97: "+(adminRoom.getAvailable()==97?"Right":"Error"));
-        adminRoom.getRoom(46).setQuality(Quality.PREMIUM);
-        adminRoom.getRoom(78).setQuality(Quality.PREMIUM);
-        adminRoom.getRoom(9).setQuality(Quality.PREMIUM);
-        adminRoom.getRoom(80).setQuality(Quality.ECONOMIC);
-        adminRoom.getRoom(40).setQuality(Quality.PREMIUM);
-        adminRoom.getRoom(33).setQuality(Quality.PREMIUM);
-        adminRoom.getRoom(5).setQuality(Quality.ECONOMIC);
-        adminRoom.getRoom(0).setQuality(Quality.ECONOMIC);
-        adminRoom.add(new Room(Quality.PREMIUM));
-        System.out.println("Numero de habitaciones regulares es de 92: "+(adminRoom.getQualityCounter(Quality.REGULAR)==92?"Right":"Error"));
-        System.out.println("Numero de habitaciones Economico es de 3: "+(adminRoom.getQualityCounter(Quality.ECONOMIC)==3?"Right":"Error"));
-        System.out.println("Numero de habitaciones Premium es de 6: "+(adminRoom.getQualityCounter(Quality.PREMIUM)==6?"Right":"Error"));
-        System.out.println("El numero de habitaciones no disponibles es de  3: "+(adminRoom.getDisavailable()==3?"Right":"Error"));
+        //Hotel setRoom = new Hotel();
+//        System.out.println("El tamaño de la matriz es 100: "+(setRoom.getTotalRooms()==100?"Right":"Error"));
+//        System.out.println("El numero de habitaciones disponibles es de  100: "+(setRoom.getAvailable()==100?"Right":"Error"));
+//        setRoom.getRoom(15).setOcupation(true);
+//        setRoom.getRoom(1).setOcupation(true);
+//        setRoom.getRoom(55).setOcupation(true);
+//        System.out.println("El numero de habitaciones disponibles es de  97: "+(setRoom.getAvailable()==97?"Right":"Error"));
+//        setRoom.getRoom(46).setQuality(Quality.PREMIUM);
+//        setRoom.getRoom(78).setQuality(Quality.PREMIUM);
+//        setRoom.getRoom(9).setQuality(Quality.PREMIUM);
+//        setRoom.getRoom(80).setQuality(Quality.ECONOMIC);
+//        setRoom.getRoom(40).setQuality(Quality.PREMIUM);
+//        setRoom.getRoom(33).setQuality(Quality.PREMIUM);
+//        setRoom.getRoom(5).setQuality(Quality.ECONOMIC);
+//        setRoom.getRoom(0).setQuality(Quality.ECONOMIC);
+//        System.out.println("Numero de habitaciones regulares es de 92: "+(setRoom.getQualityCounter(Quality.REGULAR)==92?"Right":"Error"));
+//        System.out.println("Numero de habitaciones Economico es de 3: "+(setRoom.getQualityCounter(Quality.ECONOMIC)==3?"Right":"Error"));
+//        System.out.println("Numero de habitaciones Premium es de 5: "+(setRoom.getQualityCounter(Quality.PREMIUM)==5?"Right":"Error"));
+//        System.out.println("El numero de habitaciones no disponibles es de  3: "+(setRoom.getDisavailable()==3?"Right":"Error"));
     }
 }
