@@ -44,8 +44,24 @@ public class Admin {
         return name.equals(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);//message;
     }
 
+    /**
+     * Metodo que le permite a un administrador añadir un menua una lista
+     * @param menu menu que desea ingresar
+     */
     public void addMenu(Menu menu){
         hotel.menus.add(menu);
+    }
+
+    /**
+     *Metodo que le permite al administrador eliminar un menu
+     * @param menuName el nombre del menu que se desea eliminar
+     */
+    public void removeMenu(String menuName){
+        for (int i = 0; i < hotel.menus.size() ; i++) {
+            if(hotel.menus.get(i).getName().equalsIgnoreCase(menuName)){
+                hotel.menus.remove(i);
+            }
+        }
     }
 
     /**

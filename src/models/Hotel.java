@@ -8,10 +8,7 @@
 package models;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Hotel {
 
@@ -54,7 +51,6 @@ public class Hotel {
     public Room getRoom(int iterator){
         return rooms.get(iterator);
     }
-
 
 }
 

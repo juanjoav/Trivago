@@ -7,8 +7,11 @@
 package test;
 
 
+import models.Admin;
+import models.Hotel;
 import models.Menu;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TestMenu {
@@ -16,9 +19,25 @@ public class TestMenu {
     /**
      * Metodo que testea la clase menu
      */
-    Menu menu = new Menu();
 
-    public void test(){
+    public static void main(String[] args) {
+        Hotel hotel = new Hotel();
+        Admin admin = new Admin(hotel);
+
+        admin.addMenu(new Menu("","Carne, Pollo, arroz , papa. mondongo",8));
+        admin.addMenu(new Menu("Vegetariano","Hierbas, mastas, cosas verdes ",12));
+        admin.addMenu(new Menu("Epecial","Oro, mas pendejadas, ensalada de frutas",15));
+        String[] aux = hotel.viewMenus();
+        for (String s: aux) {
+            System.out.println(s);
+        }
+//        System.out.println(Arrays.toString(hotel.viewMenus()));
+//        admin.removeMenu("normal");
+//        System.out.println(Arrays.toString(hotel.viewMenus()));
+
+    }
+
+//    public void test(){
 //        System.out.println("1). Ingresar los nuevos menus \n2). Darles precio a cada menu\n3).Ver los precios y los valores de cada menu\n4).Modificar cada uno delos menu  ");
 //        Scanner scanner = new Scanner(System.in);
 //        int option = Integer.parseInt(scanner.nextLine());
@@ -76,9 +95,9 @@ public class TestMenu {
 //                break;
 //            default:
 //        }
-    }
-
-    public static void main(String[] args) {
-        new TestMenu().test();
-    }
+//    }
+//
+//    public static void main(String[] args) {
+//        new TestMenu().test();
+//    }
 }
