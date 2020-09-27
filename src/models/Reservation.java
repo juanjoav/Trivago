@@ -7,16 +7,14 @@
 package models;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeSet;
 
 public class Reservation{
-    List<Event> events;
+    public List<Event> reservation;
 
     public Reservation() {
-        events = new LinkedList<>();
+        reservation = new LinkedList<>();
     }
 
     /**
@@ -25,12 +23,12 @@ public class Reservation{
      * @return
      */
     public boolean makeBooking(Event event){
-        events.add(event);
-        int index = events.indexOf(event);
-       if(LocalDate.now().isBefore(event.getTimeInitial())){
-          new CheckIn(events.get(index)).assingRoom(events.get(index).getRoom());
-       }else if(LocalDate.now().isAfter(event.getTimeFinish())){
-           new CheckOut(events.get(index)).outRooms(events.get(index).getRoom());
+        reservation.add(event);
+        int index = reservation.indexOf(event);
+       if(LocalDate.now().isAfter(event.getTimeInitial())){
+         new CheckIn(reservation.get(index)).assingRoom(reservation.get(index).getRoom());
+       }else if(LocalDate.now().isBefore(event.getTimeFinish())){
+           new CheckOut(reservation.get(index)).outRooms(reservation.get(index).getRoom());
        }else{
            return false;
        }
@@ -39,10 +37,9 @@ public class Reservation{
 
     /**
      * Remueve el evento
-     * @param event
-     * @return
+     *
      */
-    public boolean removeBooking(Event event){
-        return events.remove(event);
+    public void removeBooking(Hotel hotel, long id){
+        reservation.remove(reservation.indexOf(hotel.searchUser(id)));
     }
 }

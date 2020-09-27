@@ -39,6 +39,7 @@ public class Hotel {
         }
     }
 
+
     /**
      * muestra elementos de la lista, solo pruebas
      */
@@ -53,17 +54,31 @@ public class Hotel {
      * @param id
      * @return
      */
-    public String searchUser(long id){
-        String info = "";
+//    public String searchUser(long id){
+//        String info = "";
+//        for (User user:userTreeSet) {
+//            if (user.getId() == id){
+//                info = user.viewUser();
+//                return info;
+//            }
+//        }
+//        return info;
+//    }
+    /**
+     * muestra el usuario consultado por ID
+     * @param id
+     * @return
+     */
+    public User searchUser(long id){
+        User info;
         for (User user:userTreeSet) {
             if (user.getId() == id){
-                info = user.viewUser();
+                info = user.getUser();
                 return info;
             }
         }
-        return info;
+        return new User(" ",0l,0l,PayEvent.EFECTIVO,Entry.WALKING);
     }
-
     public void viewUserInformation(){
 
     }

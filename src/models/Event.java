@@ -53,4 +53,8 @@ public class Event {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    public Event getEvent(Hotel hotel,long id){
+        return new Event(getTimeInitial(),getTimeFinish(), hotel.searchUser(id),getRoom());
+    }
 }
