@@ -40,6 +40,6 @@ public class Reservation{
      *
      */
     public void removeBooking(Hotel hotel, long id){
-        reservation.remove(reservation.indexOf(hotel.searchUser(id)));
+        //reservation.remove(reservation.indexOf(hotel.searchUser(id)));
     }
 }

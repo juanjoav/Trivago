@@ -55,6 +55,7 @@ public class Event {
     }
 
     public Event getEvent(Hotel hotel,long id){
-        return new Event(getTimeInitial(),getTimeFinish(), hotel.searchUser(id),getRoom());
+        //return new Event(getTimeInitial(),getTimeFinish(), hotel.searchUser(id),getRoom());
+        return null;
     }
 }

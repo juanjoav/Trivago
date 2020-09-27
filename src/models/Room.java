@@ -11,19 +11,12 @@ public class Room {
     private Quality quality;
     private boolean ocupation;
 
-    public Room(int number, Quality quality) {
-        this.number = number;
+    public Room( Quality quality) {
+        this.number ++;
         this.quality = quality;
         this.ocupation =  false;
     }
 
-    /**
-     * para ver todas las habitaciones
-     * @return una matriz
-     */
-    public Room viewRooms(){
-        return null;
-    }
 
     public int getNumber() {
         return number;

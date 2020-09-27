@@ -19,7 +19,7 @@ public class TestMenu {
     Menu menu = new Menu();
 
     public void test(){
-        System.out.println("1). Ingresar los nuevos menus \n2). Darles precio a cada menu\n3).Ver los precios y los valores de cada menu\n4).Modificar cada uno delos menu  ");
+        /*System.out.println("1). Ingresar los nuevos menus \n2). Darles precio a cada menu\n3).Ver los precios y los valores de cada menu\n4).Modificar cada uno delos menu  ");
         Scanner scanner = new Scanner(System.in);
         int option = Integer.parseInt(scanner.nextLine());
         switch (option){
@@ -75,7 +75,7 @@ public class TestMenu {
                 System.out.println("Vuelva pronto");
                 break;
             default:
-        }
+        }*/
     }
 
     public static void main(String[] args) {

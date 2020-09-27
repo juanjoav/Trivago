@@ -17,15 +17,12 @@ public class Hotel {
 
     public LinkedList<Menu> menus;
     public TreeSet<User> userTreeSet;
-    public List<Room> rooms;
+    private AdminRoom rooms;
 
     public Hotel() {
         menus = new LinkedList();
         userTreeSet = new TreeSet<>();
-        rooms = new ArrayList<Room>();
-        for (int i = 0; i < 100; i++) {
-            rooms.add(new Room(i, Quality.REGULAR));
-        }
+        rooms = new AdminRoom();
     }
 
     /**
@@ -47,7 +44,7 @@ public class Hotel {
      * @return
      */
     public Room getRoom(int iterator){
-        return rooms.get(iterator);
+        return rooms.getRoom(iterator);
     }
 
 

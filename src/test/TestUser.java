@@ -18,7 +18,7 @@ public class TestUser {
      * @param args
      */
     public static void main(String[] args) {
-        Hotel hotel = new Hotel();
+        /*Hotel hotel = new Hotel();
 
         hotel.addUser(new User("Mateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
         hotel.addUser(new User("juan",2009,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
@@ -28,6 +28,6 @@ public class TestUser {
         hotel.view();
         System.out.println("-------------");
         //hotel.viewUserInformation();
-        System.out.println(hotel.searchUser(2019l));
+        System.out.println(hotel.searchUser(2019l));*/
     }
 }
