@@ -17,6 +17,7 @@ public class View {
     public static final int MENU_OPTION_FIVE = 5;
     public static final int MENU_OPTION_SIX = 6;
     public static final int MENU_OPTION_SEVEN = 7;
+    public static final String MESSAGE_FORMAR_EX = "PARAMETROS INVALIDOS";
 
     private Scanner scanner;
 
@@ -69,6 +70,7 @@ public class View {
         System.out.println("3.)Mostrar la lista de usuarios");
         return Integer.parseInt(scanner.nextLine());
     }
+
     /////////////////////////////MENUS/////////////////////////////////////////////////
 
     /**
@@ -97,8 +99,37 @@ public class View {
         System.out.println("Agregue el valor del menu: ");
         return Double.parseDouble(scanner.nextLine());
     }
+    /////////////////////////////////////////////////////USER//////////////////////////////////////////////////////////////
 
+    /**
+     * envia el id del usuario
+     * @return
+     */
+    public long getId(){
+        System.out.println("Ingrese el ID de usuario");
+        return Long.parseLong(scanner.nextLine());
+    }
 
+    /**
+     * envia el telefono del usuario
+     * @return
+     */
+    public long getphone(){
+        System.out.println("Ingrese el telefono del usuario");
+        return Long.parseLong(scanner.nextLine());
+    }
+
+    public String getCashEvent(){
+        System.out.println("Agregar la forma de pago");
+        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
+        return (scanner.nextLine());
+    }
+
+    public String entryCondition(){
+        System.out.println("Agregar la forma de registro");
+        System.out.println("1.) WALKING \n 2.) BOOKING");
+        return scanner.nextLine();
+    }
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
     /**
@@ -107,5 +138,11 @@ public class View {
      */
     public void viewMessages(String message){
         System.out.println( message);
+    }
+
+    public void viewList(String [] lists){
+        for (String string:lists) {
+            System.out.println(string);
+        }
     }
 }

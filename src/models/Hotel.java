@@ -56,7 +56,6 @@ public class Hotel {
     }
 
 
-
     /**
      * Recupera el room para hacer modificaciones
      * @param iterator numero de cual habitacion

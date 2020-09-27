@@ -6,9 +6,7 @@
 
 package controller;
 
-import models.Admin;
-import models.Hotel;
-import models.Menu;
+import models.*;
 import view.View;
 
 public class Controller {
@@ -46,8 +44,16 @@ public class Controller {
             case View.MENU_OPTION_ONE:
                 addMenu();
                 break;
+                case View.MENU_OPTION_TWO:
+                    addUser();
+                    break;
+                    case View.MENU_OPTION_TRHEE:
+                        viewUsers();
+                        break;
         }
     }
+
+
 //////////////////////////////////////////////RELACIONES////////////////////////////////////////////////////////////
     public void verifyAdmin(){
         boolean reference = admin.verifiqueIndenty(view.nickName(), view.passaword());
@@ -61,7 +67,25 @@ public class Controller {
     }
 
     public void addMenu(){
-        view.viewMessages(admin.addMenu(new Menu(view.menuName(), view.menuContains(), view.menuPrice())));
+        try {
+            view.viewMessages(admin.addMenu(new Menu(view.menuName(), view.menuContains(), view.menuPrice())));
+        }
+        catch (NumberFormatException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+            addMenu();
+        }
+        menuAdmin();
+    }
+
+    public void addUser(){
+        hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
+        menuAdmin();
+    }
+
+    public void viewUsers(){
+        String [] userList = admin.showUser();
+        view.viewList(userList);
+        menuAdmin();
     }
 
     public static void main(String[] args) {
