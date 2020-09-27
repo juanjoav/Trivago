@@ -46,9 +46,5 @@ public class Admin {
         }
     }
 
-    public Quality viewQuality(){
-        Quality aux = Quality.ECONOMIC;
-        return aux;
-    }
 
 }

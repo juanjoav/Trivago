@@ -14,6 +14,7 @@ import java.util.TreeSet;
 
 public class Hotel {
 
+    Menu menu;
     private TreeSet<User> userTreeSet;
     private List<Room> rooms;
 
