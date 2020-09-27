@@ -24,6 +24,9 @@ public class Menu {
         this.price = price;
     }
 
+    public Menu() {
+    }
+
     /**
      * Metodo que nos permite darle formalo a los menus
      * @return un formato para mostrar el menu

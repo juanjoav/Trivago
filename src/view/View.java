@@ -46,8 +46,30 @@ public class View {
         return scanner.nextLine();
     }
 
+    public int adminOption(){
+        System.out.println("----------------------Menu del Administrador-------------------------");
+        System.out.println("1.)Agregar menus");
+        return Integer.parseInt(scanner.nextLine());
+    }
+    /////////////////////////////MENUS/////////////////////////////////////////////////
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public String menuName(){
+        System.out.println("Por favor ingrese el tipo de menu que desea agregar: ");
+        return scanner.nextLine();
+    }
+
+    public String menuContains(){
+        System.out.println("Por agregue los elementos del menu (separados por comas): ");
+        return scanner.nextLine();
+    }
+
+    public double menuPrice(){
+        System.out.println("Agregue el valor del menu: ");
+        return Double.parseDouble(scanner.nextLine());
+    }
+
+
+    /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
     public void viewMessages(String message){
         System.out.println( message);

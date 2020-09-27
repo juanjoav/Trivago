@@ -48,8 +48,10 @@ public class Admin {
      * Metodo que le permite a un administrador añadir un menua una lista
      * @param menu menu que desea ingresar
      */
-    public void addMenu(Menu menu){
+    public String addMenu(Menu menu){
+        String message = "";
         hotel.menus.add(menu);
+        return "Menu agregado";
     }
 
     /**
@@ -166,6 +168,5 @@ public class Admin {
     public void outOfService(int numb){
         hotel.rooms.get(numb).setOcupation(true);
     }
-
 
 }
