@@ -6,7 +6,17 @@
 
 package models;
 
+import java.time.LocalDate;
+
 public class CheckIn extends Event {
+
+    public CheckIn(LocalDate timeInitial, LocalDate timeFinish, User user, Room room) {
+        super(timeInitial, timeFinish, user, room);
+    }
+
+    public CheckIn(Event event){
+        super(event.getTimeInitial(),event.getTimeFinish(),event.getUser(), event.getRoom());
+    }
 
     /**
      * Para asignar la entrada a la habitaciones

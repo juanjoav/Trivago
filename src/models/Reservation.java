@@ -7,17 +7,42 @@
 package models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.TreeSet;
 
-public class Reservation extends Event{
+public class Reservation{
+    List<Event> events;
+
+    public Reservation() {
+        events = new LinkedList<>();
+    }
 
     /**
-     * No tengo ni la más remota idea que haga esto
-     * @param initialDate
-     * @param finishDate
+     * Administra la reservacion
+     * @param event
+     * @return
      */
-    public void viewRoom(LocalDate initialDate, LocalDate finishDate){
-        /**
-         * To work...
-         */
+    public boolean makeBooking(Event event){
+        events.add(event);
+        int index = events.indexOf(event);
+       if(LocalDate.now().isBefore(event.getTimeInitial())){
+          new CheckIn(events.get(index)).assingRoom(events.get(index).getRoom());
+       }else if(LocalDate.now().isAfter(event.getTimeFinish())){
+           new CheckOut(events.get(index)).outRooms(events.get(index).getRoom());
+       }else{
+           return false;
+       }
+        return true;
+    }
+
+    /**
+     * Remueve el evento
+     * @param event
+     * @return
+     */
+    public boolean removeBooking(Event event){
+        return events.remove(event);
     }
 }
