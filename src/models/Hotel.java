@@ -31,6 +31,19 @@ public class Hotel {
     }
 
     /**
+     * Metodo que nos permite agregar un nuevo usuario a la lista
+     * @param user usuario a ser creado
+     */
+    public void addUser(User user){
+        try{
+            userTreeSet.add(user);
+        }
+        catch (NullPointerException exception){
+            System.out.println("dato invalido");
+        }
+    }
+
+    /**
      * Metodo que retorna todos los menus disponibles
      * @return
      */
@@ -41,6 +54,7 @@ public class Hotel {
         }
         return aux;
     }
+
 
 
     /**

@@ -123,10 +123,10 @@ public class User implements Comparable<User>{
         return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry;
     }
 
+
     public User getUser(){
         return new User(name,id,phone,cashPayEvent,entry);
     }
-
     @Override
     public int compareTo(User user) {
         return (int) (this.getId() - user.getId());
