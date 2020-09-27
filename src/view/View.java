@@ -30,6 +30,7 @@ public class View {
      * @return
      */
     public int selectionMenu(){
+        System.out.println("°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°");
         System.out.println("-------------------------------------------");
         System.out.println("Por favor elija el tipo de acceso que desea al sitema");
         System.out.println("1.) Administrador");
@@ -78,6 +79,7 @@ public class View {
      * @return
      */
     public String menuName(){
+
         System.out.println("Por favor ingrese el tipo de menu que desea agregar: ");
         return scanner.nextLine();
     }
@@ -102,8 +104,18 @@ public class View {
     /////////////////////////////////////////////////////USER//////////////////////////////////////////////////////////////
 
     /**
-     * envia el id del usuario
-     * @return
+     * Metodo que permite elejir una opcion por parte del usuario
+     * @return la opcion elejida por el usuario
+     */
+    public int userMenu(){
+        System.out.println("Opciones de usuario");
+        System.out.println("1.) Ingresar \n2.) Iniciar secion\n 3.) regresar");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    /**
+     *
+     * @return el id del usuario
      */
     public long getId(){
         System.out.println("Ingrese el ID de usuario");
@@ -119,17 +131,26 @@ public class View {
         return Long.parseLong(scanner.nextLine());
     }
 
-    public String getCashEvent(){
-        System.out.println("Agregar la forma de pago");
-        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
-        return (scanner.nextLine());
-    }
-
-    public String entryCondition(){
-        System.out.println("Agregar la forma de registro");
-        System.out.println("1.) WALKING \n 2.) BOOKING");
+    public String getPassaword(){
+        System.out.println("Por favor ingrese su contraseña");
         return scanner.nextLine();
     }
+
+/**
+//    public String getCashEvent(){
+//        System.out.println("Agregar la forma de pago");
+//        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
+//        return (scanner.nextLine());
+//    }
+//                                                                                  //revision pendiente para la eliminacion
+//    public String entryCondition(){
+//        System.out.println("Agregar la forma de registro");
+//        System.out.println("1.) WALKING \n 2.) BOOKING");
+//        return scanner.nextLine();
+//    }
+    */
+
+
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
     /**

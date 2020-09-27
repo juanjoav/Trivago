@@ -31,7 +31,7 @@ public class Controller {
                 verifyAdmin();
                 break;
             case View.MENU_OPTION_TWO:
-
+                menuUser();
                 break;
         }
     }
@@ -45,11 +45,21 @@ public class Controller {
                 addMenu();
                 break;
                 case View.MENU_OPTION_TWO:
-                    addUser();
+                    addUserAdmin();
                     break;
                     case View.MENU_OPTION_TRHEE:
                         viewUsers();
                         break;
+        }
+    }
+
+    public void menuUser(){
+        switch (view.userMenu()) {
+            case View.MENU_OPTION_ONE:
+                addUserRegister();
+                break;
+            case View.MENU_OPTION_TWO:
+                break;
         }
     }
 
@@ -77,8 +87,33 @@ public class Controller {
         menuAdmin();
     }
 
-    public void addUser(){
+    ////////////////////////////////////////////////USER////////////////////////////////////////
+
+
+    public void addUserRegister(){
+        try {
+            hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.passaword()));
+        } catch (NumberFormatException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+            addUserRegister();
+        } catch (NullPointerException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+            addUserRegister();
+        }
+        menuUser();
+    }
+
+    public void addUserAdmin(){
         //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
+        try {
+            hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.passaword()));
+        } catch (NumberFormatException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+            addUserAdmin();
+        } catch (NullPointerException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+            addUserAdmin();
+        }
         menuAdmin();
     }
 
