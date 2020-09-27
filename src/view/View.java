@@ -24,6 +24,10 @@ public class View {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Menu de opciones para elegir usuarios
+     * @return
+     */
     public int selectionMenu(){
         System.out.println("-------------------------------------------");
         System.out.println("Por favor elija el tipo de acceso que desea al sitema");
@@ -33,12 +37,20 @@ public class View {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Permite enviar el nickName de usuario y/o admin
+     * @return
+     */
     public String nickName(){
         System.out.println("-------------------------------------------");
         System.out.println("Por favor ingrese el nombre del usuario: ");
         return scanner.nextLine();
     }
 
+    /**
+     * Permite enviar la contraseña respectiva
+     * @return
+     */
     public String passaword(){
         System.out.println("-------------------------------------------");
         System.out.println("Por favor ingrese su contraseña: ");
@@ -46,23 +58,41 @@ public class View {
         return scanner.nextLine();
     }
 
+    /**
+     * permite enviar la seleccion de opciones del admin
+     * @return
+     */
     public int adminOption(){
         System.out.println("----------------------Menu del Administrador-------------------------");
         System.out.println("1.)Agregar menus");
+        System.out.println("2.)Agregar un nuevo usuario");
+        System.out.println("3.)Mostrar la lista de usuarios");
         return Integer.parseInt(scanner.nextLine());
     }
     /////////////////////////////MENUS/////////////////////////////////////////////////
 
+    /**
+     * permite enviar el nombre del menu que desea agregar
+     * @return
+     */
     public String menuName(){
         System.out.println("Por favor ingrese el tipo de menu que desea agregar: ");
         return scanner.nextLine();
     }
 
+    /**
+     * envia los datos que contiene cada menu
+     * @return
+     */
     public String menuContains(){
         System.out.println("Por agregue los elementos del menu (separados por comas): ");
         return scanner.nextLine();
     }
 
+    /**
+     * envia los datos del precio de cada menu
+     * @return
+     */
     public double menuPrice(){
         System.out.println("Agregue el valor del menu: ");
         return Double.parseDouble(scanner.nextLine());
@@ -71,6 +101,10 @@ public class View {
 
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
+    /**
+     * recibe Elementos para mostrar al admin y/o usuarios
+     * @param message
+     */
     public void viewMessages(String message){
         System.out.println( message);
     }
