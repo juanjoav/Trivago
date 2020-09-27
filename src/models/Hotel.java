@@ -44,6 +44,21 @@ public class Hotel {
     }
 
     /**
+     * Metodo que permite verificar usuarios en una lista de usuarios
+     * @param id el identificador para buscar
+     * @param passaword la contraseña para permitir acceso
+     * @return si el usuario y parametro son validos
+     */
+    public boolean verifyData(Long id, String passaword){
+        for (User user:userTreeSet) {
+            if (user.getId() == id && user.getPassaword().equals(passaword)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Metodo que retorna todos los menus disponibles
      * @return
      */

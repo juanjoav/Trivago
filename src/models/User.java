@@ -16,19 +16,21 @@ public class User implements Comparable<User>{
 
     private String name;
     private long id;
+    private String passaword;
     private long phone;
-    private PayEvent cashPayEvent;
-    private Entry entry;
+   // private PayEvent cashPayEvent;
+    //private Entry entry;
 //    private boolean condition = false;
   //  private TreeSet<User> userTreeSet;
 
-    public User(String name, long id, long phone, PayEvent cashPayEvent, Entry entry) {
+    public User(String name, long phone, long id,String passaword /*, PayEvent cashPayEvent, Entry entry*/) {
         //super(name, id);
             this.name = name;
             this.id = id;
             this.phone = phone;
-            this.cashPayEvent = cashPayEvent;
-            this.entry = entry;
+            this.passaword = passaword;
+        //    this.cashPayEvent = cashPayEvent;
+          //  this.entry = entry;
     }
 
     public User() {
@@ -54,44 +56,52 @@ public class User implements Comparable<User>{
 //    }
 
     /**
-     * retorna el nombre
-     * @return
+     * Metodo que retorna el nombre del usuario solicitado
+     * @return el nombre del usuario
      */
     public String getName() {
         return name;
     }
 
     /**
-     * retorna el id
-     * @return
+     * Metodo que retorna el id del usuario seleccionado
+     * @return el id del usuario
      */
     public long getId() {
         return id;
     }
 
     /**
-     * retorna el telefono
-     * @return
+     * Metodo que retorna el telefono del usuario indicado
+     * @return el telefono del usuario
      */
     public long getPhone() {
         return phone;
     }
 
     /**
+     * Metodo que permite retornar la contraseña de un usuario dado
+     * @return la contraseña
+     */
+    protected String getPassaword() {
+        return passaword;
+    }
+
+    /**
      * retorna la forma de pago
      * @return
      */
-    public String getCashPayEvent() {
-        return "" + cashPayEvent;
-    }
+//    public String getCashPayEvent() {
+//        return "" + cashPayEvent;
+//    }
 
     /**
      * retorna la condicion de entrada
      * @return
      */
-    public String getEntry() {
-        return "" + entry;
-    }
+//    public String getEntry() {
+//        return "" + entry;
+//    }
 
     /**
      * indica en que condicion se encuentra el usuario
@@ -116,17 +126,17 @@ public class User implements Comparable<User>{
 //    }
 
     /**
-     * muestra los elementos en forma de String
-     * @return
+     * Metodo que permite ver toda la informacion del usuario
+     * @return la informacion del usuario
      */
     public String viewUser(){
-        return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry;
+        return name + "-" + id + "-" + phone /*+ "-" + cashPayEvent + "-" + entry*/;
     }
 
 
-    public User getUser(){
-        return new User(name,id,phone,cashPayEvent,entry);
-    }
+//    public User getUser(){
+//        return new User(name,id,phone,cashPayEvent,entry);
+//    }
     @Override
     public int compareTo(User user) {
         return (int) (this.getId() - user.getId());
