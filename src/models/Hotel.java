@@ -19,6 +19,9 @@ public class Hotel {
     public User user;
     public Admin admin;
 
+    /**
+     * Metodo costructor por defeccto
+     */
     public Hotel() {
         menus = new LinkedList();
         userTreeSet = new TreeSet<>();

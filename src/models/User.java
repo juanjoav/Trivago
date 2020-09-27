@@ -1,15 +1,10 @@
-/*
+/**
  * Copyright (c) 12/9/2020.
  * created by Mateo Pinzon, Harrison Diaz y Juan Jose Ariza
  * All rights reserved
  */
 
 package models;
-
-/**
- * clase usuario solo con los valores necesarios y getters
- */
-
 public class User implements Comparable<User>{
 
     private String name;
@@ -17,6 +12,13 @@ public class User implements Comparable<User>{
     private String password;
     private long phone;
 
+    /**
+     * Metodo constructor parametrizado
+     * @param name el nombre de un usuario
+     * @param phone el telefono de un usuario
+     * @param id el id/username de un usuario
+     * @param passaword la contraseña de un usuario
+     */
     public User(String name, long phone, long id,String passaword) {
         this.name = name;
             this.id = id;
@@ -24,6 +26,9 @@ public class User implements Comparable<User>{
             this.password = passaword;
     }
 
+    /**
+     * Metodo constructor por defecto
+     */
     public User() {
     }
 
@@ -68,6 +73,11 @@ public class User implements Comparable<User>{
     }
 
 
+    /**
+     * Metodo que nos permite organizar una lista de ususarios
+     * @param user un objeto de tipo usuario
+     * @return -1 , 0 , 1 dependiendo de su caracter de organizacion
+     */
     @Override
     public int compareTo(User user) {
         return (int) (this.getId() - user.getId());
