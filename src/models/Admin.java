@@ -16,6 +16,9 @@ import java.util.List;
 
 public class Admin {
 
+    private static final String ADMIN_NICKNAME = "ADMIN";
+    private static final String ADMIN_PASSAWORD = "1234";
+
     private String userName;
     private String passaword;
     private Menu menu;
@@ -30,6 +33,14 @@ public class Admin {
 
     public Admin(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public boolean verifiqueIndenty(String name, String passaword){
+      //  String message = "usuario y/o contraseña invalido";
+        //if (){
+//            message = "Acceso concedido";
+//        }
+        return name.equalsIgnoreCase(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);//message;
     }
 
     public void addMenu(Menu menu){
