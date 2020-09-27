@@ -27,9 +27,9 @@ public class TestRoom {
         setRoom.getRoom(33).setQuality(Quality.PREMIUM);
         setRoom.getRoom(5).setQuality(Quality.ECONOMIC);
         setRoom.getRoom(0).setQuality(Quality.ECONOMIC);
-        System.out.println("Numero de habitaciones regulares es de 92: "+(setRoom.getRegular()==92?"Right":"Error"));
-        System.out.println("Numero de habitaciones Economico es de 3: "+(setRoom.getEconomic()==3?"Right":"Error"));
-        System.out.println("Numero de habitaciones Premium es de 5: "+(setRoom.getPremium()==5?"Right":"Error"));
+        System.out.println("Numero de habitaciones regulares es de 92: "+(setRoom.getQualityCounter(Quality.REGULAR)==92?"Right":"Error"));
+        System.out.println("Numero de habitaciones Economico es de 3: "+(setRoom.getQualityCounter(Quality.ECONOMIC)==3?"Right":"Error"));
+        System.out.println("Numero de habitaciones Premium es de 5: "+(setRoom.getQualityCounter(Quality.PREMIUM)==5?"Right":"Error"));
         System.out.println("El numero de habitaciones no disponibles es de  3: "+(setRoom.getDisavailable()==3?"Right":"Error"));
     }
 }

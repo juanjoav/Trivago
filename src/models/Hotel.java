@@ -91,46 +91,7 @@ public class Hotel {
     public int getTotalRooms(){
         return rooms.size();
     }
-    /**
-     * mirar el total de habitaciones no ocupadas del establecimiento
-     * @return total de habitaciones disponibles
-     */
-    public int getEconomic(){
-        int counter = 0;
-        for (int i = 0; i < rooms.size(); i++) {
-            if(rooms.get(i).getQuality() == Quality.ECONOMIC){
-                counter++;
-            }
-        }
-        return counter;
-    }
-    /**
-     * mirar el total de habitaciones Regular del establecimiento
-     * @return total de habitaciones disponibles
-     */
-    public int getRegular(){
-        int counter = 0;
-        for (int i = 0; i < rooms.size(); i++) {
-            if(rooms.get(i).getQuality() == Quality.REGULAR){
-                counter++;
-            }
-        }
-        return counter;
-    }
 
-    /**
-     * mirar el total de habitaciones Premium del establecimiento
-     * @return total de habitaciones disponibles
-     */
-    public int getPremium(){
-        int counter = 0;
-        for (int i = 0; i < rooms.size(); i++) {
-            if(rooms.get(i).getQuality() == Quality.PREMIUM){
-                counter++;
-            }
-        }
-        return counter;
-    }
     /**
      * mirar el total de habitaciones no ocupadas del establecimiento
      * @return total de habitaciones disponibles
@@ -149,13 +110,7 @@ public class Hotel {
      * @return total de habitaciones disponibles
      */
     public int getDisavailable(){
-        int counter = 0;
-        for (int i = 0; i < rooms.size(); i++) {
-            if(rooms.get(i).isOcupation()){
-                counter++;
-            }
-        }
-        return counter;
+        return rooms.size() - getAvailable();
     }
     /**
      * Para meterle los numero automaticamente los numeros de cada habitacion
@@ -177,6 +132,21 @@ public class Hotel {
         SetNumberRooms();
     }
 
+    /**
+     * Metodo para contar cuantas habitaciones
+     * hay en una calidad en especifico
+     * @param quality
+     * @return
+     */
+    public int getQualityCounter(Quality quality){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            if(rooms.get(i).getQuality() == quality){
+                counter++;
+            }
+        }
+        return counter;
+    }
     /**
      * Recupera el room para hacer modificaciones
      * @param iterator numero de cual habitacion
