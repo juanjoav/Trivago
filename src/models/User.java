@@ -122,6 +122,8 @@ public class User implements Comparable<User>{
     public String viewUser(){
         return name + "-" + id + "-" + phone + "-" + cashPayEvent + "-" + entry;
     }
+
+
     public User getUser(){
         return new User(name,id,phone,cashPayEvent,entry);
     }

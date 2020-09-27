@@ -24,7 +24,10 @@ public class Menu {
         this.price = price;
     }
 
-    public Menu() {
+    /**
+     * Metodo constructor por defecto
+     */
+    public Menu(){
     }
 
     /**

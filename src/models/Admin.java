@@ -28,7 +28,6 @@ public class Admin {
 //        this.userName = userName;
 //        this.passaword = passaword;
         menu = new Menu();
-//        hotel = new Hotel();
         this.hotel = hotel;
     }
 
@@ -37,11 +36,7 @@ public class Admin {
     }
 
     public boolean verifiqueIndenty(String name, String passaword){
-      //  String message = "usuario y/o contraseña invalido";
-        //if (){
-//            message = "Acceso concedido";
-//        }
-        return name.equals(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);//message;
+        return name.equals(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);
     }
 
     /**
@@ -67,16 +62,17 @@ public class Admin {
     }
 
     /**
-     * agrega usuarios
-     * @param user
+     * Metodo que retorna todos la lista de usuarios
+     * @return
      */
-    public void addUser(User user){
-        try{
-            hotel.userTreeSet.add(user);
+    public String[] showUser(){
+        String[] aux = new String[hotel.userTreeSet.size()];
+        int count = 0;
+        for (User i: hotel.userTreeSet) {
+            aux[count] = i.viewUser();
+            count++;
         }
-        catch (NullPointerException exception){
-            System.out.println("dato invalido");
-        }
+        return aux;
     }
 
     /**
