@@ -8,30 +8,66 @@ package test;
 
 import models.*;
 
+import java.util.Scanner;
+
 public class TestUser {
 
-    /**
-     * agregar excepciones al usuario para valores  invalidos
-     * @param args
-     */
+    Scanner scanner = new Scanner(System.in);
+    Hotel hotel = new Hotel();
+    Admin admin = new Admin(hotel);
+
+    public void add(){
+        System.out.println("Ingrese el nombre ");
+        String name = scanner.nextLine();
+        System.out.println("Ingrese el numero de telefono");
+        long phone = Long.parseLong(scanner.nextLine());
+        System.out.println("Ingrese el id (nombre de usuario)");
+        long id = Long.parseLong(scanner.nextLine());
+        System.out.println("Ingrese una contraseña para el crear el usuario");
+        String password = scanner.nextLine();
+        hotel.addUser(new User(name,phone,id,password));
+    }
+
+    public void test() {
+        System.out.println("1). Ingresar un nuevo usuario \n2). Mostrar la lista de usuarios que tiene el hotel\n3). Buscar un usuario dentro de la lista\n4).Verificar inicio de sesion de un usuario creado\n5).Terminar el programa");
+        String option = scanner.nextLine();
+        switch (option) {
+            case "1":
+                add();
+                test();
+                break;
+            case "2":
+                System.out.println("Los usuarios del Hotel son: ");
+                String[] aux = admin.showUser();
+                for (String s : aux) {
+                    System.out.println(s);
+                }
+                test();
+                break;
+            case "3":
+                System.out.println("Ingrese el id del ususario que desea buscar");
+                long search = Long.parseLong(scanner.nextLine());
+                System.out.println(admin.searchUser(search));
+                test();
+                break;
+            case "4":
+                System.out.println("Ingrese su ID");
+                long id = Long.parseLong(scanner.nextLine());
+                System.out.println("Ingrese su contraseña");
+                String password = scanner.nextLine();
+                System.out.println(hotel.verifyData(id, password));
+                test();
+                break;
+            case "5":
+                System.out.println("Vuelva pronto");
+                break;
+            default:
+                System.out.println("Opcion no valida");
+                test();
+        }
+    }
+
     public static void main(String[] args) {
-        Hotel hotel = new Hotel();
-        Admin admin = new Admin(hotel);
-        User user = new User();
-//
-//        admin.addUser(new User("Mateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        admin.addUser(new User("juan",2009,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        admin.addUser(new User("ateo",2019,999999, PayEvent.EFECTIVO, Entry.valueOf("WALKING")));
-//        //hotel.addUser(null);
-//       // System.out.println(hotel.searchById(2019L));
-//        //hotel.view();
-//        System.out.println("-------------");
-//        //hotel.viewUserInformation();
-//        System.out.println(admin.searchUser(2009l));
-////        admin.addMenu(new Menu("veg", "holi", 3.4));
-////        String [] list = hotel.viewMenus();
-////        for (String text:list) {
-////            System.out.println(text);
-////        }
+      new TestUser().test();
     }
 }

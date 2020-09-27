@@ -65,7 +65,7 @@ public class Hotel {
     public String[] viewMenus(){
         String[] aux = new String[menus.size()];
         for (int i = 0; i < aux.length; i++) {
-            aux[i] = menus.get(i).showMenus();
+            aux[i] = menus.get(i).formatMenus();
         }
         return aux;
     }
