@@ -19,20 +19,21 @@ public class Admin {
     private static final String ADMIN_NICKNAME = "ADMIN";
     private static final String ADMIN_PASSAWORD = "1234";
 
-    private String userName;
-    private String passaword;
+//    private String userName;
+//    private String passaword;
     private Menu menu;
     private Hotel hotel;
 
-    public Admin(String userName, String passaword) {
-        this.userName = userName;
-        this.passaword = passaword;
+    public Admin(/*String userName, String passaword , */Hotel hotel) {
+//        this.userName = userName;
+//        this.passaword = passaword;
         menu = new Menu();
-        hotel = new Hotel();
+//        hotel = new Hotel();
+        this.hotel = hotel;
     }
 
-    public Admin(Hotel hotel) {
-        this.hotel = hotel;
+    public Admin() {
+
     }
 
     public boolean verifiqueIndenty(String name, String passaword){
@@ -40,7 +41,7 @@ public class Admin {
         //if (){
 //            message = "Acceso concedido";
 //        }
-        return name.equalsIgnoreCase(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);//message;
+        return name.equals(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);//message;
     }
 
     public void addMenu(Menu menu){

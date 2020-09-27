@@ -8,7 +8,6 @@ package test;
 
 import models.Hotel;
 import models.Quality;
-import models.SetRoom;
 
 public class TestRoom {
     public static void main(String[] args) {

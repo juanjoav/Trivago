@@ -37,7 +37,9 @@ public class Controller {
     public void verifyAdmin(){
         boolean reference = admin.verifiqueIndenty(view.nickName(), view.passaword());
         //String status =  ? "Acceso concedido" : "Acceso denegado";
-
+//        if (){
+//
+//        }
     }
 
     public static void main(String[] args) {
