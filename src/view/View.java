@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class View {
 
+    private Scanner scanner;
+
     public static final int MENU_OPTION_ONE = 1;
     public static final int MENU_OPTION_TWO = 2;
     public static final int MENU_OPTION_TRHEE = 3;
@@ -22,8 +24,19 @@ public class View {
     public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
     public static final String LINE = "-------------------------------------------";
     public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1). Administrador\n2).Usuarios ";
+    public static final String REQUEST_NAME = "Por favor ingrese el nombre del usuario: ";
+    public static final String REQUEST_PASSWORD = "Por favor ingrese una contraseña: ";
+    public static final String TITTLE_ADMIN = "MENU DEL ADMINISTRADOR";
+    public static final String TITTLE_USER = "MENU DEL USUARIO";
+    public static final String NAME_MENU = "Por favor ingrese el tipo de menu que desea agregar: ";
+    public static final String REMOVE_MENU = "Por favor ingrese el nombre del menu que desea eliminar:";
+    public static final String CONTAINS_MENU = "Por favor en una sola linea agregue los elementos que va a tener el menu del dia: ";
+    public static final String PRICE_MENU = "Agregue el precio que tendra el menu: ";
+    public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n 3.) Regresar";
+    public static final String USER_ID = "Ingrese el ID de usuario";
+    public static final String USER_PHONE = "Ingrese el telefono del usuario";
+    public static final String USER_PASSWORD = "Por favor ingrese su contraseña";
 
-    private Scanner scanner;
 
     public View() {
         scanner = new Scanner(System.in);
@@ -47,7 +60,8 @@ public class View {
      */
     public String nickName(){
         System.out.println(LINE);
-        System.out.println("Por favor ingrese el nombre del usuario: ");
+        System.out.println(REQUEST_NAME);
+        System.out.println(LINE);
         return scanner.nextLine();
     }
 
@@ -55,9 +69,9 @@ public class View {
      * Permite enviar la contraseña respectiva
      * @return
      */
-    public String passaword(){
+    public String password(){
         System.out.println(LINE);
-        System.out.println("Por favor ingrese su contraseña: ");
+        System.out.println(REQUEST_PASSWORD);
         System.out.println(LINE);
         return scanner.nextLine();
     }
@@ -67,8 +81,8 @@ public class View {
      * @return
      */
     public int adminOption(){
-        System.out.println("----------------------Menu del Administrador-------------------------");
-        System.out.println("1.)Agregar menus");
+        System.out.println(LINE + TITTLE_ADMIN + LINE);
+        System.out.println("1).Agregar menus de comida\n2).Agregar un nuevo usuario\nMostrar lista de usuarior");//mirar con el controller
         System.out.println("2.)Agregar un nuevo usuario");
         System.out.println("3.)Mostrar la lista de usuarios");
         return Integer.parseInt(scanner.nextLine());
@@ -81,8 +95,16 @@ public class View {
      * @return
      */
     public String menuName(){
+        System.out.println(NAME_MENU);
+        return scanner.nextLine();
+    }
 
-        System.out.println("Por favor ingrese el tipo de menu que desea agregar: ");
+    /**
+     * Metodo que nso permite recibiel el tipo de menu que desea eliminar
+     * @return un scanner para recibir el valor
+     */
+    public String deleteMenu(){
+        System.out.println(REMOVE_MENU);
         return scanner.nextLine();
     }
 
@@ -91,7 +113,7 @@ public class View {
      * @return
      */
     public String menuContains(){
-        System.out.println("Por agregue los elementos del menu (separados por comas): ");
+        System.out.println(CONTAINS_MENU);
         return scanner.nextLine();
     }
 
@@ -100,7 +122,7 @@ public class View {
      * @return
      */
     public double menuPrice(){
-        System.out.println("Agregue el valor del menu: ");
+        System.out.println(PRICE_MENU);
         return Double.parseDouble(scanner.nextLine());
     }
     /////////////////////////////////////////////////////USER//////////////////////////////////////////////////////////////
@@ -110,8 +132,8 @@ public class View {
      * @return la opcion elejida por el usuario
      */
     public int userMenu(){
-        System.out.println("Opciones de usuario");
-        System.out.println("1.) Ingresar \n2.) Iniciar secion\n 3.) regresar");
+        System.out.println(LINE + TITTLE_USER + LINE);
+        System.out.println(OPTIONS_USER);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -120,7 +142,7 @@ public class View {
      * @return el id del usuario
      */
     public long getId(){
-        System.out.println("Ingrese el ID de usuario");
+        System.out.println(USER_ID);
         return Long.parseLong(scanner.nextLine());
     }
 
@@ -129,12 +151,12 @@ public class View {
      * @return
      */
     public long getphone(){
-        System.out.println("Ingrese el telefono del usuario");
+        System.out.println(USER_PHONE);
         return Long.parseLong(scanner.nextLine());
     }
 
     public String getPassaword(){
-        System.out.println("Por favor ingrese su contraseña");
+        System.out.println(USER_PASSWORD);
         return scanner.nextLine();
     }
 

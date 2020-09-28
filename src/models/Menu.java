@@ -31,7 +31,7 @@ public class Menu {
     }
 
     /**
-     * Metodo que nos permite darle formalo a los menus
+     * Metodo que nos permite darle formato a los menus
      * @return un formato para mostrar el menu
      */
     public String formatMenus() {
