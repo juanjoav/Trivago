@@ -23,7 +23,7 @@ public class View {
     public static final String MESSAGE_FORMAR_EX = "PARAMETROS INVALIDOS";
     public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
     public static final String LINE = "-------------------------------------------";
-    public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1). Administrador\n2).Usuarios ";
+    public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1.)Administrador\n2.)Usuarios ";
     public static final String REQUEST_NAME = "Por favor ingrese el nombre del usuario: ";
     public static final String REQUEST_PASSWORD = "Por favor ingrese una contraseña: ";
     public static final String TITTLE_ADMIN = "MENU DEL ADMINISTRADOR";
@@ -32,10 +32,13 @@ public class View {
     public static final String REMOVE_MENU = "Por favor ingrese el nombre del menu que desea eliminar:";
     public static final String CONTAINS_MENU = "Por favor en una sola linea agregue los elementos que va a tener el menu del dia: ";
     public static final String PRICE_MENU = "Agregue el precio que tendra el menu: ";
-    public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n 3.) Regresar";
+    public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n3.) Regresar";
     public static final String USER_ID = "Ingrese el ID de usuario";
     public static final String USER_PHONE = "Ingrese el telefono del usuario";
     public static final String USER_PASSWORD = "Por favor ingrese su contraseña";
+    public static final String SEARCH_MESSAGE = "Busqueda por ID de usuarios";
+    public static final String ERROR_VALUES = "ADVERTENCIA! A ingresado un valor invalido";
+
 
 
     public View() {
@@ -46,7 +49,7 @@ public class View {
      * Menu de opciones para elegir usuarios
      * @return
      */
-    public int selectionMenu(){
+    public int selectionMenu() {
         System.out.println(WELCOME_ASCCI);
         System.out.println(LINE);
         System.out.println(SELECTION_MENU);
@@ -86,7 +89,7 @@ public class View {
 //        System.out.println("1).Agregar menus de comida\n2).Agregar un nuevo usuario\n3.)Mostrar lista de usuarior");//mirar con el controller
 //        System.out.println("2.)Agregar un nuevo usuario");
 //        System.out.println("3.)Mostrar la lista de usuarios");
-        System.out.println("1.) Administrar menus\n 2.) Administrar usuarios \n 3.) Administrar habitaciones");
+        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cerrar secion");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -100,7 +103,7 @@ public class View {
     }
 
     public int adminUserMenu(){
-        System.out.println("1.) Agregar un usuario\n 2.) Ver lista de usuarios\n 3.) Buscar un usuario\n4.) Para volver");
+        System.out.println("1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver");
         return Integer.parseInt(scanner.nextLine());
     }
 

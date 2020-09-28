@@ -25,14 +25,20 @@ public class Controller {
     /**
      * relacion de la interfaz de seleccion de usuario
      */
-    public void menuInitalOptions(){
-        switch (view.selectionMenu()){
-            case View.MENU_OPTION_ONE:
-                verifyAdmin();
-                break;
-            case View.MENU_OPTION_TWO:
-                menuUser();
-                break;
+    public void menuInitalOptions() /*throws NumberFormatException*/{
+        try {
+            switch (view.selectionMenu()){
+                case View.MENU_OPTION_ONE:
+                    verifyAdmin();
+                    break;
+                case View.MENU_OPTION_TWO:
+                    menuUser();
+                    break;
+            }
+        }
+        catch (NumberFormatException ex){
+            view.viewMessages(View.ERROR_VALUES);
+            menuInitalOptions();
         }
     }
 
@@ -41,17 +47,26 @@ public class Controller {
      * relaciona todas las opciones que tiene el admin
      */
     public void menuAdmin(){
-        switch (view.adminOption()){
-            case View.MENU_OPTION_ONE:
-                adminMenu();
-                break;
-            case View.MENU_OPTION_TWO:
-                adminUser();
-                break;
-            case View.MENU_OPTION_TRHEE:
-                //viewUsers();
-                break;
+        try {
+            switch (view.adminOption()){
+                case View.MENU_OPTION_ONE:
+                    adminMenu();
+                    break;
+                case View.MENU_OPTION_TWO:
+                    adminUser();
+                    break;
+                case View.MENU_OPTION_TRHEE:
+                    //viewUsers();
+                    break;
+                    case View.MENU_OPTION_FOUR:
+                        menuInitalOptions();
+                        break;
+            }
+        } catch (NumberFormatException ex){
+            view.viewMessages(View.ERROR_VALUES);
+            menuAdmin();
         }
+
     }
 
     /**
@@ -88,7 +103,7 @@ public class Controller {
                 viewUsers();
                 break;
             case View.MENU_OPTION_TRHEE:
-
+                searchUser();
                 break;
             case View.MENU_OPTION_FOUR:
                 menuAdmin();
@@ -124,7 +139,7 @@ public class Controller {
         if (reference){
             menuAdmin();
         } else {
-            verifyAdmin();
+            menuInitalOptions();
         }
     }
 
@@ -150,17 +165,29 @@ public class Controller {
         adminMenu();
     }
 
+    /**
+     * METODO QUE QUE MODIFICA
+     */
     public void modifyMenu(){
         admin.removeMenu(view.deleteMenu());
         addMenu();
     }
 
     /**
-     * PERMITE MOSTRAR UNA LISTA DE USUARIOS
+     * METODO QUE PERMITE MOSTRAR UNA LISTA DE USUARIOS
      */
     public void viewUsers(){
         String [] userList = admin.showUser();
         view.viewList(userList);
+        adminUser();
+    }
+
+    /**
+     * METODO PARA BUSCAR UN USUARIO
+     */
+    public void searchUser() /*throws InterruptedException*/ {
+        view.viewMessages(View.SEARCH_MESSAGE);
+        view.viewMessages(admin.searchUser(view.getId()));
         adminUser();
     }
     ////////////////////////////////////////////////USER////////////////////////////////////////
@@ -191,8 +218,6 @@ public class Controller {
         }
         adminUser();
     }
-
-
 
     ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////
 
