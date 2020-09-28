@@ -64,12 +64,13 @@ public class TestReservatiom {
     public void principal(){
         System.out.print("Digite la habitacion a reservar: ");
         int numbRoom = Integer.parseInt(scanner.nextLine());
-        System.out.println("Digite la fecha de inicio a registrar con - :");
-        String[] dateFirst = scanner.nextLine().split("-");
-        System.out.println("Digite la fecha de final a registrar con - :");
-        String[] dateFinish = scanner.nextLine().split("-");
-        LocalDate localDateInitional = LocalDate.of(Integer.parseInt(dateFirst[2]), Month.of(Integer.parseInt(dateFirst[1])),Integer.parseInt(dateFirst[0]));
-        LocalDate localDateFinish = LocalDate.of(Integer.parseInt(dateFinish[2]), Month.of(Integer.parseInt(dateFinish[1])),Integer.parseInt(dateFinish[0]));
+        System.out.println("Digite la fecha de inicio a registrar (YYYY-MM-DD) :");
+        String dateFirst = scanner.nextLine();
+        System.out.println("Digite la fecha de final a registrar (YYYY-MM-DD):");
+        String dateFinish = scanner.nextLine();
+        //LocalDate localDateInitional = LocalDate.of(Integer.parseInt(dateFirst[2]), Month.of(Integer.parseInt(dateFirst[1])),Integer.parseInt(dateFirst[0]));
+        LocalDate localDateInitional = LocalDate.parse(dateFirst);
+        LocalDate localDateFinish = LocalDate.parse(dateFinish);
         boolean large = reservation.makeBooking(new Event(localDateInitional,localDateFinish,
                 new User("Harrison",1l,2l,"123"),hotel.getRoom(numbRoom)));
         System.out.println("El proceso fue : "+(large?"Exitoso":"Fallido"));
