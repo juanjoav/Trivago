@@ -10,15 +10,16 @@ public class Room {
     private int number = 0;
     private Quality quality;
     private boolean ocupation;
-    private double price;
 
     public Room(Quality quality) {
         this.number = 0;
         this.quality = quality;
         this.ocupation =  false;
-        this.price = new Pay().getSeasonRoomPay(new Room(quality));
     }
 
+    public Room(){
+
+    }
     /**
      *Obtenemos el numero
      * @return
@@ -67,12 +68,6 @@ public class Room {
         this.ocupation = ocupation;
     }
 
-    public double getPrice() {
-        return price;
-    }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
  

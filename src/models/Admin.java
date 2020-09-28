@@ -216,7 +216,15 @@ public class Admin {
         }
         return aux;
     }
-
+    public Room[] getAnyRoom(int[] numbers){
+        Room[] rooms = new Room[numbers.length];
+        int counter = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            rooms[counter] = hotel.getRoom(numbers[i]);
+            counter++;
+        }
+        return  rooms;
+    }
     /**
      * Metodo para mostrar la informacion de una habitacion en la posicion
      * @param index numero de la habitacion
