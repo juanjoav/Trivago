@@ -17,8 +17,8 @@ import java.util.stream.Stream;
 
 public class Admin {
 
-    private static final String ADMIN_NICKNAME = "ADMIN";
-    private static final String ADMIN_PASSAWORD = "1234";
+    private String adminNickName = "ADMIN";
+    private String adminPassword = "1234";
 
 //    private String userName;
 //    private String passaword;
@@ -36,8 +36,24 @@ public class Admin {
 
     }
 
+    /**
+     * Metodo para modificar la contraseña del administrador
+     * @param adminPassword recibe la nueva contraseña del administrador
+     */
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
+
+    /**
+     * Metodo para modificar el nombre del administrador
+     * @param adminNickName
+     */
+    public void setAdminNickName(String adminNickName) {
+        this.adminNickName = adminNickName;
+    }
+
     public boolean verifiqueIndenty(String name, String passaword){
-        return name.equals(ADMIN_NICKNAME) && passaword.equals(ADMIN_PASSAWORD);
+        return name.equals(adminNickName) && passaword.equals(adminPassword);
     }
 
     /**
