@@ -56,11 +56,17 @@ public class Controller {
                     adminUser();
                     break;
                 case View.MENU_OPTION_TRHEE:
-                    //viewUsers();
+                    viewUsers();
                     break;
                     case View.MENU_OPTION_FOUR:
-                        menuInitalOptions();
+                        modifyAdminName();
                         break;
+                        case View.MENU_OPTION_FIVE:
+                            modifyAdminPassword();
+                            break;
+                            case View.MENU_OPTION_SIX:
+                                menuInitalOptions();
+                                break;
             }
         } catch (NumberFormatException ex){
             view.viewMessages(View.ERROR_VALUES);
@@ -129,6 +135,25 @@ public class Controller {
 
 
 //////////////////////////////////////////////RELACIONES ADMIN ///////////////////////////////////////////////////////////
+
+    /**
+     * MODIFICA EL USERNAME DEL ADMIN
+     */
+    public void modifyAdminName(){
+        admin.setAdminNickName(view.nickName());
+        view.viewMessages(View.CHANGES_MESSAGE);
+        menuAdmin();
+    }
+
+    /**
+     * MODIFICA LA CONTRASEÑA DEL ADMIN
+     */
+    public void modifyAdminPassword(){
+        admin.setAdminPassword(view.password());
+        view.viewMessages(View.CHANGES_MESSAGE);
+        menuAdmin();
+    }
+
     /**
      * VERIFICA SI EL ADMIN ES EL CORRECTO
      */

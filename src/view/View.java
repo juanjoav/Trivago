@@ -38,6 +38,7 @@ public class View {
     public static final String USER_PASSWORD = "Por favor ingrese su contraseña";
     public static final String SEARCH_MESSAGE = "Busqueda por ID de usuarios";
     public static final String ERROR_VALUES = "ADVERTENCIA! A ingresado un valor invalido";
+    public static final String CHANGES_MESSAGE = "Cambios realizados con exitos";
 
 
 
@@ -86,10 +87,7 @@ public class View {
      */
     public int adminOption(){
         System.out.println(LINE + TITTLE_ADMIN + LINE);
-//        System.out.println("1).Agregar menus de comida\n2).Agregar un nuevo usuario\n3.)Mostrar lista de usuarior");//mirar con el controller
-//        System.out.println("2.)Agregar un nuevo usuario");
-//        System.out.println("3.)Mostrar la lista de usuarios");
-        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cerrar secion");
+        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.)Cambiar nombre de admin\n5.)Cambiar contraseña\n6.)Cerrar secion");
         return Integer.parseInt(scanner.nextLine());
     }
 
