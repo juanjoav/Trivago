@@ -59,8 +59,8 @@ public class View {
     }
 
     /**
-     * Permite enviar el nickName de usuario y/o admin
-     * @return
+     * Metodo que permite enviar el nickName de usuario y/o admin
+     * @return el nombre del usuario
      */
     public String nickName(){
         System.out.println(LINE);
@@ -70,8 +70,8 @@ public class View {
     }
 
     /**
-     * Permite enviar la contraseña respectiva
-     * @return
+     * Metodo que permite enviar la contraseña respectiva
+     * @return la contraseña respectiva
      */
     public String password(){
         System.out.println(LINE);
@@ -82,29 +82,37 @@ public class View {
 ///////////////////////////ADMINS//////////////////////////////////////////
 
     /**
-     * permite enviar la seleccion de opciones del admin
-     * @return
+     * Metodo que permite enviar la seleccion de opciones del admin
+     * @return un entero con la opvion del usuario
      */
     public int adminOption(){
         System.out.println(LINE + TITTLE_ADMIN + LINE);
-        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.)Cambiar nombre de admin\n5.)Cambiar contraseña\n6.)Cerrar secion");
+        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Cerrar secion");
         return Integer.parseInt(scanner.nextLine());
     }
 
     /**
      * Metodo que permite el ingreso de una de las opciones que dispone el usuario sobre la clase menu
-     * @return
+     * @return un entero con la opcion elejida
      */
     public int adminMenuOption(){
-        System.out.println("1.) Agregar menu\n2.)Retirar un menu\n3.)Modificar un menu\n4.)Mostrar menus\n5.) Para volver");
+        System.out.println("1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver");
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Metodo para elejir una opcion del manejo de usuarios por el administrador
+     * @return un entero con la opcion elejida
+     */
     public int adminUserMenu(){
         System.out.println("1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver");
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Metodo para elejir una opcion sobre le manejo de las habitaciones
+     * @return un entero con las opciones elejidas
+     */
     public int adminUserRoom(){
 
         return Integer.parseInt(scanner.nextLine());
@@ -112,8 +120,8 @@ public class View {
     /////////////////////////////MENUS/////////////////////////////////////////////////
 
     /**
-     * permite enviar el nombre del menu que desea agregar
-     * @return
+     * Metodo que permite enviar el nombre
+     * @return el nombre 
      */
     public String menuName(){
         System.out.println(NAME_MENU);

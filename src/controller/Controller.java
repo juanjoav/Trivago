@@ -22,8 +22,9 @@ public class Controller {
         menuInitalOptions();
     }
 //////////////////////////////////REALCIONES DE MENU////////////////////////////////////////////////////////
+
     /**
-     * relacion de la interfaz de seleccion de usuario
+     * METODO QUE GENERA LAS OPCIONES DEL MENU INICIAL PARA EL USUARIO Y ADMINISTRADOR
      */
     public void menuInitalOptions() /*throws NumberFormatException*/{
         try {
@@ -44,7 +45,7 @@ public class Controller {
 
     ////////////////////////////////////////////////MENU DEL ADMIN Y SUBS MENUS//////////////////////////////////////////////
     /**
-     * relaciona todas las opciones que tiene el admin
+     * METODO QUE RELACIONA TODAS LAS OPCIONES QUE TIENE EL ADMIN
      */
     public void menuAdmin(){
         try {
@@ -76,7 +77,7 @@ public class Controller {
     }
 
     /**
-     * RELACIONA TODAS LAS OPCIONES QUE DISPONE EL ADMIN PARA EL MENU
+     * METODO QUE RELACIONA TODAS LAS OPCIONES QUE DISPONE EL ADMIN PARA EL MENU
      */
     public void adminMenu(){
         switch (view.adminMenuOption()){
@@ -100,6 +101,9 @@ public class Controller {
         }
     }
 
+    /**
+     * METODO QUE RELACIONA TODAS LAS OPCIONES QUE DISPONE EL ADMIN CON RESPECTO A LOS USUARIOS
+     */
     public void adminUser(){
         switch (view.adminUserMenu()){
             case View.MENU_OPTION_ONE:
@@ -121,7 +125,7 @@ public class Controller {
 
     ///////////////////////////////////////////////INTERFAZ DE USUARIOS Y SUBS MENUS////////////////////////////////////////
     /**
-     * MENU DE USUARIOS
+     * METODO QUE PERMITE LAS FUNCIONES BASICAS DEL USUARIO
      */
     public void menuUser(){
         switch (view.userMenu()) {
@@ -132,7 +136,6 @@ public class Controller {
                 break;
         }
     }
-
 
 //////////////////////////////////////////////RELACIONES ADMIN ///////////////////////////////////////////////////////////
 
@@ -208,7 +211,7 @@ public class Controller {
     }
 
     /**
-     * METODO PARA BUSCAR UN USUARIO
+     * METODO QUE PERMITE BUSCAR UN USUARIO
      */
     public void searchUser() /*throws InterruptedException*/ {
         view.viewMessages(View.SEARCH_MESSAGE);
@@ -218,7 +221,7 @@ public class Controller {
     ////////////////////////////////////////////////USER////////////////////////////////////////
 
     /**
-     * PERMITE QUE EL USUARIO SE REGISTRE A SI MISMO
+     * METODO QUE PERMITE QUE EL USUARIO SE REGISTRE A SI MISMO
      */
     public void addUserRegister(){
         try {
@@ -231,7 +234,7 @@ public class Controller {
     }
 
     /**
-     * PERMITE AL ADMIN AGREGAR USUARIOS
+     * METODO QUE PERMITE AL ADMIN AGREGAR USUARIOS
      */
     public void addUserAdmin(){
         //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
@@ -246,6 +249,9 @@ public class Controller {
 
     ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////
 
+    /**
+     * METODO QUE PERMITE MOSTRAR LOS CONTENIDOS DE LOS MENUS
+     */
     public void viewMenus(){
         view.viewList(hotel.viewMenus());
         adminMenu();

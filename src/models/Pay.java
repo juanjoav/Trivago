@@ -75,6 +75,34 @@ public class Pay {
             return DISCOUNT_CASH;
         }
     }
+    public double getTotalFinal(Room[] rooms){
+        return getTotalRoom(rooms) + (getTotalRoom(rooms)*getdiscountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
+    }
+    /**
+     *
+     * @param rooms
+     * @return
+     */
+    public double getTotalRoom(Room[] rooms){
+        double total = 0;
+        for (int i = 0; i < rooms.length; i++) {
+            total += getSeasonRoomPay(rooms[i]);
+        }
+        return total;
+    }
+
+    /**
+     *
+     * @param reservation
+     * @param index
+     * @return
+     */
+    public double getTotalDays(Reservation reservation, int index){
+        double buy = getSeasonRoomPay(reservation.getReservation(index).getRoom());
+        int diferent = reservation.getReservation(index).getTimeFinish().getDayOfYear() - reservation.getReservation(index).getTimeInitial().getDayOfYear();
+
+        return buy * diferent;
+    }
     public static double getAllInclude() {
         return ALLINCLUDE;
     }
