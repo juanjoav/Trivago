@@ -15,6 +15,7 @@ public class Hotel {
     public LinkedList<Menu> menus;
     public TreeSet<User> userTreeSet;
     private List<Room> rooms;
+    private Pay pay;
 
     public User user;
     public Admin admin;
@@ -27,6 +28,7 @@ public class Hotel {
         userTreeSet = new TreeSet<>();
         rooms = new ArrayList<Room>();
         user = new User();
+        pay = new Pay();
     }
 
     /**
