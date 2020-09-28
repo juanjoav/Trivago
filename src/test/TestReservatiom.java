@@ -58,7 +58,7 @@ public class TestReservatiom {
             rooms = hotel.getAnyRoom(Quality.ECONOMIC);
         }
         for (int i = 0; i < rooms.length; i++) {
-            System.out.println(rooms[i].getNumber()+" "+rooms[i].getQuality()+" "+(rooms[i].isOcupation()?"Ocuapdo" : "No ocupado"));
+            System.out.println();
         }
     }
     public void principal(){
@@ -72,7 +72,7 @@ public class TestReservatiom {
         LocalDate localDateInitional = LocalDate.parse(dateFirst);
         LocalDate localDateFinish = LocalDate.parse(dateFinish);
         boolean large = reservation.makeBooking(new Event(localDateInitional,localDateFinish,
-                new User("Harrison",1l,2l,"123"),hotel.getRoom(numbRoom)));
+                new User(" ",1l,2l,"123"),hotel.getRoom(numbRoom)));
         System.out.println("El proceso fue : "+(large?"Exitoso":"Fallido"));
     }
     public void run(){

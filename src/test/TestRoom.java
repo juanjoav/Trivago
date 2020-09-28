@@ -6,10 +6,7 @@
 
 package test;
 
-import models.Admin;
-import models.Hotel;
-import models.Quality;
-import models.Room;
+import models.*;
 
 import java.util.Scanner;
 
@@ -55,8 +52,8 @@ public class TestRoom {
         }else if(quality.equalsIgnoreCase("Ecomonico")||quality.equalsIgnoreCase("Economica")){
             rooms = setRoom.getAnyRoom(Quality.ECONOMIC);
         }
-        for (int i = 0; i < rooms.length; i++) {
-            System.out.println(rooms[i].getNumber()+" "+rooms[i].getQuality()+" "+(rooms[i].isOcupation()?"Ocuapdo" : "No ocupado"));
+        for (int i = 0; i < setRoom.getTotalRooms(); i++) {
+            System.out.println(setRoom.toStringRoom(i));
         }
         System.out.print("Cuantas habitaciones quiere ocupar: ");
         int rounds = Integer.parseInt(scanner.nextLine());
@@ -64,7 +61,8 @@ public class TestRoom {
         for (int i = 0; i < rounds; i++) {
             System.out.print("Digite El numero de la habitacion: ");
             roomming = Integer.parseInt(scanner.nextLine());
-            setRoom.getRoom(roomming).setOcupation(true);
+            new Event().assingRoom(setRoom.getRoom(roomming));
+            System.out.println(setRoom.getRoom(roomming).isOcupation()?"Exitoso":"Error");
         }
     }
     public void showCount(){

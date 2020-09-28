@@ -28,6 +28,10 @@ public class Event {
         this.user = event.getUser();
         this.room = event.getRoom();
     }
+
+    public Event(){
+
+    }
     /**
      * Para asignar la entrada a la habitaciones
      * @param room para mirar cada habitacion

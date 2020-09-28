@@ -216,4 +216,13 @@ public class Admin {
         }
         return aux;
     }
+
+    /**
+     * Metodo para mostrar la informacion de una habitacion en la posicion
+     * @param index numero de la habitacion
+     * @return mensaje completo
+     */
+    public String toStringRoom(int index){
+        return "N°: "+hotel.getRoom(index).getNumber()+" Calidad: "+hotel.getRoom(index).getQuality()+"  Estado: "+(hotel.getRoom(index).isOcupation()?"Ocupado":"No ocuapdo");
+    }
 }

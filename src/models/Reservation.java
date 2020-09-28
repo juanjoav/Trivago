@@ -41,5 +41,9 @@ public class Reservation{
      */
     public void removeBooking(Event event){
       reservation.remove(event);
-      }
+    }
+
+    public Event getReservation(int index){
+        return reservation.get(index);
+    }
 }

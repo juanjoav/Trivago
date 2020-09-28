@@ -114,7 +114,14 @@ public class Hotel {
        return rooms.size();
     }
 
-
+    /**
+     * Metodo para mostrar la informacion de una habitacion en la posicion
+     * @param index numero de la habitacion
+     * @return mensaje completo
+     */
+    public String toStringRoom(int index){
+        return "N°: "+rooms.get(index).getNumber()+" Calidad: "+rooms.get(index).getQuality()+"  Estado: "+(rooms.get(index).isOcupation()?"Ocupado":"No ocuapdo");
+    }
 }
 
 
