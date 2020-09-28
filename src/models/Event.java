@@ -22,6 +22,28 @@ public class Event {
         this.room = room;
     }
 
+    public Event(Event event){
+        this.timeInitial = event.getTimeInitial();
+        this.timeFinish = event.getTimeFinish();
+        this.user = event.getUser();
+        this.room = event.getRoom();
+    }
+    /**
+     * Para asignar la entrada a la habitaciones
+     * @param room para mirar cada habitacion
+     */
+   public void assingRoom(Room room){
+      room.setOcupation(true);
+   }
+
+    /**
+     * Metodo para asignar laas habitaciones
+     * @param room para mirar cada habitacion
+     */
+    public void outRooms(Room room){
+        room.setOcupation(false);
+    }
+
     public LocalDate getTimeInitial() {
         return timeInitial;
     }
@@ -53,8 +75,4 @@ public class Event {
     public void setRoom(Room room) {
         this.room = room;
     }
-
-//    public Event getEvent(Hotel hotel,long id){
-//        return new Event(getTimeInitial(),getTimeFinish(), hotel.searchUser(id),getRoom());
-//    }
 }

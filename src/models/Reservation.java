@@ -22,24 +22,24 @@ public class Reservation{
      * @param event
      * @return
      */
-//    public boolean makeBooking(Event event){
-//        reservation.add(event);
-//        int index = reservation.indexOf(event);
-//       if(LocalDate.now().isAfter(event.getTimeInitial())){
-//         new CheckIn(reservation.get(index)).assingRoom(reservation.get(index).getRoom());
-//       }else if(LocalDate.now().isBefore(event.getTimeFinish())){
-//           new CheckOut(reservation.get(index)).outRooms(reservation.get(index).getRoom());
-//       }else{
-//           return false;
-//       }
-//        return true;
-//    }
+    public boolean makeBooking(Event event){
+        reservation.add(event);
+        int index = reservation.indexOf(event);
+       if(LocalDate.now().isAfter(event.getTimeInitial())){
+         new Event(reservation.get(index)).assingRoom(reservation.get(index).getRoom());
+       }else if(LocalDate.now().isBefore(event.getTimeFinish())){
+           new Event(reservation.get(index)).outRooms(reservation.get(index).getRoom());
+       }else{
+           return false;
+       }
+        return true;
+    }
 
     /**
      * Remueve el evento
      *
      */
-//    public void removeBooking(Hotel hotel, long id){
-//        reservation.remove(reservation.indexOf(hotel.searchUser(id)));
-//    }
+    public void removeBooking(Event event){
+      reservation.remove(event);
+      }
 }

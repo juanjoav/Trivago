@@ -9,6 +9,7 @@ package models;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * modelado segun diagrama Admin, sin niguna logica
@@ -96,7 +97,7 @@ public class Admin {
      * @return el numero total
      */
     public int getTotalRooms(){
-        return hotel.rooms.size();
+        return hotel.getSizeRooms();
     }
 
     /**
@@ -107,54 +108,60 @@ public class Admin {
      */
     public int getQualityCounter(Quality quality){
         int counter = 0;
-        for (int i = 0; i < hotel.rooms.size(); i++) {
-            if(hotel.rooms.get(i).getQuality() == quality){
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            if(hotel.getRoom(i).getQuality() == quality){
                 counter++;
             }
         }
         return counter;
     }
+
+    /**
+     * Metodo para contar cuantas habitaciones estan disponibles
+     * hay en una calidad en especifico
+     * @param quality
+     * @param ocupation
+     * @return
+     */
+    public int getAvariableQuality(Quality quality, boolean ocupation){
+        int counter = 0;
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            if(hotel.getRoom(i).getQuality() == quality && hotel.getRoom(i).isOcupation() == ocupation){
+                counter++;
+            }
+        }
+        return counter;
+    }
+
 
     /**
      * mirar el total de habitaciones no ocupadas del establecimiento
      * @return total de habitaciones disponibles
      */
-    public int getAvailable(){
+    public int getCounterOcupation(boolean ocupation){
         int counter = 0;
-        for (int i = 0; i < hotel.rooms.size(); i++) {
-            if(!hotel.rooms.get(i).isOcupation()){
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            if(hotel.getRoom(i).isOcupation() == ocupation){
                 counter++;
             }
         }
         return counter;
-    }
-
-    /**
-     * mirar el total de habitaciones  ocupadas del establecimiento
-     * @return total de habitaciones disponibles
-     */
-    public int getDisavailable(){
-        return hotel.rooms.size() - getAvailable();
-    }
-
-    /**
-     * Para meterle los numero automaticamente los numeros de cada habitacion
-     */
-    private void SetNumberRooms(){
-        int counter = 0;
-        for (int i = 0; i < hotel.rooms.size(); i++) {
-            counter++;
-            hotel.rooms.get(i).setNumber(counter);
-        }
     }
 
     /**
      * Metodo para aumentar el numero de habitaciones
      * @param room
      */
-    public void add(Room room){
-        hotel.rooms.add(room);
-        SetNumberRooms();
+    public void addRoom(Room room){
+        hotel.addRoom(room);
+    }
+
+    /**
+     * Metodo para aumentar el numero de habitaciones
+     * @param quality
+     */
+    public void addRoom(Quality quality){
+        hotel.addRoom(quality);
     }
 
     /**
@@ -162,7 +169,51 @@ public class Admin {
      * @param numb
      */
     public void outOfService(int numb){
-        hotel.rooms.get(numb).setOcupation(true);
+        hotel.getRoom(numb).setOcupation(true);
     }
 
+    /**
+     *Para obtener cualquier habitacion del arreglo
+     * @param index el numero de la habitacion
+     * @return
+     */
+    public Room getRoom(int index){
+        return hotel.getRoom(index);
+    }
+
+    /**
+     * Metodo para obtener las habitaciones
+     * apartir de la calidad de las mismas
+     * @param quality
+     * @return
+     */
+    public Room[] getAnyRoom(Quality quality){
+        Room[] aux = new Room[getQualityCounter(quality)];
+        int counter = 0;
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            if(hotel.getRoom(i).getQuality() == quality){
+                aux[counter] = hotel.getRoom(i);
+                counter++;
+            }
+        }
+        return aux;
+    }
+
+    /**
+     * Metodo para obtener las habitaciones
+     * apartir de la calidad de las mismas
+     * @param ocupation
+     * @return
+     */
+    public Room[] getAnyRoom(boolean ocupation){
+        Room[] aux = new Room[getCounterOcupation(ocupation)];
+        int counter = 0;
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            if(hotel.getRoom(i).isOcupation() == ocupation){
+                aux[counter] = hotel.getRoom(i);
+                counter++;
+            }
+        }
+        return aux;
+    }
 }

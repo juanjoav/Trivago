@@ -14,7 +14,7 @@ public class Hotel {
 
     public LinkedList<Menu> menus;
     public TreeSet<User> userTreeSet;
-    public List<Room> rooms;
+    private List<Room> rooms;
 
     public User user;
     public Admin admin;
@@ -23,10 +23,6 @@ public class Hotel {
         menus = new LinkedList();
         userTreeSet = new TreeSet<>();
         rooms = new ArrayList<Room>();
-        for (int i = 0; i < 100; i++) {
-            rooms.add(new Room(Quality.REGULAR));
-        }
-        //admin = new Admin();
         user = new User();
     }
 
@@ -70,15 +66,51 @@ public class Hotel {
         return aux;
     }
 
+    /**
+     * Coloca el numero de las habitaciones
+     */
+    private void SetNumberRooms(){
+        int counter = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            rooms.get(i).setNumber(i);
+            counter++;
+        }
+    }
 
     /**
-     * Recupera el room para hacer modificaciones
-     * @param iterator numero de cual habitacion
+     * Metodo para aumentar el numero de habitaciones
+     * @param room
+     */
+    public void addRoom(Room room){
+        rooms.add(room);
+        SetNumberRooms();
+    }
+
+    /**
+     * Metodo para aumentar el numero de habitaciones
+     * @param quality
+     */
+    public void addRoom(Quality quality){
+        rooms.add(new Room(quality));
+        SetNumberRooms();
+    }
+
+    /**
+     * Metodo para obtener una habitacion en total
+     * @param index
      * @return
      */
-    public Room getRoom(int iterator){
-        return rooms.get(iterator);
+    public Room getRoom( int index){
+        return rooms.get(index);
     }
+    /**
+     * Metodo para obtener el total de habotaciones
+     * @return
+     */
+    public int getSizeRooms(){
+       return rooms.size();
+    }
+
 
 }
 

@@ -7,12 +7,12 @@
 package models;
 
 public class Room {
-    private int number;
+    private int number = 0;
     private Quality quality;
     private boolean ocupation;
 
-    public Room( Quality quality) {
-        this.number ++;
+    public Room(Quality quality) {
+        this.number = 0;
         this.quality = quality;
         this.ocupation =  false;
     }
