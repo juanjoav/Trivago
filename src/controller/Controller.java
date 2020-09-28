@@ -36,23 +36,72 @@ public class Controller {
         }
     }
 
+    ////////////////////////////////////////////////MENU DEL ADMIN Y SUBS MENUS//////////////////////////////////////////////
     /**
      * relaciona todas las opciones que tiene el admin
      */
     public void menuAdmin(){
         switch (view.adminOption()){
             case View.MENU_OPTION_ONE:
-                addMenu();
+                adminMenu();
                 break;
             case View.MENU_OPTION_TWO:
-                    addUserAdmin();
-                    break;
-                    case View.MENU_OPTION_TRHEE:
-                        viewUsers();
-                        break;
+                adminUser();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                //viewUsers();
+                break;
         }
     }
 
+    /**
+     * RELACIONA TODAS LAS OPCIONES QUE DISPONE EL ADMIN PARA EL MENU
+     */
+    public void adminMenu(){
+        switch (view.adminMenuOption()){
+            case View.MENU_OPTION_ONE:
+                addMenu();
+                break;
+            case View.MENU_OPTION_TWO:
+                removeMenu();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                modifyMenu();
+                break;
+            case View.MENU_OPTION_FOUR:
+                viewMenus();
+                break;
+            case View.MENU_OPTION_FIVE:
+                menuAdmin();
+                break;
+            default:
+                adminMenu();
+        }
+    }
+
+    public void adminUser(){
+        switch (view.adminUserMenu()){
+            case View.MENU_OPTION_ONE:
+                addUserAdmin();
+                break;
+            case View.MENU_OPTION_TWO:
+                viewUsers();
+                break;
+            case View.MENU_OPTION_TRHEE:
+
+                break;
+            case View.MENU_OPTION_FOUR:
+                menuAdmin();
+                break;
+            default:
+                adminUser();
+        }
+    }
+
+    ///////////////////////////////////////////////INTERFAZ DE USUARIOS Y SUBS MENUS////////////////////////////////////////
+    /**
+     * MENU DE USUARIOS
+     */
     public void menuUser(){
         switch (view.userMenu()) {
             case View.MENU_OPTION_ONE:
@@ -64,7 +113,10 @@ public class Controller {
     }
 
 
-//////////////////////////////////////////////RELACIONES////////////////////////////////////////////////////////////
+//////////////////////////////////////////////RELACIONES ADMIN ///////////////////////////////////////////////////////////
+    /**
+     * VERIFICA SI EL ADMIN ES EL CORRECTO
+     */
     public void verifyAdmin(){
         boolean reference = admin.verifiqueIndenty(view.nickName(), view.password());
         String status = reference ? "Acceso concedido" :"Acceso denegado";
@@ -76,24 +128,46 @@ public class Controller {
         }
     }
 
+    /**
+     * METODO QUE AGREGA MENUS
+     */
     public void addMenu(){
         try {
             view.viewMessages(admin.addMenu(new Menu(view.menuName(), view.menuContains(), view.menuPrice())));
         }
         catch (NumberFormatException ex){
             view.viewMessages(View.MESSAGE_FORMAR_EX);
-            addMenu();
+            adminMenu();
         }
-        menuAdmin();
+        adminMenu();
     }
 
+    /**
+     * METODO QUE RETIRA LOS MENUS
+     */
     public void removeMenu(){
         admin.removeMenu(view.deleteMenu());
+        adminMenu();
     }
 
+    public void modifyMenu(){
+        admin.removeMenu(view.deleteMenu());
+        addMenu();
+    }
+
+    /**
+     * PERMITE MOSTRAR UNA LISTA DE USUARIOS
+     */
+    public void viewUsers(){
+        String [] userList = admin.showUser();
+        view.viewList(userList);
+        adminUser();
+    }
     ////////////////////////////////////////////////USER////////////////////////////////////////
 
-
+    /**
+     * PERMITE QUE EL USUARIO SE REGISTRE A SI MISMO
+     */
     public void addUserRegister(){
         try {
             hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password()));
@@ -104,22 +178,27 @@ public class Controller {
         menuUser();
     }
 
-
+    /**
+     * PERMITE AL ADMIN AGREGAR USUARIOS
+     */
     public void addUserAdmin(){
         //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
         try {
             hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password()));
         } catch (NumberFormatException | NullPointerException ex){
             view.viewMessages(View.MESSAGE_FORMAR_EX);
-            addUserAdmin();
+            adminUser();
         }
-        menuAdmin();
+        adminUser();
     }
 
-    public void viewUsers(){
-        String [] userList = admin.showUser();
-        view.viewList(userList);
-        menuAdmin();
+
+
+    ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////
+
+    public void viewMenus(){
+        view.viewList(hotel.viewMenus());
+        adminMenu();
     }
 
     public static void main(String[] args) {

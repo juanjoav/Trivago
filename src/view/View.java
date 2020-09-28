@@ -75,6 +75,7 @@ public class View {
         System.out.println(LINE);
         return scanner.nextLine();
     }
+///////////////////////////ADMINS//////////////////////////////////////////
 
     /**
      * permite enviar la seleccion de opciones del admin
@@ -82,12 +83,31 @@ public class View {
      */
     public int adminOption(){
         System.out.println(LINE + TITTLE_ADMIN + LINE);
-        System.out.println("1).Agregar menus de comida\n2).Agregar un nuevo usuario\nMostrar lista de usuarior");//mirar con el controller
-        System.out.println("2.)Agregar un nuevo usuario");
-        System.out.println("3.)Mostrar la lista de usuarios");
+//        System.out.println("1).Agregar menus de comida\n2).Agregar un nuevo usuario\n3.)Mostrar lista de usuarior");//mirar con el controller
+//        System.out.println("2.)Agregar un nuevo usuario");
+//        System.out.println("3.)Mostrar la lista de usuarios");
+        System.out.println("1.) Administrar menus\n 2.) Administrar usuarios \n 3.) Administrar habitaciones");
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Metodo que permite el ingreso de una de las opciones que dispone el usuario sobre la clase menu
+     * @return
+     */
+    public int adminMenuOption(){
+        System.out.println("1.) Agregar menu\n2.)Retirar un menu\n3.)Modificar un menu\n4.)Mostrar menus\n5.) Para volver");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public int adminUserMenu(){
+        System.out.println("1.) Agregar un usuario\n 2.) Ver lista de usuarios\n 3.) Buscar un usuario\n4.) Para volver");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public int adminUserRoom(){
+
+        return Integer.parseInt(scanner.nextLine());
+    }
     /////////////////////////////MENUS/////////////////////////////////////////////////
 
     /**
@@ -161,30 +181,34 @@ public class View {
     }
 
 /**
-//    public String getCashEvent(){
-//        System.out.println("Agregar la forma de pago");
-//        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
-//        return (scanner.nextLine());
-//    }
-//                                                                                  //revision pendiente para la eliminacion
-//    public String entryCondition(){
-//        System.out.println("Agregar la forma de registro");
-//        System.out.println("1.) WALKING \n 2.) BOOKING");
-//        return scanner.nextLine();
-//    }
-    */
+ //    public String getCashEvent(){
+ //        System.out.println("Agregar la forma de pago");
+ //        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
+ //        return (scanner.nextLine());
+ //    }
+ //                                                                                  //revision pendiente para la eliminacion
+ //    public String entryCondition(){
+ //        System.out.println("Agregar la forma de registro");
+ //        System.out.println("1.) WALKING \n 2.) BOOKING");
+ //        return scanner.nextLine();
+ //    }
+ */
 
 
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
     /**
-     * recibe Elementos para mostrar al admin y/o usuarios
-     * @param message
+     * Metodo que recibe Elementos para mostrar al admin y/o usuarios
+     * @param message el parametro que desea mostrar
      */
     public void viewMessages(String message){
         System.out.println( message);
     }
 
+    /**
+     * Metodod que recibe una lista de elementos para mostrar
+     * @param lists la lista que desea mostrar
+     */
     public void viewList(String [] lists){
         for (String string:lists) {
             System.out.println(string);
