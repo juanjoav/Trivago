@@ -17,29 +17,53 @@ public class Room {
         this.ocupation =  false;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     *
+     * @param number
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     *
+     * @return
+     */
     public Quality getQuality() {
         return quality;
     }
 
+    /**
+     *
+     * @param quality
+     */
     public void setQuality(Quality quality) {
         this.quality = quality;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isOcupation() {
         return ocupation;
     }
 
+    /**
+     * Mdifica la ocupacion
+     * @param ocupation boolean value
+     */
     public void setOcupation(boolean ocupation) {
         this.ocupation = ocupation;
     }
+
 }
  

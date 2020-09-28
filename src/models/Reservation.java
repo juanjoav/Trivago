@@ -43,6 +43,11 @@ public class Reservation{
       reservation.remove(event);
     }
 
+    /**
+     * Retorna una reservacion
+     * @param index numero de la reservacion
+     * @return objeto de tipo Evento
+     */
     public Event getReservation(int index){
         return reservation.get(index);
     }
