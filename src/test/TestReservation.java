@@ -78,7 +78,7 @@ public class TestReservation {
             rooms = hotel.getAnyRoom(Quality.ECONOMICA);
         }
         for (int i = 0; i < rooms.length; i++) {
-            System.out.println();
+            System.out.println(hotel.toStringRoom(rooms[i].getNumber()));
         }
     }
 
