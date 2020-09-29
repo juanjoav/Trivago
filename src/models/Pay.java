@@ -77,6 +77,12 @@ public class Pay {
             return DISCOUNT_CASH;
         }
     }
+
+    /**
+     * obtiene el valor total de cierto numero de habitaciones
+     * @param rooms
+     * @return double
+     */
     public double getTotalFinal(Room[] rooms){
         return getTotalRoom(rooms) + (getTotalRoom(rooms)*getdiscountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
     }
