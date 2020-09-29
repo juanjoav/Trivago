@@ -16,6 +16,7 @@ import java.util.Scanner;
  * @Date 12/09/2020
  */
 public class TestReservatiom {
+
     private Admin hotel;
     private Scanner scanner;
     private Reservation reservation;

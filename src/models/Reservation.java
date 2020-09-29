@@ -18,14 +18,17 @@ import java.util.List;
 public class Reservation{
     public List<Event> reservation;
 
+    /**
+     * Metodo constructor por defecto
+     */
     public Reservation() {
         reservation = new LinkedList<>();
     }
 
     /**
-     * Administra la reservacion
-     * @param event
-     * @return
+     * Metodo que administra la reservacion
+     * @param event un evento
+     * @return si se efectua una reservacion o no
      */
     public boolean makeBooking(Event event){
         reservation.add(event);
@@ -41,15 +44,14 @@ public class Reservation{
     }
 
     /**
-     * Remueve el evento
-     *
+     * Metodo que elimina una reservacion
      */
     public void removeBooking(Event event){
       reservation.remove(event);
     }
 
     /**
-     * Retorna una reservacion
+     * Metodo que retorna una reservacion
      * @param index numero de la reservacion
      * @return objeto de tipo Evento
      */

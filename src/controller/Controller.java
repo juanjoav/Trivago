@@ -27,6 +27,9 @@ public class Controller {
     private Reservation reservation;
     private Pay pay;
 
+    /**
+     * Metodo constructor por defecto
+     */
     public Controller() {
         hotel = new Hotel();
         admin = new Admin(hotel);
@@ -146,6 +149,10 @@ public class Controller {
     }
 
     ///////////////////////////////////ROOM CONTROL///////////////////////////////////////////
+
+    /**
+     * METODO QUE PERMITE LA RELACION ENTRE LAS OPCIONES DE LA HABITACION
+     */
     public void adminRoom(){
         switch (view.adminUserRoom()){
             case View.MENU_OPTION_ONE:
@@ -170,11 +177,12 @@ public class Controller {
     }
 
     /**
-     * Muestra todas las habitaciones
+     * Metodo que muestra todas las habitaciones
      */
     public void showAllRoom(){
         view.viewList(admin.showAllRooms());
     }
+
     /**
      * Metodo que permite ver los subMenus de opciones de cada habitacion
      */
@@ -234,7 +242,7 @@ public class Controller {
     }
 
     /**
-     * VERIFICA SI EL ADMIN ES EL CORRECTO
+     * METODO QUE VERIFICA SI EL ADMIN ES EL CORRECTO
      */
     public void verifyAdmin(){
         boolean reference = admin.verifiqueIndenty(view.nickName(), view.password());
@@ -296,7 +304,7 @@ public class Controller {
     }
 
     /**
-     *
+     *Metodo que poermite administracion de un pago
      */
     public void pay(){
         view.viewMessages(View.MESSAGE_ITERATIONS);
@@ -319,6 +327,9 @@ public class Controller {
         menuAdmin();
     }
 
+    /**
+     * Metodo que establece el tipo de pago
+     */
     public void paymentType(){
         pay.setPayEvent(PaymentType.valueOf(view.getPaymentType()));
     }
@@ -386,6 +397,7 @@ public class Controller {
         view.viewMessages(View.CHANGES_MESSAGE);
         adminRoom();
     }
+
     /**
      * Metodo que permite buscar una habitacion disponible o ocupada segun la calidad
      */
@@ -461,7 +473,7 @@ public class Controller {
     }
 
     /**
-     * metodo que permite cambiar una temporada
+     * Metodo que permite cambiar una temporada
      */
     public void changeSeason(){
         view.viewMessages(View.CHANGE_SEASON);
@@ -469,6 +481,7 @@ public class Controller {
         view.viewMessages(View.MESSAGE_CHANGE_SEASON);
         adminsEventsMenu();
     }
+
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
 
     /**
@@ -558,5 +571,5 @@ public class Controller {
     public static void main(String[] args) {
         new Controller();
     }
-}
 
+}

@@ -9,12 +9,13 @@ package models;
 
 
 import java.util.*;
+
 /**
- * Esta clase hace la admnistacion e implementacion de todo lo que puede tener
- * un hotel y lo que dependa de el
+ * Esta clase hace la admnistacion e implementacion de todo lo que puede tener un hotel y lo que dependa de el
  * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
  * @Date 12/09/2020
  */
+
 public class Hotel {
 
     public LinkedList<Menu> menus;
@@ -43,15 +44,10 @@ public class Hotel {
      * @param user usuario a ser creado
      */
     public String addUser(User user){
-       // try{
         String message = "";
         if (!userTreeSet.add(user)){
             message = "Usuario ya registrado";
         }
-//        }
-//        catch (NullPointerException exception){
-//            System.out.println("dato invalido");
-//        }
         return message;
     }
 
@@ -71,7 +67,7 @@ public class Hotel {
     }
 
     /**
-     * muestra el usuario consultado por ID
+     * Metodo que  muestra el usuario consultado por ID
      * @param id para su busqueda en la lista de usuarios
      * @return el objeto de usuario encontrado
      */
@@ -88,7 +84,7 @@ public class Hotel {
 
     /**
      * Metodo que retorna todos los menus disponibles
-     * @return
+     * @return los menus disponibles en el momento
      */
     public String[] viewMenus(){
         String[] aux = new String[menus.size()];
@@ -99,7 +95,7 @@ public class Hotel {
     }
 
     /**
-     * Coloca el numero de las habitaciones
+     * Metodo que coloca el numero de las habitaciones
      */
     private void SetNumberRooms(){
         int counter = 0;
@@ -110,7 +106,7 @@ public class Hotel {
     }
 
     /**
-     * pasa por quemado un numero determinado de habiotaciones o minimo de estas
+     * Metod que pasa por quemado un numero determinado de habiotaciones o minimo de estas
      */
     private void inicializeRooms(){
         for (int i = 0; i < 8; i++) {
@@ -121,7 +117,7 @@ public class Hotel {
     }
     /**
      * Metodo para aumentar el numero de habitaciones
-     * @param room
+     * @param room una habitacion
      */
     public void addRoom(Room room){
         rooms.add(room);
@@ -130,7 +126,7 @@ public class Hotel {
 
     /**
      * Metodo para aumentar el numero de habitaciones
-     * @param quality
+     * @param quality calidad de una habitacion
      */
     public void addRoom(Quality quality){
         rooms.add(new Room(quality));
@@ -139,15 +135,16 @@ public class Hotel {
 
     /**
      * Metodo para obtener una habitacion en total
-     * @param index
-     * @return
+     * @param index el numero de las habitaciones
+     * @return una habitacion en total
      */
     public Room getRoom( int index){
         return rooms.get(index);
     }
+
     /**
      * Metodo para obtener el total de habotaciones
-     * @return
+     * @return El total de las habitaciones
      */
     public int getSizeRooms(){
        return rooms.size();

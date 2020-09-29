@@ -25,20 +25,26 @@ public class Pay {
     private static final double DISCOUNT_CARD = -0.05;
     private static final double DISCOUNT_VIRTUAL = -0.1;
 
+    /**
+     * Metodo constructor parametrizado
+     * @param entry Tipo de entrada
+     */
     public Pay(Entry entry) {
         this.paymentType = PaymentType.EFECTIVO;
         this.entry = entry;
         this.season = Season.BAJA;
     }
 
+    /**
+     * Metodo constructor por defecto
+     */
     public Pay(){
     }
 
     /**
-     * Metodo me retorna el valor exacto segun la calidad
-     * de la habitacion y la temporada que sea
-     * @param room
-     * @return
+     * Metodo me retorna el valor exacto segun la calidad de la habitacion y la temporada que sea
+     * @param room una habitacion
+     * @return el valor exacto segun la calidad de la habitacion y la temporada que sea
      */
     public double getSeasonRoomPay(Room room){
         if(getSeason() == Season.ALTA && room.getQuality() == (Quality.ECONOMICA)){
@@ -57,18 +63,18 @@ public class Pay {
     }
 
     /**
-     * Para automatizar el descuento o el aumento
-     * @return
+     * Metodo para automatizar el descuento o el aumento
+     * @return el descuento o aumento de cada pago
      */
     public double getIncreaseDiscount(){
         return getEntry() == (Entry.BOOKING)?INCREASE_DISCOUNT*-1:INCREASE_DISCOUNT;
     }
 
     /**
-     * Para ver el descuento del tipo de pago
-     * @return
+     * Metodo para ver el descuento del tipo de pago
+     * @return el descuento del tipo de pago
      */
-    public double getdiscountPay(){
+    public double discountPay(){
         if(paymentType == (PaymentType.TARJETA)){
             return DISCOUNT_CARD;
         }else if(paymentType == (PaymentType.VIRTUAL)){
@@ -79,10 +85,10 @@ public class Pay {
     }
 
     /**
-     * Obtiene el valor final del pago del mismo
-     * @param include
-     * @param room
-     * @return
+     * Metodo que obtiene el valor final del pago del mismo
+     * @param include si es todo incluido o no
+     * @param room una habitacion
+     * @return  el valor final de la cuenta
      */
     public double getTotalFinal(boolean include, Room[] room){
         if(include){
@@ -91,18 +97,20 @@ public class Pay {
             return getTotal(room) + NORMALINCLUDE;
         }
     }
+
     /**
-     * obtiene el valor total de cierto numero de habitaciones
-     * @param rooms
-     * @return double
+     * Metodo que obtiene el valor total de cierto numero de habitaciones
+     * @param rooms un arreglo de habitaciones
+     * @return  el valor total de cierto numero de habitaciones
      */
     public double getTotal(Room[] rooms){
-        return getTotalRoom(rooms) + (getTotalRoom(rooms)*getdiscountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
+        return getTotalRoom(rooms) + (getTotalRoom(rooms)* discountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
     }
+
     /**
-     * Obtener el valor total de cierto numero de habitaciones
+     * Metodo para obtener el valor total de cierto numero de habitaciones
      * @param rooms todas las habitaciones
-     * @return total
+     * @return el valor total de cierto numero de habitaciones
      */
     public double getTotalRoom(Room[] rooms){
         double total = 0;
@@ -115,10 +123,10 @@ public class Pay {
     }
 
     /**
-     *Obtiene el valor total para una reservacion
-     * @param reservation reservacion
+     *Metodo que obtiene el valor total para una reservacion
+     * @param reservation una reservacion
      * @param index numero de la reservacion
-     * @return
+     * @return el valor total a pagar por una reservacion
      */
     public double getTotalDays(Reservation reservation, int index){
         double buy = getSeasonRoomPay(reservation.getReservation(index).getRoom());
@@ -128,23 +136,23 @@ public class Pay {
     }
 
     /**
-     * obtiene el valor del plan todo incluido
-     * @return double valor
+     * Metodo que obtiene el valor del plan todo incluido
+     * @return el valor del plan todo incluido
      */
     public static double getAllInclude() {
         return ALLINCLUDE;
     }
 
     /**
-     * obtiene el valor normal
-     * @return double valor
+     * Metodo que obtiene el valor normal
+     * @returnel valor del plan normal
      */
     public double getNormalinclude(){
         return  NORMALINCLUDE;
     }
 
     /**
-     * obtiene el m,etodo de pago
+     * Metodo que obtiene el m,etodo de pago
      * @return
      */
     public PaymentType getPayEvent() {
@@ -152,7 +160,7 @@ public class Pay {
     }
 
     /**
-     * Modifica el metodo de pago
+     * Metodo que modifica el metodo de pago
      * @param paymentType
      */
     public void setPayEvent(PaymentType paymentType) {
@@ -160,31 +168,31 @@ public class Pay {
     }
 
     /**
-     *obtiene ela entrada
-     * @return
+     *Metodo que obtiene la entrada de usuario
+     * @returnla entrada del usuario
      */
     public Entry getEntry() {
         return entry;
     }
 
     /**
-     *Modifica la entrada
-     * @param entry
+     *Metodo que modifica la entrada del usuario
+     * @param entry el tipo de entrada
      */
     public void setEntry(Entry entry) {
         this.entry = entry;
     }
 
     /**
-     *Obtiene la temporada
-     * @return
+     *Metodo que obtiene la temporada
+     * @return la temporada que se esta usando
      */
     public Season getSeason() {
         return season;
     }
 
     /**
-     *Modifica la temporada
+     * Metodo que modifica la temporada
      * @param season
      */
     public void setSeason(Season season) {

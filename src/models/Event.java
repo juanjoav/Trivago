@@ -20,11 +20,11 @@ public class Event {
     private Room room;
 
     /**
-     * Constructo para introducir todos los datos
-     * @param timeInitial
-     * @param timeFinish
-     * @param user
-     * @param room
+     * Metodo onstructo para introducir todos los datos
+     * @param timeInitial tiempo inicial
+     * @param timeFinish tiempo final
+     * @param user un usuario
+     * @param room una habitacion
      */
     public Event(LocalDate timeInitial, LocalDate timeFinish, User user, Room room) {
         this.timeInitial = timeInitial;
@@ -34,7 +34,7 @@ public class Event {
     }
 
     /**
-     * Contructor que resive el parametro par inicializar a patir de otro evento
+     * Metodo constructor que resive el parametro par inicializar a patir de otro evento
      * @param event objecto de la misma clase
      */
     public Event(Event event){
@@ -45,13 +45,12 @@ public class Event {
     }
 
     /**
-     * Clase default
+     * Metodo constructor por defecto
      */
     public Event(){
-
     }
     /**
-     * Para asignar la entrada a la habitaciones
+     * Metodo para asignar la entrada a la habitaciones
      * @param room para mirar cada habitacion
      */
    public void assingRoom(Room room){
@@ -67,52 +66,27 @@ public class Event {
     }
 
     /**
-     * obtiene el dia de llegada
-     * @return
+     * Metodo que obtiene el dia de llegada
+     * @return una fecha de llegada
      */
     public LocalDate getTimeInitial() {
         return timeInitial;
     }
 
     /**
-     * Modifica el timepo de llegada
-     * @param timeInitial
-     */
-    public void setTimeInitial(LocalDate timeInitial) {
-        this.timeInitial = timeInitial;
-    }
-
-    /**
-     * obtine el dia de salida
-     * @return
+     * Metodo que obtine el dia de salida
+     * @return una fecha de salida
      */
     public LocalDate getTimeFinish() {
         return timeFinish;
     }
 
     /**
-     * Modifica el dia de salida
-     * @param timeFinish tiempo de ida
-     */
-    public void setTimeFinish(LocalDate timeFinish) {
-        this.timeFinish = timeFinish;
-    }
-
-    /**
-     * Obtiene un oibjeto de tipo usuario
-     * @return onjecto User
+     * Metodo que obtiene un oibjeto de tipo usuario
+     * @return objecto User
      */
     public User getUser() {
         return user;
-    }
-
-    /**
-     * Modifica el susario a partir de otroobjecto de tipo
-     * usuario
-     * @param user
-     */
-    public void setUser(User user) {
-        this.user = user;
     }
 
     /**
@@ -123,11 +97,4 @@ public class Event {
         return room;
     }
 
-    /**
-     * establece una habtacion
-     * @param room un objeto de tipo habitacion
-     */
-    public void setRoom(Room room) {
-        this.room = room;
-    }
 }

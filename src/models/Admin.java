@@ -6,13 +6,8 @@
 
 package models;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Stream;
-
 /**
- * Esta clase administra todo lo que puede hacer un administrador
+ * Esta clase administra la toda la parte operativa del hotel
  * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
  * @Date 12/09/2020
  */
@@ -22,20 +17,22 @@ public class Admin {
     private String adminNickName = "ADMIN";
     private String adminPassword = "1234";
 
-//    private String userName;
-//    private String passaword;
     private Menu menu;
     private Hotel hotel;
 
-    public Admin(/*String userName, String passaword , */Hotel hotel) {
-//        this.userName = userName;
-//        this.passaword = passaword;
+    /**
+     * Metodo constructor parametrizado
+     * @param hotel el hotel a administrar
+     */
+    public Admin(Hotel hotel) {
         menu = new Menu();
         this.hotel = hotel;
     }
 
+    /**
+     * Metodo constructor por defecto
+     */
     public Admin() {
-
     }
 
     /**
@@ -48,12 +45,18 @@ public class Admin {
 
     /**
      * Metodo para modificar el nombre del administrador
-     * @param adminNickName
+     * @param adminNickName el nombre del administrador
      */
     public void setAdminNickName(String adminNickName) {
         this.adminNickName = adminNickName;
     }
 
+    /**
+     * Metodo oara verificar la identidad del administrador
+     * @param name el nombre del admin
+     * @param passaword la contraseña del administrador
+     * @return verdadero si la informacion es correcta falso si no
+     */
     public boolean verifiqueIndenty(String name, String passaword){
         return name.equals(adminNickName) && passaword.equals(adminPassword);
     }
@@ -82,7 +85,7 @@ public class Admin {
 
     /**
      * Metodo que retorna todos la lista de usuarios
-     * @return
+     * @return la lista de usuarios
      */
     public String[] showUser(){
         String[] aux = new String[hotel.userTreeSet.size()];
@@ -95,9 +98,9 @@ public class Admin {
     }
 
     /**
-     * muestra el usuario consultado por ID
-     * @param id
-     * @return
+     * Metodo que muestra el usuario consultado por ID
+     * @param id id del ususario
+     * @return la informacion del usuario
      */
     public String searchUser(long id){
         String info = "";
@@ -119,10 +122,9 @@ public class Admin {
     }
 
     /**
-     * Metodo para contar cuantas habitaciones
-     * hay en una calidad en especifico
-     * @param quality
-     * @return
+     * Metodo para contar cuantas habitaciones hay en una calidad en especifico
+     * @param quality calidad de una habitacion
+     * @return el numerod e habitaciones
      */
     public int getQualityCounter(Quality quality){
         int counter = 0;
@@ -135,11 +137,10 @@ public class Admin {
     }
 
     /**
-     * Metodo para contar cuantas habitaciones estan disponibles
-     * hay en una calidad en especifico
-     * @param quality
-     * @param ocupation
-     * @return
+     * Metodo para contar cuantas habitaciones estan disponibles hay en una calidad en especifico
+     * @param quality calidad de una havbiatcion
+     * @param ocupation si esta o no ocupada una habitacion
+     * @return el numero de habitaciones
      */
     public int getAvariableQuality(Quality quality, boolean ocupation){
         int counter = 0;
@@ -153,7 +154,7 @@ public class Admin {
 
 
     /**
-     * mirar el total de habitaciones no ocupadas del establecimiento
+     * Metodio para ver  el total de habitaciones no ocupadas del establecimiento
      * @return total de habitaciones disponibles
      */
     public int getCounterOcupation(boolean ocupation){
@@ -168,7 +169,7 @@ public class Admin {
 
     /**
      * Metodo para aumentar el numero de habitaciones
-     * @param room
+     * @param room una nueva habitacion
      */
     public void addRoom(Room room){
         hotel.addRoom(room);
@@ -176,33 +177,32 @@ public class Admin {
 
     /**
      * Metodo para aumentar el numero de habitaciones
-     * @param quality
+     * @param quality calidad de una habitacion
      */
     public void addRoom(Quality quality){
         hotel.addRoom(quality);
     }
 
     /**
-     * Para decir que una habitacion esta fuera de serivicio
-     * @param numb
-     * @param out
+     * Metodo para decir que una habitacion esta fuera de serivicio
+     * @param numb numero de habitacion
+     * @param out si esta o no fuera de servicio
      */
     public void outOfService(int numb, boolean out){
         hotel.getRoom(numb).setOcupation(out);
     }
 
     /**
-     *Para obtener cualquier habitacion del arreglo
+     *Metodo para obtener cualquier habitacion del arreglo
      * @param index el numero de la habitacion
-     * @return
+     * @return una habitacion del arreglo
      */
     public Room getRoom(int index){
         return hotel.getRoom(index);
     }
 
     /**
-     * Metodo para obtener las habitaciones
-     * apartir de la calidad de las mismas
+     * Metodo para obtener las habitaciones a partir de la calidad de las mismas
      * @param quality
      * @return
      */
@@ -219,10 +219,9 @@ public class Admin {
     }
 
     /**
-     * Metodo para obtener las habitaciones
-     * apartir de la calidad de las mismas
-     * @param ocupation
-     * @return
+     * Metodo para obtener las habitaciones a partir de la calidad de las mismas
+     * @param ocupation la ocupocion de una habitacion
+     * @returnl las habitaciones cada calidad
      */
     public Room[] getAnyRoom(boolean ocupation){
         Room[] aux = new Room[getCounterOcupation(ocupation)];
@@ -235,20 +234,10 @@ public class Admin {
         }
         return aux;
     }
-    public Room[] getAnyRoom(int[] numbers){
-        Room[] rooms = new Room[numbers.length];
-        int counter = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            rooms[counter] = hotel.getRoom(numbers[i]);
-            counter++;
-        }
-        return  rooms;
-    }
 
     /**
      * Metodo para obtener las habitaciones
-     * @param quality
-     * @return
+     * @return la cantidad de habitaciones
      */
     public String[] showAllRooms(){
         String[] aux = new String[getTotalRooms()];
@@ -257,6 +246,7 @@ public class Admin {
         }
         return aux;
     }
+
     /**
      * Metodo para mostrar la informacion de una habitacion en la posicion
      * @param index numero de la habitacion

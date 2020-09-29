@@ -13,6 +13,5 @@ package models;
  */
 
 public enum Entry {
-
     WALKING, BOOKING
 }

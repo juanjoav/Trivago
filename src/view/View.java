@@ -151,8 +151,8 @@ public class View {
     }
 
     /**
-     *
-     * @return
+     * Metodo que permite ver las opciones del control de habitaciones
+     * @return un scanner para ingrsar la opcion
      */
     public int viewRoomsMenu(){
         System.out.println(OPTION_MENU_ROOM);
@@ -244,7 +244,7 @@ public class View {
         return scanner.nextLine();
     }
 
-/**
+/*
  //    public String getCashEvent(){
  //        System.out.println("Agregar la forma de pago");
  //        System.out.println("1.) EFECTIVO \n2.) TARJETA \n3.) VIRTUAL");
@@ -330,15 +330,14 @@ public class View {
      * @return la temporada que ingresa el susario
      */
     public String changeSeason(){
-
         return scanner.nextLine();
     }
 
     //////////////////////////////////////////////////////PAGO/////////////////////////////////////////////////////////////
 
     /**
-     * Para demostrar si un plan es el normal o el todo incluido
-     * @return
+     * Metodo para demostrar si un plan es el normal o el todo incluido
+     * @return un erscanner para ingresar el dato
      */
     public int allInclude(){
         System.out.println(MESSAGE_ICLUDE);
@@ -346,7 +345,7 @@ public class View {
     }
 
     /**
-     * para mostrar el total de pago
+     * Metod para mostrar el total de pago
      * @param pay el pago completo
      */
     public void showPay(double pay){
@@ -377,6 +376,10 @@ public class View {
         }
     }
 
+    /**
+     * Metodo que recibe un entero
+     * @return un scanner para ingresar el numero
+     */
     public int getInt(){
         return Integer.parseInt(scanner.nextLine());
     }
