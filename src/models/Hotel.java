@@ -61,6 +61,22 @@ public class Hotel {
     }
 
     /**
+     * muestra el usuario consultado por ID
+     * @param id para su busqueda en la lista de usuarios
+     * @return el objeto de usuario encontrado
+     */
+    public User searchUser(long id){
+        User aux = new User();
+        for (User user: userTreeSet) {
+            if (user.getId() == id){
+                aux = user;
+                return aux;
+            }
+        }
+        return aux;
+    }
+
+    /**
      * Metodo que retorna todos los menus disponibles
      * @return
      */
