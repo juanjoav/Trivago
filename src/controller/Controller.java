@@ -14,11 +14,15 @@ public class Controller {
     private Hotel hotel;
     private Admin admin;
     private View view;
+    private Event event;
+    private Reservation reservation;
 
     public Controller() {
         hotel = new Hotel();
         admin = new Admin(hotel);
         view = new View();
+        event = new Event();
+        reservation = new Reservation();
         menuInitalOptions();
     }
 //////////////////////////////////REALCIONES DE MENU////////////////////////////////////////////////////////
@@ -66,8 +70,10 @@ public class Controller {
                             modifyAdminPassword();
                             break;
                             case View.MENU_OPTION_SIX:
-                                menuInitalOptions();
+                                adminsEventsMenu();
                                 break;
+                default:
+                    menuInitalOptions();
             }
         } catch (NumberFormatException ex){
             view.viewMessages(View.ERROR_VALUES);
@@ -127,15 +133,40 @@ public class Controller {
     public void adminRoom(){
         switch (view.adminUserRoom()){
             case View.MENU_OPTION_ONE:
-                roomOcupation();
+                controlRoomMenu();
                 break;
                 case View.MENU_OPTION_TWO:
                     modifyRoom();
                     break;
+                    case View.MENU_OPTION_TRHEE:
+                        disableRoom();
+                        break;
+                        case View.MENU_OPTION_FOUR:
+                            addRoom();
+                            break;
+            default:
+                menuAdmin();
         }
     }
 
-
+    /**
+     * Metodo que permite ver los subMenus de opciones de cada habitacion
+     */
+    public void controlRoomMenu(){
+        switch (view.viewRoomsMenu()){
+            case View.MENU_OPTION_ONE:
+                roomOcupation();
+                break;
+                case View.MENU_OPTION_TWO:
+                    searchPerQuality();
+                    break;
+                    case View.MENU_OPTION_TRHEE:
+                        searchPerStatus();
+                        break;
+            default:
+                adminMenu();
+        }
+    }
 
     ///////////////////////////////////////////////INTERFAZ DE USUARIOS Y SUBS MENUS////////////////////////////////////////
     /**
@@ -147,7 +178,11 @@ public class Controller {
                 addUserRegister();
                 break;
             case View.MENU_OPTION_TWO:
+                signInUser();
                 break;
+                case View.MENU_OPTION_TRHEE:
+                    menuInitalOptions();
+                    break;
         }
     }
 
@@ -176,7 +211,7 @@ public class Controller {
      */
     public void verifyAdmin(){
         boolean reference = admin.verifiqueIndenty(view.nickName(), view.password());
-        String status = reference ? "Acceso concedido" :"Acceso denegado";
+        String status = reference ? View.ACCESS_GRANTED_MESSAGE:View.ACCESS_DENIED_MESSAGE;
         view.viewMessages(status);
         if (reference){
             menuAdmin();
@@ -194,7 +229,7 @@ public class Controller {
         }
         catch (NumberFormatException ex){
             view.viewMessages(View.MESSAGE_FORMAR_EX);
-            adminMenu();
+            menuAdmin();
         }
         adminMenu();
     }
@@ -248,7 +283,20 @@ public class Controller {
             view.viewMessages(View.ROOM_FREE_MESSAGE);
             view.viewMessages("" + admin.getCounterOcupation(eventRoom));
         }
-        adminRoom();
+        controlRoomMenu();
+    }
+
+    /**
+     * Metodo que retorna la cantidad de habitaciones consultadas por calidad
+     */
+    public void searchPerQuality(){
+        try {
+            view.viewMessages(View.ROOM_PER_QUALITY + admin.getQualityCounter(Quality.valueOf(view.obtainQuality())));
+            controlRoomMenu();
+        } catch (IllegalArgumentException exception){
+            view.viewMessages(View.ERROR_VALUES);
+            controlRoomMenu();
+        }
     }
 
     /**
@@ -266,10 +314,72 @@ public class Controller {
         adminRoom();
     }
 
+    /**
+     * Metodo que permite modificar la condicion de una habitacion
+     */
     public void disableRoom(){
+        admin.outOfService(view.numberRoom(), view.disablesRoom());//true ingresa fuera de servicio / false lo opuesto
+        view.viewMessages(View.CHANGES_MESSAGE);
+        adminRoom();
+    }
+
+    /**
+     * Metodo que permite agregar una habitacion
+     */
+    public void addRoom(){
+        admin.addRoom(new Room(Quality.valueOf(view.obtainQuality())));
+        view.viewMessages(View.CHANGES_MESSAGE);
+        adminRoom();
+    }
+    /**
+     * Metodo que permite buscar una habitacion disponible o ocupada segun la calidad
+     */
+    public void searchPerStatus(){
+        view.viewMessages(View.ROOM_PER_QUALITY + "\n" + admin.getAvariableQuality(Quality.valueOf(view.obtainQuality()),view.reservationOption()));
+        adminRoom();
+    }
+
+    //////////////////////////////////////////EVENTS////////////////////////////////////////
+
+    /**
+     * Metodo para mostrar el menu de eventos del administrador
+     */
+    public void adminsEventsMenu(){
+        switch (view.adminEventsMenu()){
+            case View.MENU_OPTION_ONE:
+                clientEntry();
+                break;
+                case View.MENU_OPTION_TWO:
+                    clientExit();
+                    break;
+                    case View.MENU_OPTION_TRHEE:
+
+                    break;
+        }
+    }
+
+    /**
+     * Metodo para agregar el registro del usuario
+     */
+    public void clientEntry(){
+        event.assingRoom(admin.getRoom(view.numberRoom()));
+        view.viewMessages(View.MESSAGE_EVENT_CHECK_IN);
+        adminsEventsMenu();
+    }
+
+    /**
+     * Metodo para registrar la salida de un usuario
+     */
+    public void clientExit(){
+        event.outRooms(admin.getRoom(view.numberRoom()));
+        view.viewMessages(View.MESSAGE_EVENT_CHECK_OUT);
+        adminsEventsMenu();
+    }
+
+    public void generateReservation(){
 
     }
-    ////////////////////////////////////////////////USER////////////////////////////////////////
+    ////////////////////////////////////////////////USER////////////////////////////////////////////////
 
     /**
      * METODO QUE PERMITE QUE EL USUARIO SE REGISTRE A SI MISMO
@@ -296,6 +406,20 @@ public class Controller {
             adminUser();
         }
         adminUser();
+    }
+
+    /**
+     * Metodo que permite la verificacion del usuario
+     */
+    public void signInUser(){
+        boolean status = hotel.verifyData(view.getId(), view.getPassaword());
+        String condition = status ? View.ACCESS_GRANTED_MESSAGE : View.ACCESS_DENIED_MESSAGE;
+        view.viewMessages(condition);
+        if (status){
+
+        } else {
+            menuUser();
+        }
     }
 
     ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////

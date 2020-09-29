@@ -42,7 +42,13 @@ public class View {
     public static final String CHANGES_MESSAGE = "Cambios realizados con exitos";
     public static final String ROOM_OCUPATED_MESSAGE = "Habitaciones ocupadas";
     public static final String ROOM_FREE_MESSAGE = "HabitacioneS desocupadas";
+    public static final String ROOM_PER_QUALITY = "Las cantidad de habitaciones encontradas son ";
     public static final String ROOM_ERROR_MESSAGE = "Advertencia! La habitacion buscada no existe";
+    public static final String ACCESS_GRANTED_MESSAGE = "Acceso concedido";
+    public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
+    public static final String MESSAGE_EVENT_CHECK_IN = "Ingreso registrado";
+    public static final String MESSAGE_EVENT_CHECK_OUT = "Retiro registrado";
+
 
     public View() {
         scanner = new Scanner(System.in);
@@ -89,7 +95,7 @@ public class View {
      */
     public int adminOption(){
         System.out.println(LINE + TITTLE_ADMIN + LINE);
-        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Cerrar secion");
+        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7.) Cerrar secion");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -116,12 +122,16 @@ public class View {
      * @return un entero con las opciones elejidas
      */
     public int adminUserRoom(){
-        System.out.println("1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Poner habitacion fuera de servicio\n4.)Añadir habitaciones\n5.)Regresar");
+        System.out.println("1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.)Regresar");
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     *
+     * @return
+     */
     public int viewRoomsMenu(){
-        System.out.println("1.)Estado de habitaciones\n2.)Busqueda segun la calidad");
+        System.out.println("1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -175,6 +185,15 @@ public class View {
     }
 
     /**
+     * Menu con las opciones de usuario
+     * @return
+     */
+    public int menuUser(){
+        System.out.println("1.) Consultar menus\n2.) ");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    /**
      *Metodo que permite obtener el ID
      * @return el id del usuario
      */
@@ -222,7 +241,7 @@ public class View {
      * @return
      */
     public boolean reservationOption(){
-        System.out.println("1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" );
+        System.out.println("Elija una opcion para ver:\n1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" );
         return Integer.parseInt(scanner.nextLine()) == MENU_OPTION_ONE;
     }
 
@@ -235,9 +254,33 @@ public class View {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    /**
+     * Metodo que permite ingresar la calidad de la habitacion
+     * @return la calidad de la habitacion ingresada por el usuario
+     */
     public String obtainQuality(){
         System.out.println("Ingrese una de las siguientes categorias \nECONOMICA~REGULAR~PREMIUM");
         return scanner.nextLine().toUpperCase();
+    }
+
+    /**
+     * Metodo que permite elegir la condicion de una habitacion
+     * @return un boolean con la opcion dada
+     */
+    public boolean disablesRoom(){
+        System.out.println("Elija una de las siguientes opciones\n1.)Para desabilitar una habitacion\n2.)Para habilitar una habitacion");
+        return Integer.parseInt(scanner.nextLine()) == 1;
+    }
+
+    //////////////////////////////////////////EVENTOS/////////////////////////////////////////////////////////////
+
+    /**
+     * Metodo que permite elegir entre las opciones de los eventos para el administrador
+     * @return
+     */
+    public int adminEventsMenu(){
+        System.out.println("Eventos:\n1.)Entra de cliente\n2.)Salida del cliente\n3.)Hacer reservacion\n4.)Cambiar temporada\n5.)Regresar");
+        return Integer.parseInt(scanner.nextLine());
     }
 
 
