@@ -29,7 +29,7 @@ public class View {
     public static final String MESSAGE_FORMAR_EX = "PARAMETROS INVALIDOS";
     public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░H░o░t░e░l░ ░A░s░c░e░n░t░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
     public static final String LINE = "-------------------------------------------";
-    public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1.)Administrador\n2.)Usuarios ";
+    public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1.)Administrador\n2.)Usuarios\n3.)Salir ";
     public static final String REQUEST_NAME = "Por favor ingrese el nombre del usuario: ";
     public static final String REQUEST_PASSWORD = "Por favor ingrese una contraseña: ";
     public static final String TITTLE_ADMIN = "MENU DEL ADMINISTRADOR";
@@ -38,6 +38,7 @@ public class View {
     public static final String REMOVE_MENU = "Por favor ingrese el nombre del menu que desea eliminar:";
     public static final String CONTAINS_MENU = "Por favor en una sola linea agregue los elementos que va a tener el menu del dia: ";
     public static final String PRICE_MENU = "Agregue el precio que tendra el menu: ";
+
     public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n3.) Regresar";
     public static final String OPTION_MENU_ADMIN = "1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7). Generar pago\n8.) Cerrar seccion";
     public static final String OPTION_MENU = "1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver";
@@ -56,6 +57,7 @@ public class View {
     public static final String CHANGES_MESSAGE = "Cambios realizados con exitos";
     public static final String OBTAIN_QUALITY = "Ingrese una de las siguientes categorias \nECONOMICA~REGULAR~PREMIUM";
     public static final String ROOM_OCUPATED_MESSAGE = "Habitaciones ocupadas";
+
     public static final String NUMBER_ROOM = "Ingrese el numero de la habitacion: ";
     public static final String ROOM_FREE_MESSAGE = "HabitacioneS desocupadas";
     public static final String ROOM_PER_QUALITY = "Las cantidad de habitaciones encontradas son ";
@@ -65,6 +67,7 @@ public class View {
     public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
     public static final String MESSAGE_EVENT_CHECK_IN = "Ingreso registrado";
     public static final String MESSAGE_EVENT_CHECK_OUT = "Retiro registrado";
+
     public static final String MESSAGE_ITERATIONS = "¿Cuantas habitaciones fueron?";
     public static final String MESSAGE_ICLUDE = "Obtuvo el plan todo incuido\n1.Si\n2.No";
     public static final String RESERVATION_MESSAGE = "Reservacion realizada con exito";
@@ -73,6 +76,7 @@ public class View {
     public static final String USER_MENU_OPTION = "1.) Consultar menus\n2.) Consula habitaciones\n3.) Crear reservacion\n4.) Pagar\n5.) Cerrar secion";
     public static final String CHANGE_SEASON = "Temporada(Alta, Baja): ";
     public static final String MESSAGE_CHANGE_SEASON = "Cambio efectuado correctamente";
+    public static final String MESSAGE_EXIT = "Vuelva pronto";
 
     public View() {
         scanner = new Scanner(System.in);

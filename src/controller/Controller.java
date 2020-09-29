@@ -54,7 +54,11 @@ public class Controller {
                 case View.MENU_OPTION_TWO:
                     menuUser();
                     break;
+                default:
+                    view.viewMessages(View.MESSAGE_EXIT);
+                    return;
             }
+
         }
         catch (NumberFormatException ex){
             view.viewMessages(View.ERROR_VALUES);
@@ -476,10 +480,16 @@ public class Controller {
      * Metodo que permite cambiar una temporada
      */
     public void changeSeason(){
-        view.viewMessages(View.CHANGE_SEASON);
-        pay.setSeason(Season.valueOf(view.changeSeason().toUpperCase()));
-        view.viewMessages(View.MESSAGE_CHANGE_SEASON);
-        adminsEventsMenu();
+        try {
+            view.viewMessages(View.CHANGE_SEASON);
+            pay.setSeason(Season.valueOf(view.changeSeason().toUpperCase()));
+            view.viewMessages(View.MESSAGE_CHANGE_SEASON);
+            adminsEventsMenu();
+        }
+        catch (IllegalArgumentException ex){
+            view.viewMessages(View.ERROR_VALUES);
+            adminsEventsMenu();
+        }
     }
 
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
