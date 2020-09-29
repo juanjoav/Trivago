@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="UserTest:jar">
+    <output-path>$PROJECT_DIR$/../../Ejecutable/UserTest</output-path>
+    <root id="archive" name="UserTest.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../../Ejecutable/UserTest/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Trivago" />
+    </root>
+  </artifact>
+</component>
