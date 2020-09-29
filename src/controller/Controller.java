@@ -168,7 +168,7 @@ public class Controller {
                         searchPerStatus();
                         break;
             default:
-                adminMenu();
+                menuAdmin();
         }
     }
 
@@ -359,6 +359,11 @@ public class Controller {
                     case View.MENU_OPTION_TRHEE:
                         generateReservation();
                         break;
+                        case View.MENU_OPTION_FOUR:
+                            changeSeason();
+                            break;
+            default:
+                menuAdmin();
         }
     }
 
@@ -380,14 +385,21 @@ public class Controller {
         adminsEventsMenu();
     }
 
+    /**
+     * Metodo que permite generar una reservacion desde el admin
+     */
     public void generateReservation(){
         reservation.makeBooking(new Event(LocalDate.parse(view.addInitialDate()),LocalDate.parse(view.addIEndingDate()), hotel.searchUser(view.getId()),admin.getRoom(view.numberRoom())));
         view.viewMessages(View.RESERVATION_MESSAGE);
         adminsEventsMenu();
     }
 
+    /**
+     * metodo que permite cambiar una temporada
+     */
     public void changeSeason(){
-       // pay.setSeason();
+        pay.setSeason(Season.valueOf(view.changeSeason()));
+        adminsEventsMenu();
     }
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
 
@@ -429,6 +441,17 @@ public class Controller {
 
         } else {
             menuUser();
+        }
+    }
+
+    /**
+     * Metodo para mostrar las opciones del usuario
+     */
+    public void menuUserOptions(){
+        switch (view.menuUser()){
+            case View.MENU_OPTION_ONE:
+
+                break;
         }
     }
 
