@@ -9,6 +9,8 @@ package controller;
 import models.*;
 import view.View;
 
+import java.time.LocalDate;
+
 public class Controller {
 
     private Hotel hotel;
@@ -16,6 +18,7 @@ public class Controller {
     private View view;
     private Event event;
     private Reservation reservation;
+    private Pay pay;
 
     public Controller() {
         hotel = new Hotel();
@@ -23,6 +26,7 @@ public class Controller {
         view = new View();
         event = new Event();
         reservation = new Reservation();
+        pay = new Pay();
         menuInitalOptions();
     }
 //////////////////////////////////REALCIONES DE MENU////////////////////////////////////////////////////////
@@ -353,8 +357,8 @@ public class Controller {
                     clientExit();
                     break;
                     case View.MENU_OPTION_TRHEE:
-
-                    break;
+                        generateReservation();
+                        break;
         }
     }
 
@@ -377,7 +381,13 @@ public class Controller {
     }
 
     public void generateReservation(){
+        reservation.makeBooking(new Event(LocalDate.parse(view.addInitialDate()),LocalDate.parse(view.addIEndingDate()), hotel.searchUser(view.getId()),admin.getRoom(view.numberRoom())));
+        view.viewMessages(View.RESERVATION_MESSAGE);
+        adminsEventsMenu();
+    }
 
+    public void changeSeason(){
+       // pay.setSeason();
     }
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
 

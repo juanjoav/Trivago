@@ -48,7 +48,7 @@ public class View {
     public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
     public static final String MESSAGE_EVENT_CHECK_IN = "Ingreso registrado";
     public static final String MESSAGE_EVENT_CHECK_OUT = "Retiro registrado";
-
+    public static final String RESERVATION_MESSAGE = "Reservacion realizada con exito";
 
     public View() {
         scanner = new Scanner(System.in);
@@ -281,6 +281,29 @@ public class View {
     public int adminEventsMenu(){
         System.out.println("Eventos:\n1.)Entra de cliente\n2.)Salida del cliente\n3.)Hacer reservacion\n4.)Cambiar temporada\n5.)Regresar");
         return Integer.parseInt(scanner.nextLine());
+    }
+
+    /**
+     * Metodo que permite ingresar una fecha inicial
+     * @return la fecha ingresada por el usuario o administrador
+     */
+    public String addInitialDate(){
+        System.out.println("Ingrese la fecha inicial en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'");
+        return scanner.nextLine();
+    }
+
+    /**
+     * Metodo que permite ingresar una fecha inicial
+     * @return la fecha ingresada por el usuario o administrador
+     */
+    public String addIEndingDate(){
+        System.out.println("Ingrese la fecha final en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'");
+        return scanner.nextLine();
+    }
+
+    public String changeSeason(){
+
+        return scanner.nextLine();
     }
 
 
