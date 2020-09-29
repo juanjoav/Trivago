@@ -102,6 +102,7 @@ public class Controller {
                 break;
             case View.MENU_OPTION_FOUR:
                 viewMenus();
+                adminMenu();
                 break;
             case View.MENU_OPTION_FIVE:
                 menuAdmin();
@@ -358,6 +359,7 @@ public class Controller {
                     break;
                     case View.MENU_OPTION_TRHEE:
                         generateReservation();
+                        adminsEventsMenu();
                         break;
                         case View.MENU_OPTION_FOUR:
                             changeSeason();
@@ -391,7 +393,7 @@ public class Controller {
     public void generateReservation(){
         reservation.makeBooking(new Event(LocalDate.parse(view.addInitialDate()),LocalDate.parse(view.addIEndingDate()), hotel.searchUser(view.getId()),admin.getRoom(view.numberRoom())));
         view.viewMessages(View.RESERVATION_MESSAGE);
-        adminsEventsMenu();
+        //adminsEventsMenu();
     }
 
     /**
@@ -422,7 +424,8 @@ public class Controller {
     public void addUserAdmin(){
         //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
         try {
-            hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password()));
+            //System.out.println(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));
+            view.viewMessages(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));
         } catch (NumberFormatException | NullPointerException ex){
             view.viewMessages(View.MESSAGE_FORMAR_EX);
             adminUser();
@@ -438,7 +441,7 @@ public class Controller {
         String condition = status ? View.ACCESS_GRANTED_MESSAGE : View.ACCESS_DENIED_MESSAGE;
         view.viewMessages(condition);
         if (status){
-
+            menuUserOptions();
         } else {
             menuUser();
         }
@@ -450,10 +453,21 @@ public class Controller {
     public void menuUserOptions(){
         switch (view.menuUser()){
             case View.MENU_OPTION_ONE:
-
+                viewMenus();
+                menuUserOptions();
                 break;
+                case View.MENU_OPTION_TWO:
+                    menuUserOptions();
+                    break;
+                    case View.MENU_OPTION_TRHEE:
+                        generateReservation();
+                        menuUserOptions();
+                        break;
+            default:
+                menuInitalOptions();
         }
     }
+
 
     ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////
 
@@ -462,7 +476,14 @@ public class Controller {
      */
     public void viewMenus(){
         view.viewList(hotel.viewMenus());
-        adminMenu();
+    }
+
+    /**
+     * Metodo que permite buscar habitaciones por el usuario
+     */
+    public void userCheckRoom(){
+        admin.getAnyRoom(Quality.valueOf(view.obtainQuality()));
+        menuUserOptions();
     }
 
     public static void main(String[] args) {
