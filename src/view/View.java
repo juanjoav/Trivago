@@ -127,11 +127,11 @@ public class View {
     }
 
     /**
-     *
-     * @return
+     *  Menu para mostrar las opciones de eventos de las habitaciones
+     * @return retorna la opcion elejida por el admin
      */
     public int viewRoomsMenu(){
-        System.out.println("1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad");
+        System.out.println("1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad\n4.) Regresar");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -189,7 +189,7 @@ public class View {
      * @return
      */
     public int menuUser(){
-        System.out.println("1.) Consultar menus\n2.) ");
+        System.out.println("1.) Consultar menus\n2.) Consula habitaciones\n3.) Crear reservacion\n4.) Cerrar secion");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -301,9 +301,13 @@ public class View {
         return scanner.nextLine();
     }
 
+    /**
+     * Metodo que permitr ingresar una temporada
+     * @return la temporada que digite el administrador
+     */
     public String changeSeason(){
-
-        return scanner.nextLine();
+        System.out.println("Digite una de las siguientes temporadas:\nALTA o BAJA");
+        return scanner.nextLine().toUpperCase();
     }
 
 
