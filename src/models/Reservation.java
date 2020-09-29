@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Esta clase hace la implementacion de reservas
- * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Autor Mateo Pinzon, Harrison Diaz y Juan Ariza
  * @Date 12/09/2020
  */
 public class Reservation{
@@ -45,6 +45,7 @@ public class Reservation{
 
     /**
      * Metodo que elimina una reservacion
+     * @param event unevento
      */
     public void removeBooking(Event event){
       reservation.remove(event);

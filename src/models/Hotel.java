@@ -12,8 +12,8 @@ import java.util.*;
 
 /**
  * Esta clase hace la admnistacion e implementacion de todo lo que puede tener un hotel y lo que dependa de el
- * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
- * @Date 12/09/2020
+ * @author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @date 12/09/2020
  */
 
 public class Hotel {
@@ -42,6 +42,7 @@ public class Hotel {
     /**
      * Metodo que nos permite agregar un nuevo usuario a la lista
      * @param user usuario a ser creado
+     * @return un mensaje de confirmacion
      */
     public String addUser(User user){
         String message = "";

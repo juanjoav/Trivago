@@ -79,8 +79,8 @@ public class View {
     }
 
     /**
-     * Menu de opciones para elegir usuarios
-     * @return
+     * Metodo que contiuene el menu de opciones para elegir usuarios
+     * @return un scanner
      */
     public int selectionMenu() {
         System.out.println(WELCOME_ASCCI);
@@ -209,8 +209,8 @@ public class View {
     }
 
     /**
-     * Menu con las opciones de usuario
-     * @return
+     * Metodo que contiene el  menu con las opciones de usuario
+     * @return un scanner
      */
     public int menuUser(){
         System.out.println(USER_MENU_OPTION);
@@ -262,7 +262,7 @@ public class View {
 
     /**
      * Metodo para hacer el criterio de busqueda de usuario
-     * @return
+     * @return un scanner
      */
     public boolean reservationOption(){
         System.out.println(OPTION_RESERVATION);
@@ -300,7 +300,7 @@ public class View {
 
     /**
      * Metodo que permite elegir entre las opciones de los eventos para el administrador
-     * @return
+     * @return un scanner
      */
     public int adminEventsMenu(){
         System.out.println(OPTION_EVENTS_MENU);

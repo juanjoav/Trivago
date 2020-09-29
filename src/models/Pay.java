@@ -145,15 +145,15 @@ public class Pay {
 
     /**
      * Metodo que obtiene el valor normal
-     * @returnel valor del plan normal
+     * @return el valor del plan normal
      */
     public double getNormalinclude(){
         return  NORMALINCLUDE;
     }
 
     /**
-     * Metodo que obtiene el m,etodo de pago
-     * @return
+     * Metodo que obtiene el metodo de pago
+     * @return el metodo de pago
      */
     public PaymentType getPayEvent() {
         return paymentType;
@@ -161,7 +161,7 @@ public class Pay {
 
     /**
      * Metodo que modifica el metodo de pago
-     * @param paymentType
+     * @param paymentType el tipo de pago
      */
     public void setPayEvent(PaymentType paymentType) {
         this.paymentType = paymentType;
@@ -169,7 +169,7 @@ public class Pay {
 
     /**
      *Metodo que obtiene la entrada de usuario
-     * @returnla entrada del usuario
+     * @return la entrada del usuario
      */
     public Entry getEntry() {
         return entry;
@@ -193,7 +193,7 @@ public class Pay {
 
     /**
      * Metodo que modifica la temporada
-     * @param season
+     * @param season un tipo de temporada
      */
     public void setSeason(Season season) {
         this.season = season;

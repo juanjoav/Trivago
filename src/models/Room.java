@@ -54,7 +54,7 @@ public class Room {
 
     /**
      * Metodo para modificar la calidad de una habitacion
-     * @param quality
+     * @param quality calidad de una habitacion
      */
     public void setQuality(Quality quality) {
         this.quality = quality;

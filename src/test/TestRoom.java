@@ -19,7 +19,7 @@ public class TestRoom {
     private Admin setRoom;
 
     /**
-     *
+     * Metodo constructor por defecto
      */
     public TestRoom() {
         scanner = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class TestRoom {
     }
 
     /**
-     *
+     * Metodo que testea la inicializacion de las habitaciones regualares
      */
     public void  regular(){
         System.out.print("Digite cuantas habitaciones reguales quiere: ");
@@ -38,7 +38,7 @@ public class TestRoom {
     }
 
     /**
-     *
+     * Metodo que testea la inicializacion de las habitaciones premium
      */
     public void  premium(){
         System.out.print("Digite cuantas habitaciones premium quiere: ");
@@ -49,7 +49,7 @@ public class TestRoom {
     }
 
     /**
-     *
+     * Metodo que testea la inicializacion de las habitaciones economicas
      */
     public void  economic(){
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
@@ -60,7 +60,7 @@ public class TestRoom {
     }
 
     /**
-     *
+     * Metodo que testea la ocupaciond de las habitaciones
      */
     public void ocupation(){
         System.out.print("Digite cuales habitaciones quiere (Calidad): ");
@@ -88,7 +88,7 @@ public class TestRoom {
     }
 
     /**
-     * Metodo
+     * Metodo que muestra los test realizados
      */
     public void showCount(){
         System.out.println("El numero de habitaciones disponibles: "+setRoom.getCounterOcupation(false));
@@ -98,6 +98,10 @@ public class TestRoom {
         System.out.println("El numero de habitaciones Economico: "+setRoom.getQualityCounter(Quality.ECONOMICA));
 
     }
+
+    /**
+     * Metodo que corre el test
+     */
     public void run(){
         regular();
         economic();

@@ -64,6 +64,7 @@ public class Admin {
     /**
      * Metodo que le permite a un administrador añadir un menua una lista
      * @param menu menu que desea ingresar
+     * @return un mensaje de confirmacion
      */
     public String addMenu(Menu menu){
         String message = "";
@@ -155,6 +156,7 @@ public class Admin {
 
     /**
      * Metodio para ver  el total de habitaciones no ocupadas del establecimiento
+     * @param ocupation si esta ocupado o no
      * @return total de habitaciones disponibles
      */
     public int getCounterOcupation(boolean ocupation){
@@ -203,8 +205,8 @@ public class Admin {
 
     /**
      * Metodo para obtener las habitaciones a partir de la calidad de las mismas
-     * @param quality
-     * @return
+     * @param quality calidad de una habitracion
+     * @return as habitaciones
      */
     public Room[] getAnyRoom(Quality quality){
         Room[] aux = new Room[getQualityCounter(quality)];
@@ -221,7 +223,7 @@ public class Admin {
     /**
      * Metodo para obtener las habitaciones a partir de la calidad de las mismas
      * @param ocupation la ocupocion de una habitacion
-     * @returnl las habitaciones cada calidad
+     * @return l las habitaciones cada calidad
      */
     public Room[] getAnyRoom(boolean ocupation){
         Room[] aux = new Room[getCounterOcupation(ocupation)];

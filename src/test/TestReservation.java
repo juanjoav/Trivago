@@ -12,20 +12,27 @@ import java.time.LocalDate;
 import java.util.Scanner;
 /**
  * Esta clase hace lel testeo de la clase Reservation
- * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
- * @Date 12/09/2020
+ * @author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @date 12/09/2020
  */
-public class TestReservatiom {
+public class TestReservation {
 
     private Admin hotel;
     private Scanner scanner;
     private Reservation reservation;
 
-    public TestReservatiom() {
+    /**
+     * Metodo constructor poor defecto
+     */
+    public TestReservation() {
         scanner = new Scanner(System.in);
         hotel = new Admin(new Hotel());
         reservation = new Reservation();
     }
+
+    /**
+     * Metodo que testea lacantidad de habitaciones regulares a reservar
+     */
     public void  regular(){
         System.out.print("Digite cuantas habitaciones reguales quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -34,6 +41,9 @@ public class TestReservatiom {
         }
     }
 
+    /**
+     * Metodo que testea lacantidad de habitaciones premium a reservar
+     */
     public void  premium(){
         System.out.print("Digite cuantas habitaciones premium quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -42,6 +52,9 @@ public class TestReservatiom {
         }
     }
 
+    /**
+     * Metodo que testea lacantidad de habitaciones economicas a reservar
+     */
     public void  economic(){
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -50,6 +63,9 @@ public class TestReservatiom {
         }
     }
 
+    /**
+     * Metodo que testea la calidad de habitaciones a elegir
+     */
     public void choose(){
         System.out.print("Digite cuales habitaciones quiere (Calidad): ");
         String quality = scanner.nextLine();
@@ -65,6 +81,10 @@ public class TestReservatiom {
             System.out.println();
         }
     }
+
+    /**
+     * Metodo que testea el proceso completo de la reserva
+     */
     public void principal(){
         System.out.print("Digite la habitacion a reservar: ");
         int numbRoom = Integer.parseInt(scanner.nextLine());
@@ -72,13 +92,16 @@ public class TestReservatiom {
         String dateFirst = scanner.nextLine();
         System.out.println("Digite la fecha de final a registrar (YYYY-MM-DD):");
         String dateFinish = scanner.nextLine();
-        //LocalDate localDateInitional = LocalDate.of(Integer.parseInt(dateFirst[2]), Month.of(Integer.parseInt(dateFirst[1])),Integer.parseInt(dateFirst[0]));
         LocalDate localDateInitional = LocalDate.parse(dateFirst);
         LocalDate localDateFinish = LocalDate.parse(dateFinish);
         boolean large = reservation.makeBooking(new Event(localDateInitional,localDateFinish,
                 new User(" ",1l,2l,"123"),hotel.getRoom(numbRoom)));
         System.out.println("El proceso fue : "+(large?"Exitoso":"Fallido"));
     }
+
+    /**
+     * Metodo que llama los demas test
+     */
     public void run(){
         regular();
         premium();
@@ -91,6 +114,6 @@ public class TestReservatiom {
         }
     }
     public static void main(String[] args) {
-        new TestReservatiom().run();
+        new TestReservation().run();
     }
 }
