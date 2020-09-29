@@ -79,11 +79,24 @@ public class Pay {
     }
 
     /**
+     * Obtiene el valor final del pago del mismo
+     * @param include
+     * @param room
+     * @return
+     */
+    public double getTotalFinal(boolean include, Room[] room){
+        if(include){
+            return getTotal(room) + ALLINCLUDE;
+        }else{
+            return getTotal(room) + NORMALINCLUDE;
+        }
+    }
+    /**
      * obtiene el valor total de cierto numero de habitaciones
      * @param rooms
      * @return double
      */
-    public double getTotalFinal(Room[] rooms){
+    public double getTotal(Room[] rooms){
         return getTotalRoom(rooms) + (getTotalRoom(rooms)*getdiscountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
     }
     /**

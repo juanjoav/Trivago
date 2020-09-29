@@ -77,7 +77,7 @@ public class TestPay {
     }
     public void pay(){
         Room[] room = admin.getAnyRoom(true);
-        System.out.println("El total a pagar es de : $"+pay.getTotalFinal(room));
+        System.out.println("El total a pagar es de : $"+pay.getTotal(room));
     }
     public void show(){
         for (int i = 0; i < admin.getTotalRooms(); i++) {
