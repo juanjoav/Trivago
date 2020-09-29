@@ -320,15 +320,15 @@ public class Controller {
         paymentType();
         switch (view.allInclude()){
             case 1:
-                view.showPay(pay.getTotalFinal(true,rooms));
+                view.showPay(pay.getTotalFinal(true,rooms)+pay.getTotal(rooms));
                 break;
             case 2:
-                view.showPay(pay.getTotalFinal(false,rooms));
+                view.showPay(pay.getTotalFinal(false,rooms)+pay.getTotal(rooms));
                 break;
             default:
-                menuAdmin();
+                break;
         }
-        menuAdmin();
+
     }
 
     /**
@@ -425,13 +425,11 @@ public class Controller {
                 break;
             case View.MENU_OPTION_TRHEE:
                 generateReservation();
-                adminsEventsMenu();
                 break;
             case View.MENU_OPTION_FOUR:
                 changeSeason();
                 break;
             default:
-                menuAdmin();
         }
     }
 
