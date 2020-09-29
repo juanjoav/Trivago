@@ -7,10 +7,12 @@
 package models;
 
 /**
- * Clase para gestiodar el pago
+ * Esta clase hace la implementacion de los pagos
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 27/09/2020
  */
 public class Pay {
-    private PayEvent payEvent;
+    private PaymentType paymentType;
     private Entry entry;
     private Season season;
     private static final double PRICE_ROOM_REGULAR = 50;
@@ -23,8 +25,8 @@ public class Pay {
     private static final double DISCOUNT_CARD = -0.05;
     private static final double DISCOUNT_VIRTUAL = -0.1;
 
-    public Pay(PayEvent payEvent, Entry entry) {
-        this.payEvent = payEvent;
+    public Pay(PaymentType paymentType, Entry entry) {
+        this.paymentType = paymentType;
         this.entry = entry;
         this.season = Season.BAJA;
     }
@@ -67,9 +69,9 @@ public class Pay {
      * @return
      */
     public double getdiscountPay(){
-        if(payEvent.equals(PayEvent.TARJETA)){
+        if(paymentType.equals(PaymentType.TARJETA)){
             return DISCOUNT_CARD;
-        }else if(payEvent.equals(PayEvent.VIRTUAL)){
+        }else if(paymentType.equals(PaymentType.VIRTUAL)){
             return DISCOUNT_VIRTUAL;
         }else{
             return DISCOUNT_CASH;
@@ -124,16 +126,16 @@ public class Pay {
      * obtiene el m,etodo de pago
      * @return
      */
-    public PayEvent getPayEvent() {
-        return payEvent;
+    public PaymentType getPayEvent() {
+        return paymentType;
     }
 
     /**
      * Modifica el metodo de pago
-     * @param payEvent
+     * @param paymentType
      */
-    public void setPayEvent(PayEvent payEvent) {
-        this.payEvent = payEvent;
+    public void setPayEvent(PaymentType paymentType) {
+        this.paymentType = paymentType;
     }
 
     /**

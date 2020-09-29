@@ -6,6 +6,12 @@
 
 package models;
 
+
+/**
+ * Esta clase hace la implementacion de los menus del restaurante
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 19/09/2020
+ */
 public class Menu {
 
     String name;

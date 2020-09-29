@@ -5,6 +5,12 @@
  */
 
 package models;
+
+/**
+ * Esta clase hace la implementacion de los usuarios
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
+ */
 public class User implements Comparable<User>{
 
     private String name;

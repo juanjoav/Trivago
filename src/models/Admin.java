@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * modelado segun diagrama Admin, sin niguna logica
+ * Esta clase administra todo lo que puede hacer un administrador
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
  */
 
 public class Admin {
@@ -241,6 +243,19 @@ public class Admin {
             counter++;
         }
         return  rooms;
+    }
+
+    /**
+     * Metodo para obtener las habitaciones
+     * @param quality
+     * @return
+     */
+    public String[] showAllRooms(){
+        String[] aux = new String[getTotalRooms()];
+        for (int i = 0; i < hotel.getSizeRooms(); i++) {
+            aux[i] = toStringRoom(i);
+        }
+        return aux;
     }
     /**
      * Metodo para mostrar la informacion de una habitacion en la posicion

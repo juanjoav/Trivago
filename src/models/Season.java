@@ -5,7 +5,11 @@
  */
 
 package models;
-
+/**
+ * Esta clase enum para saber cual temporada esta
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 27/09/2020
+ */
 public enum Season {
     ALTA, BAJA
 }

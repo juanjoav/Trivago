@@ -5,7 +5,11 @@
  */
 
 package models;
-
+/**
+ * Esta clase hemun para saber la calidad de la habitacion
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
+ */
 public enum Quality {
     ECONOMICA,REGULAR,PREMIUM;
 }

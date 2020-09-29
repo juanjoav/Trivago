@@ -9,7 +9,11 @@ package test;
 import models.*;
 
 import java.util.Scanner;
-
+/**
+ * Esta clase hace el testeo de la clase Room
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 26/09/2020
+ */
 public class TestRoom {
     private Scanner scanner;
     private Admin setRoom;

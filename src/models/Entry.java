@@ -7,7 +7,9 @@
 package models;
 
 /**
- * Enumerados de condicion de usuarios
+ * Esta clase enumerado para saber como entra el usuario
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
  */
 
 public enum Entry {

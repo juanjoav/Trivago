@@ -11,7 +11,11 @@ import models.Admin;
 import models.Hotel;
 import models.Menu;
 import java.util.Scanner;
-
+/**
+ * Esta clase hace el testeo de la clase menu
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 26/09/2020
+ */
 public class TestMenu {
 
         Hotel hotel = new Hotel();

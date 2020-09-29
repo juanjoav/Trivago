@@ -9,7 +9,11 @@ package test;
 import models.*;
 
 import java.util.Scanner;
-
+/**
+ * Esta clase hace el testeo de la clase User
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 26/09/2020
+ */
 public class TestUser {
 
     Scanner scanner = new Scanner(System.in);

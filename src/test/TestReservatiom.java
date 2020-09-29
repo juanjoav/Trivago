@@ -10,7 +10,11 @@ import models.*;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-
+/**
+ * Esta clase hace lel testeo de la clase Reservation
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
+ */
 public class TestReservatiom {
     private Admin hotel;
     private Scanner scanner;

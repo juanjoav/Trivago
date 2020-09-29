@@ -8,7 +8,11 @@ package models;
 
 import java.time.LocalDate;
 
-
+/**
+ * Esta clase hace la implementacion de un objeto de Evento
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
+ */
 public class Event {
     private LocalDate timeInitial;
     private LocalDate timeFinish;

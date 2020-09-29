@@ -8,10 +8,12 @@ package models;
 
 
 /**
- * Administra unja habitacion
+ * Esta clase hace la implementacion de la habitacion
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
  */
 public class Room {
-    private int number = 0;
+    private int number;
     private Quality quality;
     private boolean ocupation;
 

@@ -11,6 +11,12 @@ import view.View;
 
 import java.time.LocalDate;
 
+/**
+ * Esta clase hace la comunicacion entre la consola y la parte logica
+ * tambien los llamados de los mismos
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 27/09/2020
+ */
 public class Controller {
 
     private Hotel hotel;
@@ -425,7 +431,7 @@ public class Controller {
      * METODO QUE PERMITE AL ADMIN AGREGAR USUARIOS
      */
     public void addUserAdmin(){
-        //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
+        //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PaymentType.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
         try {
             //System.out.println(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));
             view.viewMessages(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));

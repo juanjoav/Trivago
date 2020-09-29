@@ -49,11 +49,11 @@ public class TestPay {
         System.out.println("Tipo de pago(efectivo,tarjeta,virtual):");
         String string = scanner.nextLine();
         if(string.equalsIgnoreCase("virtual")){
-            pay.setPayEvent(PayEvent.VIRTUAL);
+            pay.setPayEvent(PaymentType.VIRTUAL);
         }else if(string.equalsIgnoreCase("tarjeta")){
-            pay.setPayEvent(PayEvent.TARJETA);
+            pay.setPayEvent(PaymentType.TARJETA);
         }else{
-            pay.setPayEvent(PayEvent.EFECTIVO);
+            pay.setPayEvent(PaymentType.EFECTIVO);
         }
         System.out.println("Tipo de entrada(walk,reserva)");
         String stringTwo = scanner.nextLine();

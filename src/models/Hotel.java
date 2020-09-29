@@ -9,7 +9,12 @@ package models;
 
 
 import java.util.*;
-
+/**
+ * Esta clase hace la admnistacion e implementacion de todo lo que puede tener
+ * un hotel y lo que dependa de el
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
+ */
 public class Hotel {
 
     public LinkedList<Menu> menus;

@@ -9,6 +9,11 @@ package view;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
+/**
+ * Esta clase hace comunicacion entre el usuario y el controlador
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 27/09/2020
+ */
 public class View {
 
     private Scanner scanner;
@@ -22,7 +27,7 @@ public class View {
     public static final int MENU_OPTION_SEVEN = 7;
 
     public static final String MESSAGE_FORMAR_EX = "PARAMETROS INVALIDOS";
-    public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░S░i░s░t░e░m░a░ ░H░o░t░e░l░e░r░o░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
+    public static final String WELCOME_ASCCI = "°·.¸.·°¯°·.¸.·°¯°·.¸.-> ░H░o░t░e░l░ ░A░s░c░e░n░t░ <-·.¸.·°¯°·.¸.·°¯°·.¸.°";
     public static final String LINE = "-------------------------------------------";
     public static final String SELECTION_MENU = "Por favor elija el tipo de acceso que desea al sitema\n1.)Administrador\n2.)Usuarios ";
     public static final String REQUEST_NAME = "Por favor ingrese el nombre del usuario: ";

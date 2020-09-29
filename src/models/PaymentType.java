@@ -7,9 +7,11 @@
 package models;
 
 /**
- * Enumerado de tipos de pago para el usuario
+ * Esta clase enumerado para saber el tipo de poago
+ * @Author Mateo Pinzon, Harrison Diaz y Juan Ariza
+ * @Date 12/09/2020
  */
 
-public enum PayEvent {
+public enum PaymentType {
     EFECTIVO, TARJETA, VIRTUAL
 }
