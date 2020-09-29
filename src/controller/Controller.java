@@ -10,6 +10,7 @@ import models.*;
 import view.View;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 /**
  * Esta clase hace la comunicacion entre la consola y la parte logica
@@ -422,27 +423,41 @@ public class Controller {
      * Metodo para agregar el registro del usuario
      */
     public void clientEntry(){
-        event.assingRoom(admin.getRoom(view.numberRoom()));
-        view.viewMessages(View.MESSAGE_EVENT_CHECK_IN);
-        adminsEventsMenu();
+       try {
+           event.assingRoom(admin.getRoom(view.numberRoom()));
+           view.viewMessages(View.MESSAGE_EVENT_CHECK_IN);
+           adminsEventsMenu();
+       }catch (IndexOutOfBoundsException ex){
+           view.viewMessages(View.ROOM_ERROR_MESSAGE);
+           menuUser();
+       }
     }
 
     /**
      * Metodo para registrar la salida de un usuario
      */
     public void clientExit(){
-        event.outRooms(admin.getRoom(view.numberRoom()));
-        view.viewMessages(View.MESSAGE_EVENT_CHECK_OUT);
-        adminsEventsMenu();
+        try {
+            event.outRooms(admin.getRoom(view.numberRoom()));
+            view.viewMessages(View.MESSAGE_EVENT_CHECK_OUT);
+            adminsEventsMenu();
+        }catch (IndexOutOfBoundsException ex){
+            view.viewMessages(View.ROOM_ERROR_MESSAGE);
+            menuUser();
+        }
     }
 
     /**
      * Metodo que permite generar una reservacion desde el admin
      */
     public void generateReservation(){
-        reservation.makeBooking(new Event(LocalDate.parse(view.addInitialDate()),LocalDate.parse(view.addIEndingDate()), hotel.searchUser(view.getId()),admin.getRoom(view.numberRoom())));
-        view.viewMessages(View.RESERVATION_MESSAGE);
-        //adminsEventsMenu();
+        try{
+            reservation.makeBooking(new Event(LocalDate.parse(view.addInitialDate()),LocalDate.parse(view.addIEndingDate()), hotel.searchUser(view.getId()),admin.getRoom(view.numberRoom())));
+            view.viewMessages(View.RESERVATION_MESSAGE);
+        }catch (DateTimeParseException ex){
+            view.viewMessages(View.MESSAGE_FORMAR_EX);
+        }
+
     }
 
     /**
