@@ -183,9 +183,10 @@ public class Admin {
     /**
      * Para decir que una habitacion esta fuera de serivicio
      * @param numb
+     * @param out
      */
-    public void outOfService(int numb){
-        hotel.getRoom(numb).setOcupation(true);
+    public void outOfService(int numb, boolean out){
+        hotel.getRoom(numb).setOcupation(out);
     }
 
     /**
