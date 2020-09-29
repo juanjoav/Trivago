@@ -35,6 +35,7 @@ public class Hotel {
         user = new User();
         pay = new Pay();
         inicializeRooms();
+        SetNumberRooms();
     }
 
     /**

@@ -42,7 +42,7 @@ public class View {
     public static final String OPTION_MENU_ADMIN = "1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7). Generar pago\n8.) Cerrar seccion";
     public static final String OPTION_MENU = "1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver";
     public static final String OPTION_ADMIN_USER = "1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver";
-    public static final String OPTION_ADMIN_USER_ROOM = "1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.)Regresar";
+    public static final String OPTION_ADMIN_USER_ROOM = "1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.) Mirar todas las habitaciones\n6.)Regresar";
     public static final String OPTION_MENU_ROOM = "1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad\n4.) Regresar";
     public static final String OPTION_RESERVATION = "Elija una opcion para ver:\n1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" ;
     public static final String OPTION_EVENTS_MENU= "Eventos:\n1.)Entra de cliente\n2.)Salida del cliente\n3.)Hacer reservacion\n4.)Cambiar temporada\n5.)Regresar" ;

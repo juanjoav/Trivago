@@ -159,11 +159,21 @@ public class Controller {
             case View.MENU_OPTION_FOUR:
                 addRoom();
                 break;
+            case View.MENU_OPTION_FIVE:
+                showAllRoom();
+                break;
             default:
                 menuAdmin();
         }
+        menuAdmin();
     }
 
+    /**
+     * Muestra todas las habitaciones
+     */
+    public void showAllRoom(){
+        view.viewList(admin.showAllRooms());
+    }
     /**
      * Metodo que permite ver los subMenus de opciones de cada habitacion
      */
