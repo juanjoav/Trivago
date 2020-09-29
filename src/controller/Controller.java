@@ -15,12 +15,14 @@ public class Controller {
     private Admin admin;
     private View view;
     private Event event;
+    private Reservation reservation;
 
     public Controller() {
         hotel = new Hotel();
         admin = new Admin(hotel);
         view = new View();
         event = new Event();
+        reservation = new Reservation();
         menuInitalOptions();
     }
 //////////////////////////////////REALCIONES DE MENU////////////////////////////////////////////////////////
@@ -68,7 +70,7 @@ public class Controller {
                             modifyAdminPassword();
                             break;
                             case View.MENU_OPTION_SIX:
-                                //menuInitalOptions();
+                                adminsEventsMenu();
                                 break;
                 default:
                     menuInitalOptions();
@@ -339,13 +341,16 @@ public class Controller {
 
     //////////////////////////////////////////EVENTS////////////////////////////////////////
 
+    /**
+     * Metodo para mostrar el menu de eventos del administrador
+     */
     public void adminsEventsMenu(){
         switch (view.adminEventsMenu()){
             case View.MENU_OPTION_ONE:
-
+                clientEntry();
                 break;
                 case View.MENU_OPTION_TWO:
-
+                    clientExit();
                     break;
                     case View.MENU_OPTION_TRHEE:
 
@@ -353,10 +358,27 @@ public class Controller {
         }
     }
 
+    /**
+     * Metodo para agregar el registro del usuario
+     */
     public void clientEntry(){
         event.assingRoom(admin.getRoom(view.numberRoom()));
+        view.viewMessages(View.MESSAGE_EVENT_CHECK_IN);
+        adminsEventsMenu();
     }
 
+    /**
+     * Metodo para registrar la salida de un usuario
+     */
+    public void clientExit(){
+        event.outRooms(admin.getRoom(view.numberRoom()));
+        view.viewMessages(View.MESSAGE_EVENT_CHECK_OUT);
+        adminsEventsMenu();
+    }
+
+    public void generateReservation(){
+
+    }
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
 
     /**

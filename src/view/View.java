@@ -46,6 +46,8 @@ public class View {
     public static final String ROOM_ERROR_MESSAGE = "Advertencia! La habitacion buscada no existe";
     public static final String ACCESS_GRANTED_MESSAGE = "Acceso concedido";
     public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
+    public static final String MESSAGE_EVENT_CHECK_IN = "Ingreso registrado";
+    public static final String MESSAGE_EVENT_CHECK_OUT = "Retiro registrado";
 
 
     public View() {
