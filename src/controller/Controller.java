@@ -69,15 +69,15 @@ public class Controller {
                 case View.MENU_OPTION_TRHEE:            //HABITACIONES
                     adminRoom();
                     break;
-                    case View.MENU_OPTION_FOUR:
-                        modifyAdminName();
-                        break;
-                        case View.MENU_OPTION_FIVE:
-                            modifyAdminPassword();
-                            break;
-                            case View.MENU_OPTION_SIX:
-                                adminsEventsMenu();
-                                break;
+                case View.MENU_OPTION_FOUR:
+                    modifyAdminName();
+                    break;
+                case View.MENU_OPTION_FIVE:
+                    modifyAdminPassword();
+                    break;
+                case View.MENU_OPTION_SIX:
+                    adminsEventsMenu();
+                    break;
                 default:
                     menuInitalOptions();
             }
@@ -142,15 +142,15 @@ public class Controller {
             case View.MENU_OPTION_ONE:
                 controlRoomMenu();
                 break;
-                case View.MENU_OPTION_TWO:
-                    modifyRoom();
-                    break;
-                    case View.MENU_OPTION_TRHEE:
-                        disableRoom();
-                        break;
-                        case View.MENU_OPTION_FOUR:
-                            addRoom();
-                            break;
+            case View.MENU_OPTION_TWO:
+                modifyRoom();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                disableRoom();
+                break;
+            case View.MENU_OPTION_FOUR:
+                addRoom();
+                break;
             default:
                 menuAdmin();
         }
@@ -164,12 +164,12 @@ public class Controller {
             case View.MENU_OPTION_ONE:
                 roomOcupation();
                 break;
-                case View.MENU_OPTION_TWO:
-                    searchPerQuality();
-                    break;
-                    case View.MENU_OPTION_TRHEE:
-                        searchPerStatus();
-                        break;
+            case View.MENU_OPTION_TWO:
+                searchPerQuality();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                searchPerStatus();
+                break;
             default:
                 menuAdmin();
         }
@@ -188,9 +188,9 @@ public class Controller {
             case View.MENU_OPTION_TWO:
                 signInUser();
                 break;
-                case View.MENU_OPTION_TRHEE:
-                    menuInitalOptions();
-                    break;
+            case View.MENU_OPTION_TRHEE:
+                menuInitalOptions();
+                break;
         }
     }
 
@@ -357,16 +357,16 @@ public class Controller {
             case View.MENU_OPTION_ONE:
                 clientEntry();
                 break;
-                case View.MENU_OPTION_TWO:
-                    clientExit();
-                    break;
-                    case View.MENU_OPTION_TRHEE:
-                        generateReservation();
-                        adminsEventsMenu();
-                        break;
-                        case View.MENU_OPTION_FOUR:
-                            changeSeason();
-                            break;
+            case View.MENU_OPTION_TWO:
+                clientExit();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                generateReservation();
+                adminsEventsMenu();
+                break;
+            case View.MENU_OPTION_FOUR:
+                changeSeason();
+                break;
             default:
                 menuAdmin();
         }
@@ -459,13 +459,13 @@ public class Controller {
                 viewMenus();
                 menuUserOptions();
                 break;
-                case View.MENU_OPTION_TWO:
-                    menuUserOptions();
-                    break;
-                    case View.MENU_OPTION_TRHEE:
-                        generateReservation();
-                        menuUserOptions();
-                        break;
+            case View.MENU_OPTION_TWO:
+                menuUserOptions();
+                break;
+            case View.MENU_OPTION_TRHEE:
+                generateReservation();
+                menuUserOptions();
+                break;
             default:
                 menuInitalOptions();
         }
