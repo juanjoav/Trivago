@@ -56,8 +56,8 @@ public class Controller {
                 case View.MENU_OPTION_TWO:
                     adminUser();
                     break;
-                case View.MENU_OPTION_TRHEE:
-                    viewUsers();
+                case View.MENU_OPTION_TRHEE:            //HABITACIONES
+                    adminRoom();
                     break;
                     case View.MENU_OPTION_FOUR:
                         modifyAdminName();
@@ -122,6 +122,20 @@ public class Controller {
                 adminUser();
         }
     }
+
+    ///////////////////////////////////ROOM CONTROL///////////////////////////////////////////
+    public void adminRoom(){
+        switch (view.adminUserRoom()){
+            case View.MENU_OPTION_ONE:
+                roomOcupation();
+                break;
+                case View.MENU_OPTION_TWO:
+                    modifyRoom();
+                    break;
+        }
+    }
+
+
 
     ///////////////////////////////////////////////INTERFAZ DE USUARIOS Y SUBS MENUS////////////////////////////////////////
     /**
@@ -217,6 +231,43 @@ public class Controller {
         view.viewMessages(View.SEARCH_MESSAGE);
         view.viewMessages(admin.searchUser(view.getId()));
         adminUser();
+    }
+
+    ////////////////////////////////////ROOMS CONTROL ADMIN///////////////////////////////////////////
+
+    /**
+     * Metodo que permite consultar cuantas habitaciones estan ocupadas
+     */
+    public void roomOcupation(){
+        boolean eventRoom = view.reservationOption();
+        if (eventRoom){
+            view.viewMessages(View.ROOM_OCUPATED_MESSAGE);
+            view.viewMessages("" + admin.getCounterOcupation(eventRoom));
+        }
+        else {
+            view.viewMessages(View.ROOM_FREE_MESSAGE);
+            view.viewMessages("" + admin.getCounterOcupation(eventRoom));
+        }
+        adminRoom();
+    }
+
+    /**
+     * Metodo que permite modificar una habitacion
+     */
+    public void modifyRoom(){
+        try{
+            admin.getRoom(view.numberRoom()).setQuality(Quality.valueOf(view.obtainQuality()));
+            view.viewMessages(View.CHANGES_MESSAGE);
+        }
+        catch (IllegalArgumentException ex){
+            view.viewMessages(View.ERROR_VALUES);
+            adminRoom();
+        }
+        adminRoom();
+    }
+
+    public void disableRoom(){
+
     }
     ////////////////////////////////////////////////USER////////////////////////////////////////
 
