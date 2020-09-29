@@ -79,9 +79,9 @@ public class Pay {
         return getTotalRoom(rooms) + (getTotalRoom(rooms)*getdiscountPay()) + (getTotalRoom(rooms)*getIncreaseDiscount());
     }
     /**
-     *
-     * @param rooms
-     * @return
+     * Obtener el valor total de cierto numero de habitaciones
+     * @param rooms todas las habitaciones
+     * @return total
      */
     public double getTotalRoom(Room[] rooms){
         double total = 0;
@@ -92,9 +92,9 @@ public class Pay {
     }
 
     /**
-     *
-     * @param reservation
-     * @param index
+     *Obtiene el valor total para una reservacion
+     * @param reservation reservacion
+     * @param index numero de la reservacion
      * @return
      */
     public double getTotalDays(Reservation reservation, int index){
@@ -103,34 +103,67 @@ public class Pay {
 
         return buy * diferent;
     }
+
+    /**
+     * obtiene el valor del plan todo incluido
+     * @return double valor
+     */
     public static double getAllInclude() {
         return ALLINCLUDE;
     }
 
+    /**
+     * obtiene el valor normal
+     * @return double valor
+     */
     public double getNormalinclude(){
         return  NORMALINCLUDE;
     }
 
+    /**
+     * obtiene el m,etodo de pago
+     * @return
+     */
     public PayEvent getPayEvent() {
         return payEvent;
     }
 
+    /**
+     * Modifica el metodo de pago
+     * @param payEvent
+     */
     public void setPayEvent(PayEvent payEvent) {
         this.payEvent = payEvent;
     }
 
+    /**
+     *obtiene ela entrada
+     * @return
+     */
     public Entry getEntry() {
         return entry;
     }
 
+    /**
+     *Modifica la entrada
+     * @param entry
+     */
     public void setEntry(Entry entry) {
         this.entry = entry;
     }
 
+    /**
+     *Obtiene la temporada
+     * @return
+     */
     public Season getSeason() {
         return season;
     }
 
+    /**
+     *Modifica la temporada
+     * @param season
+     */
     public void setSeason(Season season) {
         this.season = season;
     }
