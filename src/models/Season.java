@@ -7,5 +7,5 @@
 package models;
 
 public enum Season {
-    HIGHER,LOWER
+    ALTA, BAJA
 }

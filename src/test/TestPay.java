@@ -51,9 +51,9 @@ public class TestPay {
         if(string.equalsIgnoreCase("virtual")){
             pay.setPayEvent(PayEvent.VIRTUAL);
         }else if(string.equalsIgnoreCase("tarjeta")){
-            pay.setPayEvent(PayEvent.CARD);
+            pay.setPayEvent(PayEvent.TARJETA);
         }else{
-            pay.setPayEvent(PayEvent.CASH);
+            pay.setPayEvent(PayEvent.EFECTIVO);
         }
         System.out.println("Tipo de entrada(walk,reserva)");
         String stringTwo = scanner.nextLine();
@@ -88,9 +88,9 @@ public class TestPay {
         System.out.println("Digite la temprada(alta , baja)");
         String string = scanner.nextLine();
         if(string.equalsIgnoreCase("alta")){
-            pay.setSeason(Season.HIGHER);
+            pay.setSeason(Season.ALTA);
         }else{
-            pay.setSeason(Season.LOWER);
+            pay.setSeason(Season.BAJA);
         }
     }
     public void run(){

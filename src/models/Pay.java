@@ -26,7 +26,7 @@ public class Pay {
     public Pay(PayEvent payEvent, Entry entry) {
         this.payEvent = payEvent;
         this.entry = entry;
-        this.season = Season.LOWER;
+        this.season = Season.BAJA;
     }
 
     public Pay(){
@@ -39,15 +39,15 @@ public class Pay {
      * @return
      */
     public double getSeasonRoomPay(Room room){
-        if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.ECONOMICA)){
+        if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC * 2;
-        }else if(season.equals(Season.LOWER) && room.getQuality().equals(Quality.ECONOMICA)){
+        }else if(season.equals(Season.BAJA) && room.getQuality().equals(Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC;
-        }else if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.REGULAR)){
+        }else if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.REGULAR)){
             return PRICE_ROOM_REGULAR * 2;
-        }else if(season.equals(Season.LOWER) && room.getQuality().equals(Quality.REGULAR)){
+        }else if(season.equals(Season.BAJA) && room.getQuality().equals(Quality.REGULAR)){
             return PRICE_ROOM_REGULAR;
-        }else if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.PREMIUM)){
+        }else if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.PREMIUM)){
             return PRICE_ROOM_PREMIUM * 2;
         }else{
             return PRICE_ROOM_PREMIUM;
@@ -67,7 +67,7 @@ public class Pay {
      * @return
      */
     public double getdiscountPay(){
-        if(payEvent.equals(PayEvent.CARD)){
+        if(payEvent.equals(PayEvent.TARJETA)){
             return DISCOUNT_CARD;
         }else if(payEvent.equals(PayEvent.VIRTUAL)){
             return DISCOUNT_VIRTUAL;
