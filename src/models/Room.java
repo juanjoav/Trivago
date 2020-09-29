@@ -6,6 +6,10 @@
 
 package models;
 
+
+/**
+ * Administra unja habitacion
+ */
 public class Room {
     private int number = 0;
     private Quality quality;
@@ -17,9 +21,6 @@ public class Room {
         this.ocupation =  false;
     }
 
-    public Room(){
-
-    }
     /**
      *Obtenemos el numero
      * @return

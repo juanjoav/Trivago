@@ -29,6 +29,7 @@ public class Hotel {
         rooms = new ArrayList<Room>();
         user = new User();
         pay = new Pay();
+        inicializeRooms();
     }
 
     /**
@@ -82,6 +83,16 @@ public class Hotel {
         }
     }
 
+    /**
+     * pasa por quemado un numero determinado de habiotaciones o minimo de estas
+     */
+    private void inicializeRooms(){
+        for (int i = 0; i < 8; i++) {
+            rooms.add(new Room(Quality.PREMIUM));
+            rooms.add(new Room(Quality.ECONOMIC));
+            rooms.add(new Room(Quality.REGULAR));
+        }
+    }
     /**
      * Metodo para aumentar el numero de habitaciones
      * @param room
