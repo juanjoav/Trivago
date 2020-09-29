@@ -29,6 +29,7 @@ public class Controller {
         pay = new Pay();
         menuInitalOptions();
     }
+
 //////////////////////////////////REALCIONES DE MENU////////////////////////////////////////////////////////
 
     /**
@@ -52,6 +53,7 @@ public class Controller {
     }
 
     ////////////////////////////////////////////////MENU DEL ADMIN Y SUBS MENUS//////////////////////////////////////////////
+
     /**
      * METODO QUE RELACIONA TODAS LAS OPCIONES QUE TIENE EL ADMIN
      */
@@ -174,6 +176,7 @@ public class Controller {
     }
 
     ///////////////////////////////////////////////INTERFAZ DE USUARIOS Y SUBS MENUS////////////////////////////////////////
+
     /**
      * METODO QUE PERMITE LAS FUNCIONES BASICAS DEL USUARIO
      */

@@ -34,15 +34,27 @@ public class View {
     public static final String CONTAINS_MENU = "Por favor en una sola linea agregue los elementos que va a tener el menu del dia: ";
     public static final String PRICE_MENU = "Agregue el precio que tendra el menu: ";
     public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n3.) Regresar";
+    public static final String OPTION_MENU_ADMIN = "1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7.) Cerrar secion";
+    public static final String OPTION_MENU = "1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver";
+    public static final String OPTION_ADMIN_USER = "1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver";
+    public static final String OPTION_ADMIN_USER_ROOM = "1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.)Regresar";
+    public static final String OPTION_MENU_ROOM = "1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad\n4.) Regresar";
+    public static final String OPTION_RESERVATION = "Elija una opcion para ver:\n1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" ;
+    public static final String OPTION_EVENTS_MENU= "Eventos:\n1.)Entra de cliente\n2.)Salida del cliente\n3.)Hacer reservacion\n4.)Cambiar temporada\n5.)Regresar" ;
     public static final String USER_ID = "Ingrese el ID de usuario";
+    public static final String INITIAL_DATE = "Ingrese la fecha inicial en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'";
     public static final String USER_PHONE = "Ingrese el telefono del usuario";
     public static final String USER_PASSWORD = "Por favor ingrese su contraseña";
+    public static final String ENDING_DATE = "Ingrese la fecha final en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'";
     public static final String SEARCH_MESSAGE = "Busqueda por ID de usuarios";
     public static final String ERROR_VALUES = "ADVERTENCIA! A ingresado un valor invalido";
     public static final String CHANGES_MESSAGE = "Cambios realizados con exitos";
+    public static final String OBTAIN_QUALITY = "Ingrese una de las siguientes categorias \nECONOMICA~REGULAR~PREMIUM";
     public static final String ROOM_OCUPATED_MESSAGE = "Habitaciones ocupadas";
+    public static final String NUMBER_ROOM = "Ingrese el numero de la habitacion: ";
     public static final String ROOM_FREE_MESSAGE = "HabitacioneS desocupadas";
     public static final String ROOM_PER_QUALITY = "Las cantidad de habitaciones encontradas son ";
+    public static final String DISABLE_ROOM = "Elija una de las siguientes opciones\n1.)Para desabilitar una habitacion\n2.)Para habilitar una habitacion";
     public static final String ROOM_ERROR_MESSAGE = "Advertencia! La habitacion buscada no existe";
     public static final String ACCESS_GRANTED_MESSAGE = "Acceso concedido";
     public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
@@ -95,7 +107,7 @@ public class View {
      */
     public int adminOption(){
         System.out.println(LINE + TITTLE_ADMIN + LINE);
-        System.out.println("1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7.) Cerrar secion");
+        System.out.println(OPTION_MENU_ADMIN);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -104,7 +116,7 @@ public class View {
      * @return un entero con la opcion elejida
      */
     public int adminMenuOption(){
-        System.out.println("1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver");
+        System.out.println(OPTION_MENU);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -113,7 +125,7 @@ public class View {
      * @return un entero con la opcion elejida
      */
     public int adminUserMenu(){
-        System.out.println("1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver");
+        System.out.println(OPTION_ADMIN_USER);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -122,16 +134,16 @@ public class View {
      * @return un entero con las opciones elejidas
      */
     public int adminUserRoom(){
-        System.out.println("1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.)Regresar");
+        System.out.println(OPTION_ADMIN_USER_ROOM);
         return Integer.parseInt(scanner.nextLine());
     }
 
     /**
-     *  Menu para mostrar las opciones de eventos de las habitaciones
-     * @return retorna la opcion elejida por el admin
+     *
+     * @return
      */
     public int viewRoomsMenu(){
-        System.out.println("1.)Estado de habitaciones\n2.)Cantidad de habitaciones segun la calidad\n3.) Cantidad de habitaciones disponibles segun la calidad\n4.) Regresar");
+        System.out.println(OPTION_MENU_ROOM);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -189,7 +201,7 @@ public class View {
      * @return
      */
     public int menuUser(){
-        System.out.println("1.) Consultar menus\n2.) Consula habitaciones\n3.) Crear reservacion\n4.) Cerrar secion");
+        System.out.println("1.) Consultar menus\n2.) ");
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -241,7 +253,7 @@ public class View {
      * @return
      */
     public boolean reservationOption(){
-        System.out.println("Elija una opcion para ver:\n1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" );
+        System.out.println(OPTION_RESERVATION);
         return Integer.parseInt(scanner.nextLine()) == MENU_OPTION_ONE;
     }
 
@@ -250,7 +262,7 @@ public class View {
      * @return un entero ingresado por el usuario
      */
     public int numberRoom(){
-        System.out.println("Ingrese el numero de la habitacion: ");
+        System.out.println(NUMBER_ROOM);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -259,7 +271,7 @@ public class View {
      * @return la calidad de la habitacion ingresada por el usuario
      */
     public String obtainQuality(){
-        System.out.println("Ingrese una de las siguientes categorias \nECONOMICA~REGULAR~PREMIUM");
+        System.out.println(OBTAIN_QUALITY);
         return scanner.nextLine().toUpperCase();
     }
 
@@ -268,7 +280,7 @@ public class View {
      * @return un boolean con la opcion dada
      */
     public boolean disablesRoom(){
-        System.out.println("Elija una de las siguientes opciones\n1.)Para desabilitar una habitacion\n2.)Para habilitar una habitacion");
+        System.out.println(DISABLE_ROOM);
         return Integer.parseInt(scanner.nextLine()) == 1;
     }
 
@@ -279,7 +291,7 @@ public class View {
      * @return
      */
     public int adminEventsMenu(){
-        System.out.println("Eventos:\n1.)Entra de cliente\n2.)Salida del cliente\n3.)Hacer reservacion\n4.)Cambiar temporada\n5.)Regresar");
+        System.out.println(OPTION_EVENTS_MENU);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -288,7 +300,7 @@ public class View {
      * @return la fecha ingresada por el usuario o administrador
      */
     public String addInitialDate(){
-        System.out.println("Ingrese la fecha inicial en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'");
+        System.out.println(INITIAL_DATE);
         return scanner.nextLine();
     }
 
@@ -297,17 +309,13 @@ public class View {
      * @return la fecha ingresada por el usuario o administrador
      */
     public String addIEndingDate(){
-        System.out.println("Ingrese la fecha final en el siguiente formato\nAAAA-MM-DD (NOTA! Recuerde separar las fechas con un guion '-'");
+        System.out.println(ENDING_DATE);
         return scanner.nextLine();
     }
 
-    /**
-     * Metodo que permitr ingresar una temporada
-     * @return la temporada que digite el administrador
-     */
     public String changeSeason(){
-        System.out.println("Digite una de las siguientes temporadas:\nALTA o BAJA");
-        return scanner.nextLine().toUpperCase();
+
+        return scanner.nextLine();
     }
 
 
