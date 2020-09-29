@@ -36,13 +36,17 @@ public class Hotel {
      * Metodo que nos permite agregar un nuevo usuario a la lista
      * @param user usuario a ser creado
      */
-    public void addUser(User user){
-        try{
-            userTreeSet.add(user);
+    public String addUser(User user){
+       // try{
+        String message = "";
+        if (!userTreeSet.add(user)){
+            message = "Usuario ya registrado";
         }
-        catch (NullPointerException exception){
-            System.out.println("dato invalido");
-        }
+//        }
+//        catch (NullPointerException exception){
+//            System.out.println("dato invalido");
+//        }
+        return message;
     }
 
     /**

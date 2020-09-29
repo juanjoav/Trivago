@@ -102,6 +102,7 @@ public class Controller {
                 break;
             case View.MENU_OPTION_FOUR:
                 viewMenus();
+                adminMenu();
                 break;
             case View.MENU_OPTION_FIVE:
                 menuAdmin();
@@ -422,7 +423,8 @@ public class Controller {
     public void addUserAdmin(){
         //hotel.addUser(new User(view.nickName(), view.getId(), view.getphone(), PayEvent.valueOf(view.getCashEvent()),Entry.valueOf(view.entryCondition())));
         try {
-            hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password()));
+            //System.out.println(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));
+            view.viewMessages(hotel.addUser(new User(view.nickName(), view.getphone(), view.getId(), view.password())));
         } catch (NumberFormatException | NullPointerException ex){
             view.viewMessages(View.MESSAGE_FORMAR_EX);
             adminUser();
@@ -450,10 +452,15 @@ public class Controller {
     public void menuUserOptions(){
         switch (view.menuUser()){
             case View.MENU_OPTION_ONE:
-
+                viewMenus();
+                menuUserOptions();
                 break;
+                case View.MENU_OPTION_TWO:
+
+                    break;
         }
     }
+
 
     ////////////////////////////////////////DE USO DE ADMIN Y USER////////////////////////////////////
 
@@ -462,7 +469,7 @@ public class Controller {
      */
     public void viewMenus(){
         view.viewList(hotel.viewMenus());
-        adminMenu();
+        //adminMenu();
     }
 
     public static void main(String[] args) {
