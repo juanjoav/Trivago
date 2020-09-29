@@ -17,11 +17,18 @@ import java.util.Scanner;
 public class TestRoom {
     private Scanner scanner;
     private Admin setRoom;
+
+    /**
+     *
+     */
     public TestRoom() {
         scanner = new Scanner(System.in);
         setRoom = new Admin(new Hotel());
     }
 
+    /**
+     *
+     */
     public void  regular(){
         System.out.print("Digite cuantas habitaciones reguales quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -30,6 +37,9 @@ public class TestRoom {
         }
     }
 
+    /**
+     *
+     */
     public void  premium(){
         System.out.print("Digite cuantas habitaciones premium quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -38,6 +48,9 @@ public class TestRoom {
         }
     }
 
+    /**
+     *
+     */
     public void  economic(){
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
@@ -45,6 +58,10 @@ public class TestRoom {
             setRoom.addRoom(Quality.ECONOMICA);
         }
     }
+
+    /**
+     *
+     */
     public void ocupation(){
         System.out.print("Digite cuales habitaciones quiere (Calidad): ");
         String quality = scanner.nextLine();
@@ -69,6 +86,10 @@ public class TestRoom {
             System.out.println(setRoom.getRoom(roomming).isOcupation()?"Exitoso":"Error");
         }
     }
+
+    /**
+     * Metodo
+     */
     public void showCount(){
         System.out.println("El numero de habitaciones disponibles: "+setRoom.getCounterOcupation(false));
         System.out.println("El numero de habitaciones no disponibles: "+setRoom.getCounterOcupation(true));
