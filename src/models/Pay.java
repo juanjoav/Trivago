@@ -39,9 +39,9 @@ public class Pay {
      * @return
      */
     public double getSeasonRoomPay(Room room){
-        if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.ECONOMIC)){
+        if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC * 2;
-        }else if(season.equals(Season.LOWER) && room.getQuality().equals(Quality.ECONOMIC)){
+        }else if(season.equals(Season.LOWER) && room.getQuality().equals(Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC;
         }else if(season.equals(Season.HIGHER) && room.getQuality().equals(Quality.REGULAR)){
             return PRICE_ROOM_REGULAR * 2;

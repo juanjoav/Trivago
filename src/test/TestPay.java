@@ -42,7 +42,7 @@ public class TestPay {
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < roundOne; i++) {
-            admin.addRoom(Quality.ECONOMIC);
+            admin.addRoom(Quality.ECONOMICA);
         }
     }
     public void type(){
