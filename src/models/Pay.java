@@ -25,8 +25,8 @@ public class Pay {
     private static final double DISCOUNT_CARD = -0.05;
     private static final double DISCOUNT_VIRTUAL = -0.1;
 
-    public Pay(PaymentType paymentType, Entry entry) {
-        this.paymentType = paymentType;
+    public Pay(Entry entry) {
+        this.paymentType = PaymentType.EFECTIVO;
         this.entry = entry;
         this.season = Season.BAJA;
     }
@@ -41,15 +41,15 @@ public class Pay {
      * @return
      */
     public double getSeasonRoomPay(Room room){
-        if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.ECONOMICA)){
+        if(getSeason() == Season.ALTA && room.getQuality() == (Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC * 2;
-        }else if(season.equals(Season.BAJA) && room.getQuality().equals(Quality.ECONOMICA)){
+        }else if(getSeason() == (Season.BAJA) && room.getQuality() == (Quality.ECONOMICA)){
             return PRICE_ROOM_ECONOMIC;
-        }else if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.REGULAR)){
+        }else if(getSeason() == (Season.ALTA) && room.getQuality() == (Quality.REGULAR)){
             return PRICE_ROOM_REGULAR * 2;
-        }else if(season.equals(Season.BAJA) && room.getQuality().equals(Quality.REGULAR)){
+        }else if(getSeason() ==(Season.BAJA) && room.getQuality() == (Quality.REGULAR)){
             return PRICE_ROOM_REGULAR;
-        }else if(season.equals(Season.ALTA) && room.getQuality().equals(Quality.PREMIUM)){
+        }else if(getSeason() == (Season.ALTA) && room.getQuality() == (Quality.PREMIUM)){
             return PRICE_ROOM_PREMIUM * 2;
         }else{
             return PRICE_ROOM_PREMIUM;
@@ -61,7 +61,7 @@ public class Pay {
      * @return
      */
     public double getIncreaseDiscount(){
-        return entry.equals(Entry.BOOKING)?INCREASE_DISCOUNT*-1:INCREASE_DISCOUNT;
+        return getEntry() == (Entry.BOOKING)?INCREASE_DISCOUNT*-1:INCREASE_DISCOUNT;
     }
 
     /**
@@ -69,9 +69,9 @@ public class Pay {
      * @return
      */
     public double getdiscountPay(){
-        if(paymentType.equals(PaymentType.TARJETA)){
+        if(paymentType == (PaymentType.TARJETA)){
             return DISCOUNT_CARD;
-        }else if(paymentType.equals(PaymentType.VIRTUAL)){
+        }else if(paymentType == (PaymentType.VIRTUAL)){
             return DISCOUNT_VIRTUAL;
         }else{
             return DISCOUNT_CASH;
@@ -107,7 +107,9 @@ public class Pay {
     public double getTotalRoom(Room[] rooms){
         double total = 0;
         for (int i = 0; i < rooms.length; i++) {
-            total += getSeasonRoomPay(rooms[i]);
+            if(rooms[i].isOcupation()) {
+                total += getSeasonRoomPay(rooms[i]);
+            }
         }
         return total;
     }

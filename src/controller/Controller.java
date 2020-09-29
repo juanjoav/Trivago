@@ -84,6 +84,8 @@ public class Controller {
                 case View.MENU_OPTION_SIX:
                     adminsEventsMenu();
                     break;
+                    case View.MENU_OPTION_SEVEN:
+                        pay();
                 default:
                     menuInitalOptions();
             }
@@ -282,6 +284,34 @@ public class Controller {
         adminUser();
     }
 
+    /**
+     *
+     */
+    public void pay(){
+        view.viewMessages(View.MESSAGE_ITERATIONS);
+        int rounds = view.getInt();
+        Room[] rooms = new Room[rounds];
+        for (int i = 0; i < rounds; i++) {
+            rooms[i] = hotel.getRoom(view.numberRoom());
+        }
+        paymentType();
+        switch (view.allInclude()){
+            case 1:
+                view.showPay(pay.getTotalFinal(true,rooms));
+                break;
+            case 2:
+                view.showPay(pay.getTotalFinal(false,rooms));
+                break;
+            default:
+                menuAdmin();
+        }
+        menuAdmin();
+    }
+
+    public void paymentType(){
+        pay.setPayEvent(PaymentType.valueOf(view.getPaymentType()));
+    }
+
     ////////////////////////////////////ROOMS CONTROL ADMIN///////////////////////////////////////////
 
     /**
@@ -409,7 +439,9 @@ public class Controller {
      * metodo que permite cambiar una temporada
      */
     public void changeSeason(){
-        pay.setSeason(Season.valueOf(view.changeSeason()));
+        view.viewMessages(View.CHANGE_SEASON);
+        pay.setSeason(Season.valueOf(view.changeSeason().toUpperCase()));
+        view.viewMessages(View.MESSAGE_CHANGE_SEASON);
         adminsEventsMenu();
     }
     ////////////////////////////////////////////////USER////////////////////////////////////////////////
@@ -472,9 +504,12 @@ public class Controller {
                 generateReservation();
                 menuUserOptions();
                 break;
+            case View.MENU_OPTION_FOUR:
+                pay();
             default:
                 menuInitalOptions();
         }
+        menuInitalOptions();
     }
 
 

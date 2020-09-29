@@ -39,7 +39,7 @@ public class View {
     public static final String CONTAINS_MENU = "Por favor en una sola linea agregue los elementos que va a tener el menu del dia: ";
     public static final String PRICE_MENU = "Agregue el precio que tendra el menu: ";
     public static final String OPTIONS_USER = "1.) Registrarse \n2.) Iniciar secion\n3.) Regresar";
-    public static final String OPTION_MENU_ADMIN = "1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7.) Cerrar secion";
+    public static final String OPTION_MENU_ADMIN = "1.) Administrar menus\n2.) Administrar usuarios \n3.) Administrar habitaciones\n4.) Cambiar nombre de admin\n5.) Cambiar contraseña\n6.) Gestar Eventos\n7). Generar pago\n8.) Cerrar seccion";
     public static final String OPTION_MENU = "1.) Agregar menu\n2.) Retirar un menu\n3.) Modificar un menu\n4.) Mostrar menus\n5.) Para volver";
     public static final String OPTION_ADMIN_USER = "1.) Agregar un usuario\n2.) Ver lista de usuarios\n3.) Buscar un usuario\n4.) Para volver";
     public static final String OPTION_ADMIN_USER_ROOM = "1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Cambiar estado de una habitacion\n4.)Añadir habitaciones\n5.)Regresar";
@@ -65,7 +65,14 @@ public class View {
     public static final String ACCESS_DENIED_MESSAGE = "Usuario y/o contraseña incorrectos";
     public static final String MESSAGE_EVENT_CHECK_IN = "Ingreso registrado";
     public static final String MESSAGE_EVENT_CHECK_OUT = "Retiro registrado";
+    public static final String MESSAGE_ITERATIONS = "¿Cuantas habitaciones fueron?";
+    public static final String MESSAGE_ICLUDE = "Obtuvo el plan todo incuido\n1.Si\n2.No";
     public static final String RESERVATION_MESSAGE = "Reservacion realizada con exito";
+    public static final String MESSAGE_PAY = "El total a pagar es :$";
+    public static final String MESSAGE_PAYMENTTYPE = "Tipo de pago(Efectivo,Tarjeta,Virtual): ";
+    public static final String USER_MENU_OPTION = "1.) Consultar menus\n2.) Consula habitaciones\n3.) Crear reservacion\n4.) Pagar\n5.) Cerrar secion";
+    public static final String CHANGE_SEASON = "Temporada(Alta, Baja): ";
+    public static final String MESSAGE_CHANGE_SEASON = "Cambio efectuado correctamente";
 
     public View() {
         scanner = new Scanner(System.in);
@@ -206,7 +213,7 @@ public class View {
      * @return
      */
     public int menuUser(){
-        System.out.println("1.) Consultar menus\n2.) ");
+        System.out.println(USER_MENU_OPTION);
         return Integer.parseInt(scanner.nextLine());
     }
 
@@ -318,12 +325,38 @@ public class View {
         return scanner.nextLine();
     }
 
+    /**
+     * Metodo para ingresar la temporada
+     * @return la temporada que ingresa el susario
+     */
     public String changeSeason(){
 
         return scanner.nextLine();
     }
 
+    //////////////////////////////////////////////////////PAGO/////////////////////////////////////////////////////////////
 
+    /**
+     * Para demostrar si un plan es el normal o el todo incluido
+     * @return
+     */
+    public int allInclude(){
+        System.out.println(MESSAGE_ICLUDE);
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    /**
+     * para mostrar el total de pago
+     * @param pay el pago completo
+     */
+    public void showPay(double pay){
+        System.out.println(MESSAGE_PAY + pay);
+    }
+
+    public String getPaymentType(){
+        System.out.println(MESSAGE_PAYMENTTYPE);
+        return scanner.nextLine().toUpperCase();
+    }
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
     /**
@@ -342,5 +375,9 @@ public class View {
         for (String string:lists) {
             System.out.println(string);
         }
+    }
+
+    public int getInt(){
+        return Integer.parseInt(scanner.nextLine());
     }
 }
