@@ -6,6 +6,7 @@
 
 package view;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class View {
@@ -39,8 +40,9 @@ public class View {
     public static final String SEARCH_MESSAGE = "Busqueda por ID de usuarios";
     public static final String ERROR_VALUES = "ADVERTENCIA! A ingresado un valor invalido";
     public static final String CHANGES_MESSAGE = "Cambios realizados con exitos";
-
-
+    public static final String ROOM_OCUPATED_MESSAGE = "Habitaciones ocupadas";
+    public static final String ROOM_FREE_MESSAGE = "HabitacioneS desocupadas";
+    public static final String ROOM_ERROR_MESSAGE = "Advertencia! La habitacion buscada no existe";
 
     public View() {
         scanner = new Scanner(System.in);
@@ -114,9 +116,15 @@ public class View {
      * @return un entero con las opciones elejidas
      */
     public int adminUserRoom(){
-
+        System.out.println("1.)Control de habitaciones\n2.)Modificar habitaciones\n3.)Poner habitacion fuera de servicio\n4.)Añadir habitaciones\n5.)Regresar");
         return Integer.parseInt(scanner.nextLine());
     }
+
+    public int viewRoomsMenu(){
+        System.out.println("1.)Estado de habitaciones\n2.)Busqueda segun la calidad");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
     /////////////////////////////MENUS/////////////////////////////////////////////////
 
     /**
@@ -138,8 +146,8 @@ public class View {
     }
 
     /**
-     * envia los datos que contiene cada menu
-     * @return
+     * Metodo que envia los datos que contiene cada menu
+     * @return el contenido de cada menu
      */
     public String menuContains(){
         System.out.println(CONTAINS_MENU);
@@ -147,8 +155,8 @@ public class View {
     }
 
     /**
-     * envia los datos del precio de cada menu
-     * @return
+     * Metodo que envia los datos del precio de cada menu
+     * @return el precio de cada maenu
      */
     public double menuPrice(){
         System.out.println(PRICE_MENU);
@@ -167,7 +175,7 @@ public class View {
     }
 
     /**
-     *
+     *Metodo que permite obtener el ID
      * @return el id del usuario
      */
     public long getId(){
@@ -176,14 +184,18 @@ public class View {
     }
 
     /**
-     * envia el telefono del usuario
-     * @return
+     * Metodo que envia el telefono del usuario
+     * @return el telefono ingresado
      */
     public long getphone(){
         System.out.println(USER_PHONE);
         return Long.parseLong(scanner.nextLine());
     }
 
+    /**
+     * Metodo que permite solicitar una contraseña
+     * @return la contraseña solicitada
+     */
     public String getPassaword(){
         System.out.println(USER_PASSWORD);
         return scanner.nextLine();
@@ -203,6 +215,31 @@ public class View {
  //    }
  */
 
+/////////////////////////////////////////////////ROOMS//////////////////////////////////////////////////////////////
+
+    /**
+     * Metodo para hacer el criterio de busqueda de usuario
+     * @return
+     */
+    public boolean reservationOption(){
+        System.out.println("1.)Habitaciones ocupadas \n2.)Habitaciones No ocupadas" );
+        return Integer.parseInt(scanner.nextLine()) == MENU_OPTION_ONE;
+    }
+
+    /**
+     * Metodo que permite ingresar el numero de una habitacion
+     * @return un entero ingresado por el usuario
+     */
+    public int numberRoom(){
+        System.out.println("Ingrese el numero de la habitacion: ");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public String obtainQuality(){
+        System.out.println("Ingrese una de las siguientes categorias \nECONOMICA~REGULAR~PREMIUM");
+        return scanner.nextLine().toUpperCase();
+    }
+
 
     /////////////////////////////////////////////////////RETORNOS//////////////////////////////////////////////////////////
 
@@ -215,7 +252,7 @@ public class View {
     }
 
     /**
-     * Metodod que recibe una lista de elementos para mostrar
+     * Metodo que recibe una lista de elementos para mostrar
      * @param lists la lista que desea mostrar
      */
     public void viewList(String [] lists){

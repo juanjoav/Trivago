@@ -7,5 +7,5 @@
 package models;
 
 public enum Quality {
-    ECONOMIC,REGULAR,PREMIUM;
+    ECONOMICA,REGULAR,PREMIUM;
 }

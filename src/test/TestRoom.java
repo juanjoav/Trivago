@@ -38,7 +38,7 @@ public class TestRoom {
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < roundOne; i++) {
-            setRoom.addRoom(Quality.ECONOMIC);
+            setRoom.addRoom(Quality.ECONOMICA);
         }
     }
     public void ocupation(){
@@ -50,7 +50,7 @@ public class TestRoom {
         }else if(quality.equalsIgnoreCase("Premium")){
             rooms = setRoom.getAnyRoom(Quality.PREMIUM);
         }else if(quality.equalsIgnoreCase("Ecomonico")||quality.equalsIgnoreCase("Economica")){
-            rooms = setRoom.getAnyRoom(Quality.ECONOMIC);
+            rooms = setRoom.getAnyRoom(Quality.ECONOMICA);
         }
         for (int i = 0; i < setRoom.getTotalRooms(); i++) {
             System.out.println(setRoom.toStringRoom(i));
@@ -70,7 +70,7 @@ public class TestRoom {
         System.out.println("El numero de habitaciones no disponibles: "+setRoom.getCounterOcupation(true));
         System.out.println("El numero de habitaciones Regulares: "+setRoom.getQualityCounter(Quality.REGULAR));
         System.out.println("El numero de habitaciones Premium: "+setRoom.getQualityCounter(Quality.PREMIUM));
-        System.out.println("El numero de habitaciones Economico: "+setRoom.getQualityCounter(Quality.ECONOMIC));
+        System.out.println("El numero de habitaciones Economico: "+setRoom.getQualityCounter(Quality.ECONOMICA));
 
     }
     public void run(){

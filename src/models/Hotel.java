@@ -89,7 +89,7 @@ public class Hotel {
     private void inicializeRooms(){
         for (int i = 0; i < 8; i++) {
             rooms.add(new Room(Quality.PREMIUM));
-            rooms.add(new Room(Quality.ECONOMIC));
+            rooms.add(new Room(Quality.ECONOMICA));
             rooms.add(new Room(Quality.REGULAR));
         }
     }

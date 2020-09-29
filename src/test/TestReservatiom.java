@@ -9,7 +9,6 @@ package test;
 import models.*;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Scanner;
 
 public class TestReservatiom {
@@ -42,7 +41,7 @@ public class TestReservatiom {
         System.out.print("Digite cuantas habitaciones economicas quiere: ");
         int roundOne = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < roundOne; i++) {
-            hotel.addRoom(Quality.ECONOMIC);
+            hotel.addRoom(Quality.ECONOMICA);
         }
     }
 
@@ -55,7 +54,7 @@ public class TestReservatiom {
         }else if(quality.equalsIgnoreCase("Premium")){
             rooms = hotel.getAnyRoom(Quality.PREMIUM);
         }else if(quality.equalsIgnoreCase("Ecomonico")||quality.equalsIgnoreCase("Economica")){
-            rooms = hotel.getAnyRoom(Quality.ECONOMIC);
+            rooms = hotel.getAnyRoom(Quality.ECONOMICA);
         }
         for (int i = 0; i < rooms.length; i++) {
             System.out.println();
