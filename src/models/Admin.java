@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 12/9/2020.
- * created by Mateo Pinzon, Harrison Diaz y Juan Jose Ariza
+ * created by Mateo Pinzon,Matin Chiquillo y  Harrison Diaz y Juan Jose Ariza
  * All rights reserved
  */
 
